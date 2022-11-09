@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODEXFit Frontend Library v3 - Cart</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://demo.codexfit.com/autoconfigure.js"></script>
+    <link href="https://api-v3.codexfit.com/app.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <div id="codex-app">
+
+        <a class="back-btn" href="/">Back</a>
+
+        <a class="j-cart" href="#"><h1>Cart Summary (<codex-cart-summary></codex-cart-summary>)</h1></a>
+        <p style="text-align: center;">Javascript is required to open the cart outside of an item being added to the cart, click above to trigger.<br/>Required code: <code>document.dispatchEvent(new Event('codex-cart-toggle'));</code></p>
+        
+        <h1>Cart</h1>
+        <codex-checkout>
+            <template #empty-cart>
+                Hello I'm here!
+            </template>
+
+            <template #cart-success-cta>
+                Should be a close button
+            </template>
+        </codex-checkout>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cartTigger = document.querySelector('.j-cart');
+            // const cart = document.querySelector('.cdx_cart');
+
+            cartTigger.addEventListener("click", ()=>{
+                document.dispatchEvent(new Event('codex-cart-toggle'));
+            });
+        });
+    </script>
+
+
+  <!--   <script src="/dist/app.js"></script>
+    <link rel="stylesheet" href="/dist/app.css" media="all">
+    <link href="/dist/_index.css" rel="stylesheet" type="text/css">
+    <link href="/dist/cdx-plans.css" rel="stylesheet" type="text/css">
+    <link href="/dist/cdx-bundles.css" rel="stylesheet" type="text/css">
+    <link href="/dist/cdx-login.css" rel="stylesheet" type="text/css">
+    <link href="/dist/cdx-cart.css" rel="stylesheet" type="text/css">
+    <link href="/demo/demo.css" rel="stylesheet" type="text/css">
+ -->
+
+
+</body>
+</html>

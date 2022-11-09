@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codex v3 - Video</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <!-- <script src="https://codex.test/autoconfigure.js"></script> -->
+
+
+
+
+
+
+
+    <script>
+      Codex().addStage('codex-account')
+    </script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <!-- <script src="/public/translations.js"></script> -->
+
+</head>
+<body>
+
+
+    <script>
+        // window.stripe_key = "{{ env('STRIPE_KEY') }}";
+        window.codex = {
+            // api: 'https://united-fitness-brands.codexfit.com',
+            api: 'https://codex.test',
+            stripe_key: "pk_test_QB7qVqK9djYaDXMor4dQYsuZ",
+            // timezone: 'Australia/Sydney',
+            // api: 'https://psycle.codexfit.com',
+            // api: 'https://cart-v2-staging.codexfit.com',
+            components: {},
+            stageIds: ['codex-account'],
+            locale: 'en-gb',
+            currency: 'GBP',
+            currencyDecimals: 2,
+            app_id: 'codex',
+            delimiters: ['{{','}}'],
+            organisation: 'boom-cycle',
+
+
+            routerConfig: false,
+            // routerConfig: {
+            //   base: '/demo/test.html',
+              // routes: [
+              //     { path: '/overview', component: 'overview', title: 'Account Overview' },
+              //     { path: '/', component: 'details', title: 'My Profile',
+              //         children: [
+              //             {
+              //                 component: 'codex-profile',
+              //                 props: { 
+              //                     fieldsPerRow: {
+              //                         small: 1,
+              //                         medium: 2,
+              //                         large: 3
+              //                     },
+              //                     noFormGrid: true,
+              //                     noWrapperGrid: true, 
+              //                     showSubmitInline: true,
+              //                     title: 'My Personal Details'
+              //                 }
+              //             },
+              //             {
+              //                 component: 'codex-password-update',
+              //                 props: {
+              //                     showSubmitInline: true,
+              //                     title: 'Update My Password',
+              //                     titleTag: 'h2',
+              //                     noFormGrid: true,
+              //                     noWrapperGrid: true
+              //                 }
+              //             }
+              //         ]
+                      
+              //     },
+              //     { path: '/favourites', component: 'favourites', title: 'My Favourites',
+              //         children: [
+              //             {
+              //                 component: 'codex-instructors',
+              //                 props: {}
+              //             },
+              //             {
+              //                 component: 'codex-videos',
+              //                 props: {}
+              //             }
+              //         ]
+                      
+              //     },
+              //     { path: '/membership', component: 'membership', title: 'Memberships & Credits' },
+              //     // { path: '/milestones', component: 'milestones', title: 'Milestones' },
+              //     //{ path: '/credits', component: 'credits', title: 'My Credits' },
+              // ]
+          // },
+
+
+            chat: {
+                pusherKey: 'e67a0937ac0488197daf',
+                messageButtons: [
+                {
+                    icon: '😂',
+                    message: '😂'
+                },
+                {
+                    icon: '👍',
+                    message: '👍'
+                },
+                {
+                    icon: 'F*ck Yeah',
+                    message: 'Hooooraaaah!'
+                },
+                {
+                    icon: '😭',
+                    message: '😭'
+                }
+                ]
+            },
+
+        }
+
+
+
+                // I provide a logging API that has some special sauce for formatting.
+        var echo = (function() {
+
+          var queue = [];
+          var ECHO_TOKEN = {};
+          var RESET_INPUT = "%c ";
+          var RESET_CSS = "";
+
+          // Attach formatting utility method.
+          function alertFormatting( value ) {
+
+            queue.push({
+              value: value,
+              css: "display: inline-block ; background-color: #e0005a ; color: #ffffff ; font-weight: bold ; padding: 3px 7px 3px 7px ; border-radius: 3px 3px 3px 3px ;"
+            });
+
+            return( ECHO_TOKEN );
+
+          }
+
+          // Attach formatting utility method.
+          function warningFormatting( value ) {
+
+            queue.push({
+              value: value,
+              css: "display: inline-block ; background-color: gold ; color: black ; font-weight: bold ; padding: 3px 7px 3px 7px ; border-radius: 3px 3px 3px 3px ;"
+            });
+
+            return( ECHO_TOKEN );
+
+          }
+
+          // I provide an echo-based proxy to the given Console Function. This uses an
+          // internal queue to aggregate values before calling the given Console
+          // Function with the desired formatting.
+          function using( consoleFunction ) {
+
+            function consoleFunctionProxy() {
+
+              // As we loop over the arguments, we're going to aggregate a set of
+              // inputs and modifiers. The Inputs will ultimately be collapsed down
+              // into a single string that acts as the first console.log parameter
+              // while the modifiers are then SPREAD into console.log as 2...N.
+              // --
+              // NOTE: After each input/modifier pair, I'm adding a RESET pairing.
+              // This implicitly resets the CSS after every formatted pairing.
+              var inputs = [];
+              var modifiers = [];
+
+              for ( var i = 0 ; i < arguments.length ; i++ ) {
+
+                // When the formatting utility methods are called, they return
+                // a special token. This indicates that we should pull the
+                // corresponding value out of the QUEUE instead of trying to
+                // output the given argument directly.
+                if ( arguments[ i ] === ECHO_TOKEN ) {
+
+                  var item = queue.shift();
+
+                  inputs.push( ( "%c" + item.value ), RESET_INPUT );
+                  modifiers.push( item.css, RESET_CSS );
+
+                // For every other argument type, output the value directly.
+                } else {
+
+                  var arg = arguments[ i ];
+
+                  if (
+                    ( typeof( arg ) === "object" ) ||
+                    ( typeof( arg ) === "function" )
+                    ) {
+
+                    inputs.push( "%o", RESET_INPUT );
+                    modifiers.push( arg, RESET_CSS );
+
+                  } else {
+
+                    inputs.push( ( "%c" + arg ), RESET_INPUT );
+                    modifiers.push( RESET_CSS, RESET_CSS );
+
+                  }
+
+                }
+
+              }
+
+              consoleFunction( inputs.join( "" ), ...modifiers );
+
+              // Once we output the aggregated value, reset the queue. This should have
+              // already been emptied by the .shift() calls; but the explicit reset
+              // here acts as both a marker of intention as well as a fail-safe.
+              queue = [];
+
+            }
+
+            return( consoleFunctionProxy );
+
+          }
+
+          return({
+            // Console(ish) functions.
+            log: using( console.log ),
+            warn: using( console.warn ),
+            error: using( console.error ),
+            trace: using( console.trace ),
+            group: using( console.group ),
+            groupEnd: using( console.groupEnd ),
+
+            // Formatting functions.
+            asAlert: alertFormatting,
+            asWarning: warningFormatting
+          });
+
+        })();
+
+        // --------------------------------------------------------------------------- //
+        // --------------------------------------------------------------------------- //
+
+        // Let's try mixing a bunch of values together.
+        echo.log(
+          echo.asAlert( "This is great!" ),
+          "Right!",
+          { "i am": "an object" },
+          null,
+          [ "an array" ],
+          function amAFunction() {},
+          echo.asWarning( "I mean, right?!?!?!" )
+        );
+
+        echo.log();
+
+        // Let's try a more sensible example.
+        echo.group( echo.asWarning( "Arnold Schwarzenegger Movies" ) );
+        echo.log( "The Running Man" );
+        echo.log( "Terminator 2", echo.asAlert( "Amazing!" ), echo.asWarning( "TOP 100" ) );
+        echo.log( "Predator" );
+        echo.log( "Twins", echo.asWarning( "TOP 50" ) );
+        echo.groupEnd();
+
+        echo.log();
+
+        echo.log( echo.asAlert( "Winner Winner" ), "Chicken dinner!" );
+
+
+
+        console.log('twotwentyseven%c_', 'color: hotpink; font-weight: bold')
+
+
+    </script>
+
+
+<style>
+
+:root {
+
+    --body-background-color: #FFFFFF;
+    --primary-accent-1: #f7eae2;
+    --primary-accent-2: #7EA97C;
+    --primary-accent-3: #f0f1ea;
+    --primary-accent-4: rgba(0,0,0,0);
+    --secondary-accent-1: #2b2b2b;
+    --secondary-accent-2: #c7bebd;
+    --error-color: #F15A5A;
+    --success-color: #7EA97C;
+    --font-body-scale: 1.0;
+    --font-heading-scale: 1.0;
+    --font-base: Poppins, Helvetica, Arial, sans-serif;
+    --font-base-color: #000000;
+    --font-base-letter-spacing: 0px;
+    --font-heading: Poppins, Helvetica, Arial, sans-serif;
+    --font-heading-color: #000000;
+    --font-heading-letter-spacing: 0px;
+    --font-link-color: #7EA97C;
+    --fluid-padding: 20px;
+    --fluid-padding-desktop: 40px;
+    --container-width: 1360px;
+    --button-border-width: 1px;
+    --button-border-radius: 6px;
+    --button-border-padding-y: 40px;
+    --button-border-padding-x: 12px;
+    --button-font-size: 12px;
+    --button-line-height: 26px;
+    --button-letter-spacing: 1px;
+    --field-background-color: #FFFFFF;
+    --field-text-color: #000000;
+    --field-placeholder-color: rgba(0,0,0,0.5);
+    --field-border-width: 1px;
+    --field-border-radius: 4px;
+    --field-border-color: #000000;
+    --field-border-color-hover: rgba(0,0,0,0.5);
+    --field-border-padding-y: 12px;
+    --field-border-padding-x: 15px;
+    --field-font-size: 15px;
+    --field-line-height: 22px;
+    --field-letter-spacing: 0px;
+    --textarea-min-height: 140px;
+    --cdx-card-instructor-border-radius: 6px;
+}
+
+.cdx_btn-processing {
+    background-color: red !important;
+}
+
+
+.cdx_loader {
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  overflow: scroll;
+  opacity: 1;
+  pointer-events: all;
+  background-color: rgba(0, 0, 0, 0.65);
+}
+.cdx_loader .cdx_loader-inner {
+  border-radius: 20px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 250px;
+  padding: 30px;
+  text-align: center;
+}
+@media (min-width: 1023px) {
+  .cdx_loader .cdx_loader-inner {
+    width: 50%;
+  }
+}
+.cdx_loader.inline {
+  position: static;
+  min-height: unset;
+  min-height: none;
+  width: auto;
+  overflow: visible;
+  background-color: transparent;
+}
+.cdx_loader.inline .cdx_loader-inner {
+  position: static;
+  transform: translate(0%, 0%);
+  height: auto;
+  width: auto;
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0 20px 0 0;
+}
+@media (min-width: 38.9375em) {
+  .cdx_loader.inline .cdx_loader-inner {
+    padding: 0 40px 0 0;
+  }
+}
+@media (min-width: 1023px) {
+  .cdx_loader.inline .cdx_loader-inner {
+    padding: 0 60px 0 0;
+  }
+}
+.cdx_loader .cdx_loader-spinner {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.cdx_loader .cdx_loader-spinner div {
+  -webkit-animation: cdx-loader-spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+          animation: cdx-loader-spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+.cdx_loader .cdx_loader-spinner div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #424242;
+  margin: -4px 0 0 -4px;
+}
+.cdx_loader .cdx_loader-spinner div:nth-child(1) {
+  -webkit-animation-delay: -0.036s;
+          animation-delay: -0.036s;
+}
+.cdx_loader .cdx_loader-spinner div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+.cdx_loader .cdx_loader-spinner div:nth-child(2) {
+  -webkit-animation-delay: -0.072s;
+          animation-delay: -0.072s;
+}
+.cdx_loader .cdx_loader-spinner div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+.cdx_loader .cdx_loader-spinner div:nth-child(3) {
+  -webkit-animation-delay: -0.108s;
+          animation-delay: -0.108s;
+}
+.cdx_loader .cdx_loader-spinner div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+.cdx_loader .cdx_loader-spinner div:nth-child(4) {
+  -webkit-animation-delay: -0.144s;
+          animation-delay: -0.144s;
+}
+.cdx_loader .cdx_loader-spinner div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.cdx_loader .cdx_loader-spinner div:nth-child(5) {
+  -webkit-animation-delay: -0.18s;
+          animation-delay: -0.18s;
+}
+.cdx_loader .cdx_loader-spinner div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+.cdx_loader .cdx_loader-spinner div:nth-child(6) {
+  -webkit-animation-delay: -0.216s;
+          animation-delay: -0.216s;
+}
+.cdx_loader .cdx_loader-spinner div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+.cdx_loader .cdx_loader-spinner div:nth-child(7) {
+  -webkit-animation-delay: -0.252s;
+          animation-delay: -0.252s;
+}
+.cdx_loader .cdx_loader-spinner div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+.cdx_loader .cdx_loader-spinner div:nth-child(8) {
+  -webkit-animation-delay: -0.288s;
+          animation-delay: -0.288s;
+}
+.cdx_loader .cdx_loader-spinner div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@-webkit-keyframes cdx-loader-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes cdx-loader-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.cdx_loader.cdx_modal {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.cdx_instructor-photo-wrapper {
+  max-width: 300px;
+}
+
+.cdx_card.cdx_card-booking .cdx_photo-wrapper{
+  max-width: 100px;
+  border-radius: 100%;
+
+}
+
+</style>
+
+<!-- <link rel="stylesheet" href="//cdn.shopify.com/s/files/1/0558/4132/5194/t/2/assets/style-codex-base.css?v=5870985099062244254" media="all"> -->
+<link rel="stylesheet" href="/dist/app.css" media="all">
+
+<link href="https://api-v3-multi-lingual.codexfit.com/cdx-timetable-output.css" rel="stylesheet" media="print" onload="this.media='all'">
+
+<div id="codex-account">
+
+    <codex-login></codex-login>
+
+    <!-- <codex-appointments></codex-appointments> -->
+
+    <codex-video-views></codex-video-views>
+
+    
+
+
+<!-- 
+        <codex-modal v-slot="{ close }">
+          
+          <codex-login @success="close"></codex-login>
+
+        </codex-modal>
+ -->
+        <!-- <codex-timetable></codex-timetable> -->
+
+
+        
+        <!-- <codex-verify-sms></codex-verify-sms> -->
+        <!-- <codex-appointments></codex-appointments> -->
+        <!-- <codex-event id="361"></codex-event> -->
+
+        <!-- <codex-bookings type="previous"></codex-bookings> -->
+      <!--   <codex-login></codex-login>
+        <codex-plans></codex-plans>
+        <codex-bundles></codex-bundles>
+        <codex-timetable></codex-timetable>
+        <codex-checkout></codex-checkout>
+
+        <codex-account layout="stacked"></codex-account>
+
+        <codex-popout-cart></codex-popout-cart>
+
+        <codex-stripe-card-update></codex-stripe-card-update>
+
+        <codex-bundles></codex-bundles> -->
+        <!-- <codex-plans :variable-start-date="true" :disable-currently-purchased-plans="true"></codex-plans> -->
+
+        <!-- <codex-checkout></codex-checkout> -->
+
+        <!-- <codex-password-recover></codex-password-recover> -->
+
+        <!-- <codex-waitlists></codex-waitlists> -->
+        
+        <!-- <codex-register></codex-register> -->
+        <!-- <codex-logout></codex-logout> -->
+<!-- 
+               <codex-videos :video-detail-url="'/pages/workout/{id}'" :filters="{
+            instructors: {
+                selector: 'instructor.id',
+                options: 'api/instructors:id:first_name',
+                multi: true,
+                title: 'Teacher',
+                api: true
+            },
+            workoutType: {
+                selector: 'event_type.id',
+                options: 'api/event_types:id:name',
+                multi: true,
+                title: 'Class Format'
+            },
+            duration_in_minutes: {
+                selector: 'duration_in_minutes',
+                type: 'multi-slider',
+                title: 'Length',
+                units: 'Showing results in minutes'
+            },
+            options: {
+                searchKeys: ['description']
+            }
+        }"></codex-videos> -->
+
+ <!--        <a href="#" onclick="document.dispatchEvent(new Event('codex-cart-open'))">Open Cart</a>
+
+        
+         <codex-profile :fields-per-row="{
+                                    small: 1,
+                                    medium: 2,
+                                    large: 3
+                                }"
+                                title="My Personal Details"
+                                :show-labels="true"
+                                :form-fields="{
+                                    'first_name': {
+                                        type: 'text',
+                                        label: 'First Name',
+                                        placeholder: 'First Name', // optional, will fall back to label otherwise
+                                        required: true,
+                                    },
+                                    'last_name': {
+                                        type: 'text',
+                                        label: 'Last Name',
+                                        placeholder: 'Last Name', // optional, will fall back to label otherwise
+                                        required: true,
+                                    },
+                                    'email': {
+                                        type: 'email',
+                                        label: 'Email',
+                                        placeholder: 'Email', // optional, will fall back to label otherwise
+                                        required: true,
+                                    },
+                                    'username': {
+                                        type: 'text',
+                                        label: 'Username',
+                                        placeholder: 'Username', // optional, will fall back to label otherwise
+                                    },
+                                    'dob': {
+                                        type: 'date',
+                                        label: 'Date of Birth',
+                                        required: true,
+                                    },
+                                    'telephone': {
+                                        type: 'phone',
+                                        label: 'Phone Number',
+                                        placeholder: 'Phone Number', // optional, will fall back to label otherwise
+                                        required: true,
+                                    },
+                                    metafields: {
+                                        'address_line_1': {
+                                            type: 'text',
+                                            label: 'Address Line 1',
+                                            placeholder: 'Address Line 1'
+                                        },
+                                        'address_line_2': {
+                                            type: 'text',
+                                            label: 'Address Line 2',
+                                            placeholder: 'Address Line 2'
+                                        },
+                                        'city': {
+                                            type: 'text',
+                                            label: 'City',
+                                            placeholder: 'City'
+                                        },
+                                        'county': {
+                                            type: 'text',
+                                            label: 'County',
+                                            placeholder: 'County'
+                                        },
+                                        'post_code': {
+                                            type: 'text',
+                                            label: 'Post Code',
+                                            placeholder: 'Post Code', // optional, will fall back to label otherwise
+                                            required: true,
+                                        },
+                                        'gender': {
+                                            type: 'select',
+                                            label: 'Gender',
+                                            placeholder: 'Gender', // optional, will fall back to label otherwise
+                                            options: [{ value: 'female', displayValue: 'Female'}, { value: 'male', displayValue: 'Male' }, { value: 'rather_not_say', displayValue: 'Rather Not Say'}],
+                                            required: true,
+                                        },
+                                        'opt_in_email': {
+                                            type: 'checkbox',
+                                            label: 'I accept email marketing',
+                                        }
+                                    },
+                                    
+                                }"
+                            ></codex-profile>
+ -->
+    
+
+    </div>
+
+    <script src="/dist/app.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/locale/en-gb.min.js" integrity="sha512-w+tDY4gx49+DNVlN7Nmc9ldOkh6nP3w4txBTEatSx3XrZdfYtX9+oylJjQ7RqeeDzDebG3u1VAg/gM5Td2Bd5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+</body>
+</html>

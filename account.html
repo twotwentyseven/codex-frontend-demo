@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODEXFit Frontend Library v3 - Account</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://demo.codexfit.com/autoconfigure.js"></script>
+    <link href="https://api-v3.codexfit.com/app.css" rel="stylesheet" type="text/css">
+
+
+<!--
+routerConfig: {
+                base: '/account.html',
+                routes: [
+                    { path: '/', component: 'overview', title: 'Account Overview' },
+                    { path: '/details', component: 'details', title: 'My Profile',
+                        children: [
+                            {
+                                component: 'codex-profile',
+                                props: {
+                                    fieldsPerRow: {
+                                        small: 1,
+                                        medium: 2,
+                                        large: 3
+                                    },
+                                    noFormGrid: true,
+                                    noWrapperGrid: true,
+                                    showSubmitInline: true,
+                                    title: 'My Personal Details'
+                                }
+                            },
+                            {
+                                component: 'codex-password-update',
+                                props: {
+                                    showSubmitInline: true,
+                                    title: 'Update My Password',
+                                    titleTag: 'h2',
+                                    noFormGrid: true,
+                                    noWrapperGrid: true
+                                }
+                            }
+                        ]
+
+                    },
+                    { path: '/favourites', component: 'favourites', title: 'My Favourites',
+                        children: [
+                            {
+                                component: 'codex-instructors',
+                                props: {}
+                            },
+                            {
+                                component: 'codex-videos',
+                                props: {}
+                            }
+                        ]
+
+                    },
+                    { path: '/membership', component: 'membership', title: 'Membership' },
+                    { path: '/milestones', component: 'milestones', title: 'Milestones' },
+                    { path: '/credits', component: 'credits', title: 'My Credits' },
+                ]
+            },
+-->
+
+
+</head>
+
+<body>
+
+    <div id="codex-app">
+
+        <a class="back-btn" href="/">Back</a>
+
+        <codex-account layout="stacked"> <!-- stacked / tabs -->
+
+            <template v-slot:account-overview="{ component, ...slotProps }">
+                
+                <component v-bind="slotProps" :is="component">
+
+                    <template v-slot:header="{ customer }">
+                       
+                    </template>
+
+                    <template v-slot:content>
+                        <div class="cdx_dashboard">
+                            <codex-milestones :circle-data="{ diameter: 160, strokeWidth: 12 }"></codex-milestones>
+                            
+                            <div class="credits">
+                                <div class="credits-count">
+                                    <span class="number">${ customer.stats.credits_remaining }</span>
+                                    <span>credit${ (!customer.stats.credits_remaining || customer.stats.credits_remaining > 1) ? 's' : '' } available</span>
+                                </div>
+                            </div>
+                            <div class="videos">
+                                <div class="videos-count">
+                                    <span class="number">${ customer.stats.total_videos_completed }</span>
+                                    <span>video${ (!customer.stats.total_videos_completed || customer.stats.total_videos_completed > 1) ? 's' : '' } watched</span>
+                                </div>
+                            </div>
+
+                            <div class="cdx_subscription-info grid-x">
+                                
+                                <codex-subscriptions v-if="customer.subscriptions.length" class="cell subscriptions" :content-wrapper-type="'swiper'"
+                                    :content-wrapper-settings="{
+                                        carouselProps: {
+                                            navigation: true,
+                                            slidesPerView: 1,
+                                            spaceBetween: 65
+                                        },
+                                        slideAttrs: {
+                                            
+                                        }
+                                    }">
+
+                                    <template v-slot:subscription-card="{ subscriptions, isProcessingSubscription, isRecentlyCancelled, cancellationReasons, cancelSubscription, resumeSubscription, pauseSubscription, unpauseSubscription }">
+                                        <codex-subscription-card v-for="subscription in subscriptions" :subscription="subscription" teleport-to="#teleport-container" :key="subscription.id" :is-processing="isProcessingSubscription(subscription)"
+                                            :is-recently-cancelled="isRecentlyCancelled(subscription)"
+                                            :cancellation-reasons="cancellationReasons"
+                                            @cancel="cancelSubscription"
+                                            @resume="resumeSubscription"
+                                            @pause="pauseSubscription"
+                                            @unpause="unpauseSubscription">
+                                            <template v-slot:header="{ openManagePanel, hideManagePanel }">
+                                                <div class="subscription-overview">
+                                                    <div class="h5 intro">
+                                                        {{ ss.membership-overview-text }}
+                                                    </div>
+                                                    <div class="subscription-title">
+                                                        ${ subscription.name }
+                                                    </div>
+                                                    <div class="bookings-remaining">
+                                                        <span class="number">
+                                                            ${ subscription.max_bookings - Number(subscription.bookings_made) }
+                                                        </span> bookings left this month
+                                                    </div>
+                                                    <div class="btn-flex">
+                                                        <button class="btn white outline j-toggle-codex-benefits-modal" :data-modal="subscription.plan.handle + '-benefits'" :data-handle="subscription.plan.handle">My Benefits</button>
+                                                        <button class="btn white" @click="openManagePanel" :data-modal="subscription.plan.handle + '-manage'">Manage</button>
+                                                    </div>
+                                                </div>
+
+                                                <teleport to="#codex-fixed-navigation">
+                                            
+                                                    <div class="modal-inner drawer-benefits" :data-modal="subscription.plan.handle + '-benefits'">
+                                                        <div class="plan-data-modal" :data-handle="subscription.plan.handle">
+
+                                                            <div class="inner">
+                        
+                                                                <a href="#" class="close-icon j-close-codex-modal"></a>
+                                                            
+                                                                <div class="plan_title h4">${ subscription.plan.name }</div>
+                        
+                                                                <div class="plan_desc" v-html="subscription.plan.description"></div>
+                        
+                                                                <div class="plan_benefits" v-if="subscription.plan.metafields?.benefits">
+                                                                    <template v-for="benefit in subscription.plan.metafields?.benefits">
+                                                                        <p>${ benefit.benefit }</p>
+                                                                    </template>
+                                                                </div>
+                        
+                                                            </div>
+                        
+                                                        </div>
+                                                    </div>
+                                                
+                                                </teleport>
+                                            </template>
+                                            <template v-slot:manage-description>
+                                                <div class="cdx_description">What would you like to do with your membership?</div>
+                                            </template>
+                                            <template v-slot:manage-footer>
+                                                <div class="cdx_description">Get in touch with us to manage your membership</div>
+                                            </template>
+                                            <template v-slot:manage-cancelled>
+                                                <div class="cancelled-icon"></div>
+                                                <div class="cdx_title">Membership Cancelled</div>
+                                                <div class="cdx_description">We've cancelled your membership for you. It will be cancelled from <span class="cdx_cancellation-date">${ $filters.dateFormat(subscription.period_end, 'Do MMMM YYYY') }</span>.</div>
+                                            </template>
+                                            <template v-slot:manage-paused>
+                                                <div class="paused-icon"></div>
+                                                <div class="cdx_title">Membership Paused</div>
+                                                <div class="cdx_description">We've paused your membership for you. It will be paused from <span class="cdx_cancellation-date">${ $filters.dateFormat(subscription.period_end, 'Do MMMM YYYY') }</span> and you can resume your membership at any time.</div>
+                                            </template>
+                                        </codex-subscription-card>
+                                    </template>
+                                </codex-subscriptions>
+                            </div>
+
+                            
+                            <codex-bookings :per-page="3">
+                                <template v-slot:header><h2 class="h4 classes-title">Upcoming Classes</h2></template>
+                                <template v-slot:booking-cards="{ bookings, handleViewEvent, handleCancel, handleWatch, handleJoinZoom }">
+                                    <codex-booking-card 
+                                        v-for="booking in bookings"
+                                        :key="booking.id"
+                                        :booking="booking"
+                                        @view-event="handleViewEvent"
+                                        @cancel="handleCancel"
+                                        @watch="handleWatch"
+                                        @join-zoom="handleJoinZoom">
+                                        <template v-slot:inner-footer="{ booking, cancelling, confirmCancel, isRefundable }">
+                                            <div style="order:4; width: 100%; height: 0"></div>
+                                            <codex-confirmation-button 
+                                                v-if="booking.can_cancel"  
+                                                :confirmation-text="'Are you sure?' + (isRefundable ? '' : 'No refund will be given')" 
+                                                @click="confirmCancel">
+                                                ${ cancelling ? 'Cancelling...' : 'Cancel' }
+                                            </codex-confirmation-button>
+                                        </template>
+                                    </codex-booking-card>
+                                </template>
+                            </codex-bookings>
+                            
+                            
+
+                        </div>
+                    </template>
+    
+                </component>
+    
+            </template>
+
+            <!-- Favourites -->
+            <template v-slot:account-favourites="{ component, ...slotProps }">
+                
+                <component v-bind="slotProps" :is="component">
+    
+                    <template v-slot:header="{ customer }">
+
+                    </template>
+
+                    <template v-slot:content>
+                        <h2>Saved Instructors</h2>
+                        <codex-instructors
+                            :hide-filters="true" :only-show-bookmarked="true" :content-wrapper-type="'swiper'"
+                            no-results-text="You haven't saved any instructors yet"
+                            :content-wrapper-settings="{
+                                carouselProps: {
+                                    navigation: true,
+                                    slidesPerView: 4,
+                                    spaceBetween: 30,
+                                    breakpoints: {
+                                        0: {
+                                            disabled: true,
+                                        },
+                                        1024: {
+                                            slidesPerView: 4,
+                                        }
+                                    }
+                                },
+                                slideAttrs: {
+                                    
+                                }
+                            }"></codex-instructors>
+                        <h2>Saved Workouts</h2>
+                        <codex-videos :hide-filters="true" :only-show-bookmarked="true"
+                            no-results-text="You haven't saved any videos yet"
+                            :content-wrapper-type="'swiper'"
+                            :content-wrapper-settings="{
+                                carouselProps: {
+                                    navigation: true,
+                                    slidesPerView: 1,
+                                    spaceBetween: 15,
+                                    breakpoints: {
+                                        0: {
+                                            disabled: true
+                                        },
+                                        768: {
+                                            slidesPerView: 2
+                                        },
+                                        1024: {
+                                            slidesPerView: 3,
+                                        },
+                                        1440: {
+                                            slidesPerView: 4,
+                                        }
+                                    }
+                                },
+                                slideAttrs: {
+                                    
+                                }
+                            }"
+                        ></codex-videos>
+                    </template>
+    
+                </component>
+    
+            </template>
+
+            <!-- Account Details -->
+            <template v-slot:account-details="{ component, ...slotProps }">
+                
+                <component v-bind="slotProps" :is="component">
+    
+                    <template v-slot:header="{ customer }">
+
+                    </template>
+
+                    <template v-slot:content>
+            
+                        <codex-profile :fields-per-row="{
+                                small: 1,
+                                medium: 2,
+                                large: 3
+                            }"
+                            title="My Personal Details"	
+                        ></codex-profile>
+                        <codex-password-update
+                            :show-submit-inline="true"
+                            title="Update My Password"
+                            title-tag="h2"
+                        ></codex-password-update>
+
+                    </template>
+
+    
+                </component>
+    
+            </template>
+
+            <!-- Account Credits -->
+            <template v-slot:account-membership="{ component, ...slotProps }">
+                
+                <component v-bind="slotProps" :is="component">
+    
+                    <template v-slot:header="{ customer }">
+                       
+                    </template>
+
+                    <template v-slot:content>
+
+                        <codex-subscriptions  v-if="customer.subscriptions.length" class="cell large-10 large-offset-1 subscriptions" :content-wrapper-type="'swiper'"
+                            :content-wrapper-settings="{
+                                carouselProps: {
+                                    navigation: true,
+                                    slidesPerView: 1,
+                                    spaceBetween: 65
+                                },
+                                slideAttrs: {
+                                    
+                                }
+                            }">
+
+                            <template v-slot:subscription-card="{ subscriptions, isProcessingSubscription, isRecentlyCancelled, cancellationReasons, cancelSubscription, resumeSubscription, pauseSubscription, unpauseSubscription }">
+                                <codex-subscription-card v-for="subscription in subscriptions" :subscription="subscription" teleport-to="#teleport-container" :key="subscription.id" :is-processing="isProcessingSubscription(subscription)"
+                                    :is-recently-cancelled="isRecentlyCancelled(subscription)"
+                                    :cancellation-reasons="cancellationReasons"
+                                    @cancel="cancelSubscription"
+                                    @resume="resumeSubscription"
+                                    @pause="pauseSubscription"
+                                    @unpause="unpauseSubscription">
+                                    <template v-slot:header="{ openManagePanel, hideManagePanel }">
+                                        <div class="subscription-overview">
+                                            <div class="h5 intro">
+                                                {{ ss.membership-overview-text }}
+                                            </div>
+                                            <div class="subscription-title">
+                                                ${ subscription.name }
+                                            </div>
+                                            <div class="bookings-remaining">
+                                                <span class="number">
+                                                    ${ subscription.max_bookings - Number(subscription.bookings_made) }
+                                                </span>/credits
+                                            </div>
+                                        </div>
+                                        <div class="subscription-details">
+                                            <div class="detail renewal">
+                                                <span>Renews on:</span>
+                                                <span v-if="subscription.ends_at" class="bold">${ $filters.dateFormat(subscription.ends_at, 'Do MMM YYYY') }</span>
+                                                <span v-else class="bold">Ongoing membership</span>
+                                            </div>
+                                            <div class="detail start">
+                                                <span>Start date:</span>
+                                                <span class="bold">${ $filters.dateFormat(subscription.created_at, 'Do MMM YYYY') }</span>
+                                            </div>
+                                            <div v-if="typeof subscription.max_bookings === 'number'" class="detail renew">
+                                                <span>Credits renew on:</span>
+                                                <span class="bold">${ $filters.dateFormat(subscription.period_end, 'Do MMM YYYY') }</span>
+                                            </div>
+                                            <div class="btn-flex">
+                                                <button class="btn white outline j-toggle-codex-benefits-modal" :data-modal="subscription.plan.handle + '-benefits'" :data-handle="subscription.plan.handle">My Benefits</button>
+                                                <button class="btn white" @click="openManagePanel" :data-modal="subscription.plan.handle + '-manage'">Manage</button>
+                                            </div>
+                                        </div>
+
+                                        <teleport to="#codex-fixed-navigation">
+                                    
+                                            <div class="modal-inner drawer-benefits" :data-modal="subscription.plan.handle + '-benefits'">
+                                                <div class="plan-data-modal" :data-handle="subscription.plan.handle">
+
+                                                    <div class="inner">
+                
+                                                        <a href="#" class="close-icon j-close-codex-modal"></a>
+                                                    
+                                                        <div class="plan_title h4">${ subscription.plan.name }</div>
+                
+                                                        <div class="plan_desc" v-html="subscription.plan.description"></div>
+                
+                                                        <div class="plan_benefits" v-if="subscription.plan.metafields?.benefits">
+                                                            <template v-for="benefit in subscription.plan.metafields?.benefits">
+                                                                <p>${ benefit.benefit }</p>
+                                                            </template>
+                                                        </div>
+                
+                                                    </div>
+                
+                                                </div>
+                                            </div>
+                                        
+                                        </teleport>
+                                    </template>
+                                    <template v-slot:manage-description>
+                                        <div class="cdx_description">What would you like to do with your membership?</div>
+                                    </template>
+                                    <template v-slot:manage-footer>
+                                        <div class="cdx_description">Get in touch with us to manage your membership</div>
+                                    </template>
+                                    <template v-slot:manage-cancelled>
+                                        <div class="cancelled-icon"></div>
+                                        <div class="cdx_title">Membership Cancelled</div>
+                                        <div class="cdx_description">We've cancelled your membership for you. It will be cancelled from <span class="cdx_cancellation-date">${ $filters.dateFormat(subscription.period_end, 'Do MMMM YYYY') }</span>.</div>
+                                    </template>
+                                    <template v-slot:manage-paused>
+                                        <div class="paused-icon"></div>
+                                        <div class="cdx_title">Membership Paused</div>
+                                        <div class="cdx_description">We've paused your membership for you. It will be paused from <span class="cdx_cancellation-date">${ $filters.dateFormat(subscription.period_end, 'Do MMMM YYYY') }</span> and you can resume your membership at any time.</div>
+                                    </template>
+                                </codex-subscription-card>
+                            </template>
+                        </codex-subscriptions>
+                        
+                        <codex-credits type="unused" :per-page="6" :class="{ 'cdx_credits': true, 'no-active-subscriptions': !customer.stats.credits_remaining }">
+                            <template v-slot:header>
+                                <h4>Active Credits</h4>
+                            </template>
+                            <template v-slot:no-results>
+                                <div class="cdx_noresults">
+                                    You don't have any active credits. Click below to add some to your account.
+                                </div>
+                                <a href="{{ settings.codex-pricing-url }}" class="btn outline">Buy Credits</a>
+                            </template>
+                        </codex-credits>
+                        
+                        <codex-credits type="used" :per-page="6" :class="{ 'cdx_credits': true, 'no-active-subscriptions': !customer.stats.credits_remaining }">
+                            <template v-slot:header>
+                                <h4>Used Credits</h4>
+                            </template>
+                            <template v-slot:no-results>
+                                <div class="cdx_noresults">
+                                    You don't have any used credits yet. Click below to add some credits to your account.
+                                </div>
+                                <a href="{{ settings.codex-pricing-url }}" class="btn outline">Buy Credits</a>
+                            </template>
+                        </codex-credits>
+                    </template>
+    
+                </component>
+    
+            </template>
+            
+            <codex-account-nav-links :routes="window.codex.routerConfig.routes">
+
+                <template v-slot:wrapper-start="{ routes }">
+
+                    <a href="#" class="device-selected-link j-codex-account-menu-acive">Select a tab</a>
+
+                </template>
+
+                <template v-slot:account-nav-links="{ routes }">
+
+                    <li class="logout">
+                        <codex-logout></codex-logout>
+                    </li>
+
+                </template>
+
+            </codex-account-nav-links>
+        </codex-account>
+    </div>
+
+   <!--  <script src="/dist/app.js"></script>
+    <link href="/dist/app.css" rel="stylesheet" type="text/css">
+    <link href="/dist/_index.css" rel="stylesheet" type="text/css">
+    <link href="/demo/demo.css" rel="stylesheet" type="text/css">
+ -->
+</body>
+</html>

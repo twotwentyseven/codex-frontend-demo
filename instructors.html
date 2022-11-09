@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODEXFit Frontend Library v3 - Instructors</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://demo.codexfit.com/autoconfigure.js"></script>
+    <link href="https://api-v3.codexfit.com/app.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+    <div id="codex-app">
+
+        <a class="back-btn" href="/">Back</a>
+
+        <codex-instructors 
+            instructor-detail-url="/instructor/{handle}"
+            no-results-text="Sorry, we couldn't find what you were looking for"
+            :filters="{
+                    name: {
+                    selector: 'first_name',
+                    multi: true,
+                    title: 'Instructor Name'
+                },
+                workoutType: {
+                    selector: 'metafields.tags',
+                    options: [
+                        { value: 'barre', displayValue: 'Barre' },
+                        { value: 'strength', displayValue: 'Strength' },
+                    ],
+                    multi: true,
+                    title: 'Workout Type'
+                },
+                musicGenre: {
+                    selector: 'tags',
+                    options: [
+                        { value: 'music:hiphop', displayValue: 'Hip Hop' },
+                        { value: 'music:pop', displayValue: 'Pop' },
+                    ],
+                    multi: true,
+                    title: 'Music Genre'
+                },
+                options: {
+                    searchKeys: ['full_name', 'metafields.description', 'tags']
+                }
+        }"></codex-instructors>
+
+    </div>
+
+    <!-- <script src="/dist/app.js"></script> -->
+    <!-- <link href="/dist/app.css" rel="stylesheet" type="text/css"> -->
+    <!-- <link href="/dist/_index.css" rel="stylesheet" type="text/css"> -->
+    <!-- <link href="/dist/cdx-instructors.css" rel="stylesheet" type="text/css"> -->
+    <!-- <link href="/dist/cdx-filters.css" rel="stylesheet" type="text/css"> -->
+    <!-- <link href="/demo/demo.css" rel="stylesheet" type="text/css"> -->
+
+</body>
+</html>

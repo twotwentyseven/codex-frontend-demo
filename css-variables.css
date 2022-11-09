@@ -1,0 +1,72 @@
+:root {
+	/* fonts */
+	--bodyFontFamily: 'arial', sans-serif;
+	--headerFontFamily: 'arial', sans-serif;
+
+	--headerFontWeight: normal;
+
+	/* colors */
+	--primaryColor: #000;
+	--bgColor: #fff;
+	--fontColor: #424242;
+	--errorColor: red;
+	--successColor: green;
+	--headerColor: #000;
+	--grey: #777;
+
+	/* buttons */
+
+	--btnBgColor: #000;
+	--btnColor: #fff;
+	--btnRadius: 10px;
+
+	--btnHoverBgColor: #fff;
+	--btnHoverColor: #000;
+
+	--btnBorderColor: #000;
+	--btnBorderWidth: 1px;
+
+	--anchorColor: #000;
+	--anchorHoverColor: #000;
+
+	/* modals */
+
+	--rgboverlay: 0,0,0;
+
+	--modalBgColor: #fff;
+	--modalColor: #000;
+
+	/* inputs */
+
+	--inputColor: #000;
+	--inputBgColor: #fff;
+	--borderColor: #000;
+
+	/* Heights */
+
+	--headerHeight: 0;
+	--inputHeight: 58px;
+
+	/* Timetable */
+
+	--timetableHeaderBgColor: #000;
+	--timetableHeaderColor: #FFF;
+	--timetableBgColor: #EEE;
+	--timetableColor: #000;
+	--timetableBorder: #000;
+
+	/* selectric */
+
+	--selectricMainColor:      #000;
+	--selectricSecondaryColor: #fff;
+	--selectricTextColor:      #000;
+	--selectricBgColor:        #fff;
+	--selectricBtnBgColor:     #000;
+	--selectricHeight:         58px;     
+	--selectricLineHeight:     50px;
+	--selectricSpacing:        10px;
+	--selectricBorderWidth:    1px;
+	--selectricBorderRadius:   0px;
+	--selectricInnerHeight:    calc(var(--selectricHeight) - (var(--selectricBorderWidth) * 2));  
+	--selectricFontSize:       0.875rem;
+}

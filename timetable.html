@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODEXFit Frontend Library v3 - Timetable</title>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://demo.codexfit.com/autoconfigure.js"></script>
+    <link href="https://api-v3.codexfit.com/app.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <div id="codex-app">
+
+        <a class="back-btn" href="/">Back</a>
+    
+        <codex-timetable
+        event-detail-url="/event"
+		:show-date-on-event-card="true"
+		:main-carousel-settings="{
+			spaceBetween: 20,
+			slidesPerView: 1,
+            threshold: 10,
+			breakpoints: {
+				1024: {
+					slidesPerView: 2
+				},
+				1200: {
+					slidesPerView: 3
+				}
+			}
+		}"
+		:nav-carousel-settings="{
+			spaceBetween: 10,
+			slidesPerView: 4,
+            threshold: 10,
+			breakpoints: {
+				1024: {
+                    spaceBetween: 20,
+					slidesPerView: 7
+				}
+			}
+		}"
+		:filters="{
+			workoutType: {
+				selector: 'event_type.group.id',
+				options: 'api/event_types:id:name',
+				title: 'Workout Type',
+				multi: true
+			},
+			location: {
+				selector: 'studio.location.id',
+				options: 'api/locations:id:name',
+				title: 'Location'
+			},
+		}"></codex-timetable>
+
+    </div>
+
+    <!-- <script src="/dist/app.js"></script>
+    <link href="/dist/app.css" rel="stylesheet" type="text/css">
+    <link href="/dist/_index.css" rel="stylesheet" type="text/css">
+    <link href="/dist/cdx-timetable.css" rel="stylesheet" type="text/css">
+    <link href="/dist/cdx-filters.css" rel="stylesheet" type="text/css">
+    <link href="/dist/cdx-login.css" rel="stylesheet" type="text/css">
+    <link href="/demo/demo.css" rel="stylesheet" type="text/css">
+ -->
+</body>
+</html>
