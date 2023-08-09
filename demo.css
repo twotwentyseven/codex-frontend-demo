@@ -44,6 +44,7 @@
   
   h1 {
     font-size: 2em;
+    line-height: 1.2em;
     margin: 0.67em 0;
   }
   
@@ -454,6 +455,7 @@ p, li {
 pre {
     background-color: lightgrey;   
     border-radius: 4px;
+    overflow-x: scroll;
 }
 
 code {
@@ -471,6 +473,7 @@ code span {
     flex-wrap: wrap;
     max-width: 1440px;
     margin: 0 auto;
+    padding: 0 12px;
     position: relative;
     align-items: flex-start;
 }
@@ -480,6 +483,11 @@ code span {
 }
 
 @media only screen and (min-width: 64em) {
+
+    .row {
+        padding: 0 30px;
+    }
+
     .medium-4 {
         width: 33.33%;
     }
