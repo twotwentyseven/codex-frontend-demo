@@ -1,72 +1,423 @@
-:root {
-	/* fonts */
-	--bodyFontFamily: 'arial', sans-serif;
-	--headerFontFamily: 'arial', sans-serif;
 
-	--headerFontWeight: normal;
+:root,
+::after,
+::before {
 
-	/* colors */
-	--primaryColor: #000;
-	--bgColor: #fff;
-	--fontColor: #424242;
-	--errorColor: red;
-	--successColor: green;
-	--headerColor: #000;
-	--grey: #777;
 
-	/* buttons */
 
-	--btnBgColor: #000;
-	--btnColor: #fff;
-	--btnRadius: 10px;
+	/* Font Family */
+		/* insert custom client fonts (will need to hosted on their site */
+		--codex-header-font-family: 'Nova Square', cursive;
+		--codex-body-font-family: 'Nunito Sans', sans-serif;
+		--codex-subtitle-font-family: 'Nova Square', cursive;
+		--codex-btn-font-family: 'Nunito Sans', sans-serif;
 
-	--btnHoverBgColor: #fff;
-	--btnHoverColor: #000;
+	/* Font Family end */
 
-	--btnBorderColor: #000;
-	--btnBorderWidth: 1px;
+	/* Font Size */
+			
+		/*desktop*/
+		--codex-header-font-size-lg: 3rem;
+		--codex-title-font-size-lg: 1.5rem;
+		--codex-subtitle-font-size-lg: 1.5rem;
+		--codex-body-font-size-lg: 1rem;
+		--codex-feild-font-size-lg: 1rem;
+		--codex-info-font-size-lg: 0.875rem;
 
-	--anchorColor: #000;
-	--anchorHoverColor: #000;
+		--codex-dropdown-font-size-lg: 0.9375rem;
+		--codex-dropdown-line-height-lg: 1.5em;
 
-	/* modals */
+		--codex-countdown-font-size-lg: 4rem;
+		--codex-countdown-line-height-lg: 1.25em;
 
-	--rgboverlay: 0,0,0;
+		/*mobile*/
+		--codex-header-font-size: 2.5rem;
+		--codex-title-font-size: 2rem;
+		--codex-subtitle-font-size: 1.5rem;
+		--codex-body-font-size: 1rem;
+		--codex-feild-font-size: 1rem;
+		--codex-info-font-size: 0.75rem;
 
-	--modalBgColor: #fff;
-	--modalColor: #000;
+		--codex-dropdown-font-size: 0.9375rem;
+		--codex-dropdown-line-height: 1.5em;
 
-	/* inputs */
+		--codex-countdown-font-size: 4rem;
+		--codex-countdown-line-height: 1.25em;
 
-	--inputColor: #000;
-	--inputBgColor: #fff;
-	--borderColor: #000;
+		--codex-bundle-credit-price-size: 40px;
+		--codex-plan-billing-price-size: 40px;
+	
+	/* Font Size end */
 
-	/* Heights */
+	/* Line Height */
 
-	--headerHeight: 0;
-	--inputHeight: 58px;
+		--codex-header-line-height-lg: 1.25em;
+		--codex-title-line-height-lg: 1.25em;
+		--codex-subtitle-line-height-lg: 2.25rem;
+		--codex-body-line-height-lg: 1.25em;
+		--codex-field-line-height-lg: 1.25em;
 
-	/* Timetable */
+		--codex-header-line-height: 1.1em;
+		--codex-title-line-height: 1.1em;
+		--codex-subtitle-line-height: 2.25rem;
+		--codex-body-line-height: 1.1em;
+		--codex-field-line-height: 1.1em;
+		
+	/* Line Height End */
 
-	--timetableHeaderBgColor: #000;
-	--timetableHeaderColor: #FFF;
-	--timetableBgColor: #EEE;
-	--timetableColor: #000;
-	--timetableBorder: #000;
+	/* Font Weight */
 
-	/* selectric */
+		--codex-heading-font-weight: 600;
+		--codex-title-font-weight: 600;
+		--codex-subtitle-font-weight: 400;
+		--codex-body-font-weight: 400;
+		--codex-field-font-weight: 400;
 
-	--selectricMainColor:      #000;
-	--selectricSecondaryColor: #fff;
-	--selectricTextColor:      #000;
-	--selectricBgColor:        #fff;
-	--selectricBtnBgColor:     #000;
-	--selectricHeight:         58px;     
-	--selectricLineHeight:     50px;
-	--selectricSpacing:        10px;
-	--selectricBorderWidth:    1px;
-	--selectricBorderRadius:   0px;
-	--selectricInnerHeight:    calc(var(--selectricHeight) - (var(--selectricBorderWidth) * 2));  
-	--selectricFontSize:       0.875rem;
+	
+		--codex-credit-price-font-weight: 400;
+		--codex-plan-font-weight: 400;
+
+	/* Font Weight end */
+
+
+	/* Base colours */
+
+		/* all colours need to be a 3 RBG figures with space between, no commas */
+
+		--codex-primary-color: 255 217 34;
+		--codex-secondary-color: 96 96 96;
+		--codex-tertiary-color: 0 0 0;
+		--codex-border-color: 255 255 255;
+		--codex-danger-color: 255 0 0;
+		--codex-warning-color: 255 193 7;
+		--codex-success-color: 25 135 84;
+		--codex-success-inverted-color: 255 255 255;
+		--codex-info-color: 13 202 240;
+		--codex-error-color: 241 38 49;
+		--codex-available-color: 255 217 34;
+		--codex-booked-color: 5 150 105;
+		--codex-instructor-color: 255 0 144;
+		--codex-disabled-color: 102 102 102;
+		
+		--codex-nonbookable-background: 0 0 0;
+		--codex-nonbookable-color: 255 255 255;
+
+	/* Base colours end */
+	
+	/* body */
+		--codex-body-color: 0 0 0;
+		
+		--codex-body-background: 255 255 255;
+
+		/* inverted */
+			--codex-body-inverted-color: 255 255 255;
+			
+			--codex-body-inverted-background: 0 0 0;
+
+	/* Body End */
+	
+	/* Form */
+		
+		--codex-field-color: 255 255 255;
+		
+		--codex-field-background: 51 51 51;
+		--codex-field-border-color: 51 51 51;
+
+		/* measurements  */
+		--codex-field-border-width: 0.125rem;
+		--codex-field-radius: 0rem;
+		--codex-field-padding-x: 0.5rem;
+		--codex-field-padding-y: 0.5rem;    
+		--codex-form-width: 32.5rem;
+
+		--codex-form-max-width: 640px;
+
+		
+
+	/* Form End */
+
+	/* Button Elements*/
+
+		/* colours */
+			--codex-btn-primary-color: 255 217 34;
+			--codex-btn-primary-border-color: 255 217 34;
+			--codex-btn-primary-text-color: 0 0 0;
+			--codex-btn-secondary-color: transparent;
+			--codex-btn-secondary-border-color: 255 217 34;
+			--codex-btn-secondary-text-color: 255 217 34;
+
+			--codex-close-btn-color: 255 255 255;
+
+		/* measurements  */
+			--codex-btn-height: 46px;
+			--codex-btn-radius: 0rem;
+			--codex-btn-min-width: 0rem;
+			--codex-btn-padding-x: 20px;
+			--codex-btn-padding-y: 10px;
+			--codex-btn-border-width: 2px;
+			--codex-btn-font-size: 16px;
+			--codex-btn-line-height: 1.2em;
+			--codex-btn-font-weight: 500;
+
+	/* Button Elements End*/
+
+	/* Grid */
+		--codex-body-width: 100%;
+		--codex-grid: 10px; /* space between grid items */
+		--codex-grid-y: 16px;
+		--codex-gutter-mob: 0.625rem; 
+		--codex-gutter-tab: 1.25rem;
+		--codex-gutter-desk: 2.5rem;
+
+		/* Component Widths */
+			--codex-card-width: calc(33.33% - calc(var(--codex-grid)*2)); /* card grid item width */
+			--codex-bundle-width: calc(33.33% - calc(var(--codex-grid)*2)); /* bundle grid item width */
+			--codex-plan-width: calc(33.33% - calc(var(--codex-grid)*2)); /* plan grid item width */
+			--codex-event-width: calc(33.33% - calc(var(--codex-grid)*2)); /* event grid item width */
+			--codex-video-width: calc(25% - calc(var(--codex-grid)*2)); /* video grid item width */
+			--codex-instructor-card-width: calc(50% - 1.25rem); /* instructor grid item width */
+
+	/* Grid End */
+
+	/* Components */
+
+		/* Cards (bundles/plans/event) */
+			
+			/* colors */
+				--codex-card-border-color: 255 255 255;
+				--codex-card-background: 255 255 255;
+				--codex-card-title-background: 217 217 217;
+				--codex-bookmark-color: 0 0 0;
+		
+			/* measurements  */
+				--codex-card-radius: 0rem;
+				--codex-card-padding: 0.5rem;
+				--codex-card-border-width: 0;
+			
+			/* plan */
+				
+				--codex-plan-border-width: 1px;
+				--codex-plan-card-border-color: 217 217 217;
+				--codex-plan-card-background: 0 0 0;
+				--codex-plan-title-background: 51 51 51;
+				--codex-plan-title-color: 255 217 34;
+				--codex-plan-text-color: 255 255 255;
+
+				--codex-plan-padding: 1.5rem;
+				--codex-plan-title-padding: 0.75rem;
+			/* bundle */
+				
+				--codex-bundle-border-width: 1px;
+				--codex-bundle-card-border-color: 217 217 217;
+				--codex-bundle-card-background: 0 0 0;
+				--codex-bundle-title-background: 51 51 51;
+				--codex-bundle-title-color: 255 217 34;
+				--codex-bundle-text-color: 255 255 255;
+
+				--codex-bundle-padding: 1.5rem;
+
+			/* event */
+				--codex-event-card-padding: 1rem;
+				--codex-event-border-width: 0;
+
+				--codex-event-card-background: 0 0 0;
+				--codex-event-text-color: 255 255 255;
+
+			/* video */
+
+				--codex-video-card-background: 0 0 0;
+				--codex-video-text-color: 255 255 255;
+				--codex-video-bookmark-color: 255 255 255;
+
+				--codex-video-border-width: 0;
+				--codex-video-radius: 0px;
+				--codex-video-padding: 1rem;
+			
+			/* account */
+				--codex-account-card-border-color: 217 217 217;
+				--codex-account-border-width: 1px;
+
+			/* instructor card */
+			--codex-instructor-card-text-color: 255 255 255;
+
+			--codex-instructor-card-padding: 1rem;
+
+		/* Cards (bundles/plans/event) End */
+
+		/* filters */
+
+			/*colors*/
+			
+			--codex-dropdown-background: 200 200 200;
+			--codex-dropdown-primary-color: 48 48 48;
+			--codex-dropdown-primary-border-color: 48 48 48;
+			--codex-dropdown-primary-text-color: 255 255 255;
+			--codex-dropdown-secondary-color: 96 96 96;
+			--codex-dropdown-secondary-border-color: 96 96 96;
+			--codex-dropdown-secondary-text-color: 255 255 255;
+
+			
+			--codex-tag-background: 255 217 34;
+			--codex-tag-text-color: 0 0 0;
+			--codex-tag-border-color: 255 217 34;
+
+			--codex-switch-background: 48 48 48;
+			--codex-switch-thumb-color: 255 255 255;
+
+		/* Timetable */
+
+			
+			--codex-nav-background-color: 255 255 255;
+			--codex-nav-text-color: 0 0 0;
+			--codex-nav-card-border-color: 0 0 0;
+			
+			
+			--codex-nav-card-text-color: 255 255 255;
+			--codex-nav-btn-primary-background: 255 217 34;
+			--codex-nav-btn-primary-border-color: 255 217 34;
+			--codex-nav-btn-primary-text-color: 0 0 0;
+			--codex-nav-btn-secondary-background: 0 0 0;
+			--codex-nav-btn-secondary-border-color: 0 0 0;
+			--codex-nav-btn-secondary-text-color: 255 255 255;
+
+			--codex-nav-card-active-background: 255 217 34;
+			--codex-nav-card-active-text-color: 0 0 0;
+
+			--codex-nav-card-background: 0 0 0;
+
+
+			/* measurements  */
+				--codex-nav-width: 100%;
+				/* --codex-nav-card-radius:; */
+				--codex-nav-card-border-width: 0;
+
+			/* event booking */
+			
+			--codex-event-banner-background: 96 96 96;
+			--codex-event-banner-text-color: 0 0 0;
+			
+			--codex-event-modal-background-color: 233 228 226;
+			--codex-event-modal-border-color: transparent;
+			--codex-event-modal-text-color: 0 0 0;
+
+			/* measurements  */
+				/* --codex-slot-width:; */
+				/* --codex-slot-height:; */
+
+		/* Timetable End */
+
+		/* Loader */
+			
+			--codex-loader-color: 48 48 48;
+			--codex-skeleton-color: 200 200 200;
+
+		/* Loader End */
+
+		/* Video */
+
+			--codex-countdown-font-size: 4.5rem;
+			--codex-countdown-line-height: 5rem;
+
+			/* This needs to be rgb or a hex as it isn't linked to tailwind */
+			--codex-video-primary-color: rgb(255 255 255);
+
+		/* Video End */
+
+		/* Account */
+
+			/* fonts */
+				/* --codex-account-nav-font-size */
+				/* --codex-account-nav-line-height */
+				--codex-account-nav-font-weight: 600;
+
+			/* colors */
+				/* --codex-account-nav-border-color */
+				
+				--codex-account-nav-background: 255 255 255;
+				--codex-account-nav-text-color: 0 0 0;
+				--codex-account-nav-primary: 48 48 48;
+				--codex-account-nav-primary-text-color: 255 255 255;
+
+		/* Account End */
+
+	/* Components End */
+
+	/* overlay/modal */
+		
+		/* color */
+			
+			--codex-modal-background-color: 0 0 0;
+			--codex-modal-border-color: 0 0 0;
+			--codex-modal-text-color: 255 255 255;
+			
+			--codex-overlay-background: 0 0 0;
+			--codex-overlay-alpha: 0.4;
+		/* measurements  */
+			--codex-modal-radius: 0rem;
+			--codex-modal-max-width: 40rem;
+
+	/* overlay/modal end */
+
+	/* Cart Styles */
+
+		--codex-cart-min-width: 32.5rem;
+		--codex-cart-max-width: 32.5rem;
+
+		--codex-cart-header-font: 'Nunito Sans', sans-serif;
+		--codex-cart-header-font-family: 'Nunito Sans', sans-serif;
+		--codex-cart-body-font: 'Nunito Sans', sans-serif;
+		--codex-cart-body-font-family: 'Nunito Sans', sans-serif;
+
+		--codex-cart-background-color: 0 0 0;
+		--codex-cart-border-color: 0 0 0;
+		--codex-cart-border-width: 1px;
+		--codex-cart-overlay-gradient: 0.4;
+		--codex-cart-text-primary: 255 255 255;
+		--codex-cart-text-secondary: 102 102 102;
+		--codex-cart-text-tertiary: 255 255 255;
+		--codex-cart-line-color: 102 102 102;
+		--codex-cart-btn-primary:  255 217 34;
+		--codex-cart-btn-primary-border:  255 217 34;
+		--codex-cart-btn-primary-text-color: 0 0 0;
+		--codex-cart-btn-secondary: transparent;
+		--codex-cart-btn-secondary-border: 255 217 34;
+		--codex-cart-btn-secondary-text-color: 255 217 34;
+		--codex-cart-link-color: 255 217 34;
+		--codex-cart-close-btn: 255 255 255;
+
+		
+		--codex-cart-voucher-background: 48 48 48;
+		--codex-cart-voucher-text-color: 255 255 255;
+
+		
+		--codex-cart-announcement-background: 200 200 200;
+		--codex-cart-announcement-text-color: 0 0 0; 
+		
+		--codex-cart-remove-color: 255 255 255;
+		--codex-cart-item-header-font-size: 0.875rem;
+		--codex-cart-item-header-line-height: 1.25rem;
+
+		--codex-cart-item-font-size: 0.75rem;
+		--codex-cart-item-line-height: 1rem;
+
+		
+		--codex-cart-summary-background: 255 0 0;
+		--codex-cart-summary-border: 0 0 0;
+		--codex-cart-summary-text-color: 0 0 0;
+
+		--codex-cart-loader-color: 48 48 48;
+
+		--success: 48 48 48;
+		--success-inverted: rgb(48 48 48);
+
+		/* SVGs */
+
+			--stroke-color: #000;
+
+		/* SVGs end */
+
+	/* Cart Styles End */
+
+	--site-header-height: 64px;
+
 }

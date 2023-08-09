@@ -150,38 +150,117 @@
     </header>
 
     <div data-codex>
+        
+        <div class="row">
+            <div class="cell small-12">
+                <h1>Modals</h1>
+            </div>
 
-        <codex-videos video-detail-url="/video/{id}"
-            :filters="{
-                name: {
-                    selector: 'instructor.full_name',
-                    multi: true,
-                    title: 'Instructor Name'
-                },
-                workoutType: {
-                    selector: 'metafields.tags',
-                    options: [
-                        { value: 'barre', displayValue: 'Barre' },
-                        { value: 'strength', displayValue: 'Strength' },
-                    ],
-                    multi: true,
-                    title: 'Workout Type'
-                },
-                options: {
-                    searchKeys: ['full_name', 'metafields.description', 'tags']
-                }
-            }">
-        </codex-videos>
+            <div class="cell small-12 intro">
+                <h2>Modal Setup</h2>
+
+                <p>The Login/Register/Recover modal and the Checkout/Cart modal are added through the autoconfigure script</p>
+
+                <p>Settings for these can be changed through <code>codex().set()</code> function, an example of this would be:</p>
+
+                <pre>
+                    <code>
+                        Codex().set(
+                            'auto_configure', {
+                                modals: {
+                                    'codex-login-register': {
+                                        modalProps: { 
+                                            'v-slot': '{close}',
+                                            ':delay-close': 9999,
+                                        },
+                                        props: {
+                                            'login-redirect': '/pages/my-account',
+                                            'register-redirect': '/pages/book',
+                                            ':password-redirect': false,
+                                            ':delay-close': 2000,
+                                            ':show-login-default': true,
+                                            'v-on:redirect': 'close'
+                                        }
+                                    },
+                                    'codex-checkout': {
+                                        modalProps: { 'x-position': 'right', 'y-position': 'top' }
+                                    }
+                                }
+                            }
+                        )
+                    </code>
+                </pre>
+
+                <p>This example enables redirecting to the account area on a successful login and redirecting to the timetable on a successful register</p>
+
+                <p>If this processed is 'codex-checkout' is required otherwise it will disable the cart.</p>
+
+            </div>
+
+            <div class="cell small-12 intro">
+                
+                <h2>Custom Modals</h2>
+
+                <p>Any component can be nested within a modal</p>
+
+                <pre>
+                    <code>
+                        &lt;codex-modal name="codex-bundle-modal" x-position="center" y-position="center" :delay-close="5000" v-slot="{close, redirect}"&gt;
+                            &lt;codex-bundles&gt;&lt;/codex-bundles&gt;
+                        &lt;/codex-modal&gt;
+                    </code>
+                </pre>
+
+            </div>
+
+            <div class="cell small-12 intro">
+
+                <h2>How to toggle</h2>
+
+                <p>To toggle the default modal the following data-attrs can be used:</p>
+
+                <pre>
+                    <code>
+                        &lt;a data-codex-modal-toggle="codex-login-register" href="#"&gt;Login&lt;/a&gt;
+
+                        &lt;a data-codex-modal-toggle="codex-checkout" href="#"&gt;Cart&lt;/a&gt;
+                    </code>
+                </pre>
+
+                <p>To toggle a custom modal you'll need to dispatch one of these event using javascript, to distingish between modal we use a name, these event match the name of the example above</p>
+
+                <p>Open:</p>
+                <pre>
+                    <code>
+                        document.dispatchEvent(new Event('codex.modal.open.<span>codex-bundle-modal</span>'))
+                    </code>
+                </pre>
+                <p>Close:</p>
+                <pre>
+                    <code>
+                        document.dispatchEvent(new Event('codex.modal.close.<span>codex-bundle-modal</span>'))
+                    </code>
+                </pre>
+                <p>Toggle:</p>
+                <pre>
+                    <code>
+                        document.dispatchEvent(new Event('codex.modal.toggle.<span>codex-bundle-modal</span>'))
+                    </code>
+                </pre>
+
+                <p>Modal name is highlighted and will need to be changed.</p>
+
+            </div>
+
+            <div class="cell small-12 intro">
+
+                <p>Full documentation for this components can be found <a target="_blank" href="https://github.com/twotwentyseven/codex-frontend-docs/tree/v3">here</a>.</p>
+            </div>
+
+        </div>
+
 
     </div>
 
-    <!-- <script src="/dist/app.js"></script>
-    <link href="/dist/app.css" rel="stylesheet" type="text/css">
-    <link href="/dist/_index.css" rel="stylesheet" type="text/css">
-    <link href="/dist/cdx-videos.css" rel="stylesheet" type="text/css">
-    <link href="/dist/cdx-filters.css" rel="stylesheet" type="text/css">
-    <link href="/dist/cdx-login.css" rel="stylesheet" type="text/css">
-    <link href="/demo/demo.css" rel="stylesheet" type="text/css">
- -->
 </body>
 </html>

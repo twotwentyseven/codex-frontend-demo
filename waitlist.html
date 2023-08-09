@@ -151,37 +151,16 @@
 
     <div data-codex>
 
-        <codex-videos video-detail-url="/video/{id}"
-            :filters="{
-                name: {
-                    selector: 'instructor.full_name',
-                    multi: true,
-                    title: 'Instructor Name'
-                },
-                workoutType: {
-                    selector: 'metafields.tags',
-                    options: [
-                        { value: 'barre', displayValue: 'Barre' },
-                        { value: 'strength', displayValue: 'Strength' },
-                    ],
-                    multi: true,
-                    title: 'Workout Type'
-                },
-                options: {
-                    searchKeys: ['full_name', 'metafields.description', 'tags']
-                }
-            }">
-        </codex-videos>
+        <div class="row">
+            <div class="cell small-12">
+                <h1>Waitlist page</h1>
+                <p>Waitlist confirmation <code>id</code> will be require from an email to review this component.</p>
+            </div>
+        </div>
+
+        <codex-waitlist-confirmation></codex-waitlist-confirmation>
 
     </div>
 
-    <!-- <script src="/dist/app.js"></script>
-    <link href="/dist/app.css" rel="stylesheet" type="text/css">
-    <link href="/dist/_index.css" rel="stylesheet" type="text/css">
-    <link href="/dist/cdx-videos.css" rel="stylesheet" type="text/css">
-    <link href="/dist/cdx-filters.css" rel="stylesheet" type="text/css">
-    <link href="/dist/cdx-login.css" rel="stylesheet" type="text/css">
-    <link href="/demo/demo.css" rel="stylesheet" type="text/css">
- -->
 </body>
 </html>

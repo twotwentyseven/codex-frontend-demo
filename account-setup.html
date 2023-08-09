@@ -135,7 +135,6 @@
                             <li>
                                 <a href="account-setup.html">Account Set up</a>
                             </li>
-                            
                         </ul>
                     </nav>
                 </li>
@@ -150,59 +149,153 @@
     </header>
 
     <div data-codex>
-        
-        <div class="row">
-            <div class="cell small-12">
-                <h1>CODEXFIT Component Demo</h1>
-            </div>
-
-            <div class="cell small-12 intro">
-                <p>This a demo of all the CODEXFIT components, if you believe something has been missed please contact a member of the CODEXFIT team.</p>
-
-                <p>Documentation for components can be found <a target="_blank" href="https://github.com/twotwentyseven/codex-frontend-docs/tree/v3">here</a>.</p>
-
-            </div>
-
-        </div>
 
         <div class="row">
             <div class="cell small-12 intro">
-                <h2>CODEXFIT Set up guide.</h2>
-                <p>Highlight copy will need to be replaces with your CODEXFIT url</p>
+                <h1>Account area Setup</h1>
+
+                <p>Unlike all other components the account area requires an id of <code>id="codex-account"</code> to be initialised. This is replace the data-codex that has been used to initalise all other codexfit components.</p>
+
+                <p>The account routes are set up with the <code>Codex().set()</code> funtion nested in a <code>script</code> within the <code>head</code> tag. An example of this is below:</p>
+                
                 <pre>
                     <code>
-                        &lt;script src=&quot;https://<span>demo.codexfit.com</span>/autoconfigure.js&quot;&gt;&lt;/script&gt;
+                        Codex().set(
+                            'routerConfig', {
+                                mode: 'hash',
+                                routes: [
+                                    { path: '/', component: 'overview', title: 'Overview' },
+                                    { path: '/credits', component: 'credits', title: 'Credits' },
+                                    { path: '/membership', component: 'membership', title: 'Memberships' },
+                                    { path: '/favourites', component: 'favourites', title: 'Favourites' },
+                                    { path: '/details', component: 'details', title: 'Details' },
+                                    { path: '/history', component: 'history', title: 'History' }
+                                ]
+                            }
+                        )  
                     </code>
                 </pre>
-                <p>This script will create the neccessary script, style and translation files as well as connecting the frontend with the codexfit backend.</p>
-            </div>
-            
-            <div class="cell small-12 intro">
-                <h2>CODEXFIT Styles</h2>
-                <p>A unique css-variables file will need to be created for each project within this file you will determine all styles such as font-families, colours, padding and size.</p>
+
+                <p>For each route, a path will need to be created</p>
+
+                <p>The available routes:</p>
+                <ul>
+                    <li>Overview</li>
+                    <li>Personal Details</li>
+                    <li>Credits</li>
+                    <li>Memberships</li>
+                    <!-- <li>Milestones</li> -->
+                    <li>Favourites</li>
+                    <li>History</li>
+                </ul>
+
+                <p>Within these paths you will define all the child components you'd like to be displayed on the page. A common path that needs to changed is the details/profile route so that it matches the data within the register form.</p>
+                
+                <p>An example of an override:</p>
                 <pre>
                     <code>
-                        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; src=&quot;https://<span>www.yourdomain.com</span>/css-variables.css&quot;&gt;&lt;/link&gt;
+                        Codex().set(
+                            'routerConfig', {
+                                mode: 'hash',
+                                routes: [
+                                    { path: '/', component: 'overview', title: 'Account Overview' },
+                                    { path: '/favourites', component: 'favourites', title: 'Favourites' },
+                                    { path: '/membership', component: 'membership', title: 'Subscriptions' },
+                                    { path: '/details', component: 'details', title: 'Account Details', <span>children</span>: 
+                                        [
+                                            { 
+                                                component: 'codex-heading', props: { 
+                                                    tag: 'div', title: 'Account Details' } 
+                                                },
+                                                { component: 'codex-profile', props: { 
+                                                    showLabels: true, formFields: {
+                                                        'first_name': {
+                                                            type: 'text',
+                                                            label: 'First name',
+                                                            label_translation: 'customer.first_name',
+                                                            placeholder: 'First Name Placeholder',
+                                                            placeholder_translation: 'customer.first_name_placeholder',
+                                                            required: true,
+                                                        },
+                                                        'last_name': {
+                                                            type: 'text',
+                                                            label: 'Last Name',
+                                                            label_translation: 'customer.last_name',
+                                                            placeholder: 'Last name placeholder',
+                                                            placeholder_translation: 'customer.last_name_placeholder',
+                                                            required: true,
+                                                        },
+                                                        'email': {
+                                                            type: 'email',
+                                                            label: 'Email',
+                                                            label_translation: 'customer.email',
+                                                            placeholder: 'Email',
+                                                            placeholder_translation: 'customer.email_placeholder',
+                                                            required: true,
+                                                        },
+                                                        'dob': {
+                                                            type: 'date',
+                                                            label: 'Date of Birth',
+                                                            label_translation: 'customer.date_of_birth',
+                                                            required: true,
+                                                        },
+                                                        'telephone': {
+                                                            type: 'phone',
+                                                            label: 'Phone Number',
+                                                            label_translation: 'customer.phone_number',
+                                                            placeholder: 'Phone Number',
+                                                            placeholder_translation: 'customer.phone_number_placeholder',
+                                                            required: true,
+                                                        },
+                                                        metafields: {
+                                                            'opt_in_email': {
+                                                                type: 'checkbox',
+                                                                label: 'I accept email marketing',
+                                                                label_translation: 'customer.i_accept_email_marketing',
+                                                                default: false
+                                                            },
+                                                            'opt_in_sms': {
+                                                                type: 'checkbox',
+                                                                label: 'I accept sms marketing',
+                                                                label_translation: 'customer.i_accept_sms_marketing',
+                                                                default: false
+                                                            }
+                                                        }
+                                                    }
+                                                } 
+                                            },
+                                            { component: 'codex-password-update', props: {showLabels: true, titleTag: 'div'} },
+                                            { component: 'codex-heading', props: { tag: 'div', title: 'Saved Cards' } },
+                                            { component: 'codex-account-manage-payment-methods' }
+                                        ]
+                                    },
+                                    { path: '/history', component: 'history', title: 'History' },
+                                    { path: '/credits', component: 'credits', title: 'Credits' }
+                                ]
+                            }
+                        )
                     </code>
                 </pre>
-                <p>For the full list go to the <a href="css-variable.html">css-variable</a> page.</p>
 
-                <h3>Component initialisation</h3>
+                <p>If no child component are defined it will use the codefix defaults.</p>
 
-                <p>All component must be nested within an element with the data-attr of <code>data-codex</code>. Without this attr no codexfit component will render</p>
 
+
+                <p>Example of the account area code. Highlighted is only required if custom route is defined.</p>
                 <pre>
                     <code>
-                        &lt;div data-codex&gt;
-                            &lt;codex-bundles&gt;&lt;/codex-bundles&gt;
+                        &lt;div data-codex id="codex-account"&gt;
+                            &lt;codex-account layout="stacked"&gt;
+                                &lt;codex-account-nav-links v-if="customer" :routes="<span>window.codex.routerConfig.routes</span>"&gt;&lt;/codex-account-nav-links&gt;
+                            &lt;/codex-account&gt;
                         &lt;/div&gt;
                     </code>
                 </pre>
+                <br>
+                <br>
+
             </div>
-            
         </div>
-
     </div>
-
 </body>
 </html>
