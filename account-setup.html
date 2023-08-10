@@ -160,19 +160,19 @@
                 
                 <pre>
                     <code>
-                        Codex().set(
-                            'routerConfig', {
-                                mode: 'hash',
-                                routes: [
-                                    { path: '/', component: 'overview', title: 'Overview' },
-                                    { path: '/credits', component: 'credits', title: 'Credits' },
-                                    { path: '/membership', component: 'membership', title: 'Memberships' },
-                                    { path: '/favourites', component: 'favourites', title: 'Favourites' },
-                                    { path: '/details', component: 'details', title: 'Details' },
-                                    { path: '/history', component: 'history', title: 'History' }
-                                ]
-                            }
-                        )  
+    Codex().set(
+        'routerConfig', {
+            mode: 'hash',
+            routes: [
+                { path: '/', component: 'overview', title: 'Overview' },
+                { path: '/credits', component: 'credits', title: 'Credits' },
+                { path: '/membership', component: 'membership', title: 'Memberships' },
+                { path: '/favourites', component: 'favourites', title: 'Favourites' },
+                { path: '/details', component: 'details', title: 'Details' },
+                { path: '/history', component: 'history', title: 'History' }
+            ]
+        }
+    )  
                     </code>
                 </pre>
 
@@ -194,86 +194,86 @@
                 <p>An example of an override:</p>
                 <pre>
                     <code>
-                        Codex().set(
-                            'routerConfig', {
-                                mode: 'hash',
-                                routes: [
-                                    { path: '/', component: 'overview', title: 'Account Overview' },
-                                    { path: '/favourites', component: 'favourites', title: 'Favourites' },
-                                    { path: '/membership', component: 'membership', title: 'Subscriptions' },
-                                    { path: '/details', component: 'details', title: 'Account Details', <span>children</span>: 
-                                        [
-                                            { 
-                                                component: 'codex-heading', props: { 
-                                                    tag: 'div', title: 'Account Details' } 
-                                                },
-                                                { component: 'codex-profile', props: { 
-                                                    showLabels: true, formFields: {
-                                                        'first_name': {
-                                                            type: 'text',
-                                                            label: 'First name',
-                                                            label_translation: 'customer.first_name',
-                                                            placeholder: 'First Name Placeholder',
-                                                            placeholder_translation: 'customer.first_name_placeholder',
-                                                            required: true,
-                                                        },
-                                                        'last_name': {
-                                                            type: 'text',
-                                                            label: 'Last Name',
-                                                            label_translation: 'customer.last_name',
-                                                            placeholder: 'Last name placeholder',
-                                                            placeholder_translation: 'customer.last_name_placeholder',
-                                                            required: true,
-                                                        },
-                                                        'email': {
-                                                            type: 'email',
-                                                            label: 'Email',
-                                                            label_translation: 'customer.email',
-                                                            placeholder: 'Email',
-                                                            placeholder_translation: 'customer.email_placeholder',
-                                                            required: true,
-                                                        },
-                                                        'dob': {
-                                                            type: 'date',
-                                                            label: 'Date of Birth',
-                                                            label_translation: 'customer.date_of_birth',
-                                                            required: true,
-                                                        },
-                                                        'telephone': {
-                                                            type: 'phone',
-                                                            label: 'Phone Number',
-                                                            label_translation: 'customer.phone_number',
-                                                            placeholder: 'Phone Number',
-                                                            placeholder_translation: 'customer.phone_number_placeholder',
-                                                            required: true,
-                                                        },
-                                                        metafields: {
-                                                            'opt_in_email': {
-                                                                type: 'checkbox',
-                                                                label: 'I accept email marketing',
-                                                                label_translation: 'customer.i_accept_email_marketing',
-                                                                default: false
-                                                            },
-                                                            'opt_in_sms': {
-                                                                type: 'checkbox',
-                                                                label: 'I accept sms marketing',
-                                                                label_translation: 'customer.i_accept_sms_marketing',
-                                                                default: false
-                                                            }
-                                                        }
-                                                    }
-                                                } 
-                                            },
-                                            { component: 'codex-password-update', props: {showLabels: true, titleTag: 'div'} },
-                                            { component: 'codex-heading', props: { tag: 'div', title: 'Saved Cards' } },
-                                            { component: 'codex-account-manage-payment-methods' }
-                                        ]
+    Codex().set(
+        'routerConfig', {
+            mode: 'hash',
+            routes: [
+                { path: '/', component: 'overview', title: 'Account Overview' },
+                { path: '/favourites', component: 'favourites', title: 'Favourites' },
+                { path: '/membership', component: 'membership', title: 'Subscriptions' },
+                { path: '/details', component: 'details', title: 'Account Details', <span>children</span>: 
+                    [
+                        { 
+                            component: 'codex-heading', props: { 
+                                tag: 'div', title: 'Account Details' } 
+                            },
+                            { component: 'codex-profile', props: { 
+                                showLabels: true, formFields: {
+                                    'first_name': {
+                                        type: 'text',
+                                        label: 'First name',
+                                        label_translation: 'customer.first_name',
+                                        placeholder: 'First Name Placeholder',
+                                        placeholder_translation: 'customer.first_name_placeholder',
+                                        required: true,
                                     },
-                                    { path: '/history', component: 'history', title: 'History' },
-                                    { path: '/credits', component: 'credits', title: 'Credits' }
-                                ]
-                            }
-                        )
+                                    'last_name': {
+                                        type: 'text',
+                                        label: 'Last Name',
+                                        label_translation: 'customer.last_name',
+                                        placeholder: 'Last name placeholder',
+                                        placeholder_translation: 'customer.last_name_placeholder',
+                                        required: true,
+                                    },
+                                    'email': {
+                                        type: 'email',
+                                        label: 'Email',
+                                        label_translation: 'customer.email',
+                                        placeholder: 'Email',
+                                        placeholder_translation: 'customer.email_placeholder',
+                                        required: true,
+                                    },
+                                    'dob': {
+                                        type: 'date',
+                                        label: 'Date of Birth',
+                                        label_translation: 'customer.date_of_birth',
+                                        required: true,
+                                    },
+                                    'telephone': {
+                                        type: 'phone',
+                                        label: 'Phone Number',
+                                        label_translation: 'customer.phone_number',
+                                        placeholder: 'Phone Number',
+                                        placeholder_translation: 'customer.phone_number_placeholder',
+                                        required: true,
+                                    },
+                                    metafields: {
+                                        'opt_in_email': {
+                                            type: 'checkbox',
+                                            label: 'I accept email marketing',
+                                            label_translation: 'customer.i_accept_email_marketing',
+                                            default: false
+                                        },
+                                        'opt_in_sms': {
+                                            type: 'checkbox',
+                                            label: 'I accept sms marketing',
+                                            label_translation: 'customer.i_accept_sms_marketing',
+                                            default: false
+                                        }
+                                    }
+                                }
+                            } 
+                        },
+                        { component: 'codex-password-update', props: {showLabels: true, titleTag: 'div'} },
+                        { component: 'codex-heading', props: { tag: 'div', title: 'Saved Cards' } },
+                        { component: 'codex-account-manage-payment-methods' }
+                    ]
+                },
+                { path: '/history', component: 'history', title: 'History' },
+                { path: '/credits', component: 'credits', title: 'Credits' }
+            ]
+        }
+    )
                     </code>
                 </pre>
 
@@ -284,11 +284,11 @@
                 <p>Example of the account area code. Highlighted is only required if custom route is defined.</p>
                 <pre>
                     <code>
-                        &lt;div data-codex id="codex-account"&gt;
-                            &lt;codex-account layout="stacked"&gt;
-                                &lt;codex-account-nav-links v-if="customer" :routes="<span>window.codex.routerConfig.routes</span>"&gt;&lt;/codex-account-nav-links&gt;
-                            &lt;/codex-account&gt;
-                        &lt;/div&gt;
+    &lt;div data-codex id="codex-account"&gt;
+        &lt;codex-account layout="stacked"&gt;
+            &lt;codex-account-nav-links v-if="customer" :routes="<span>window.codex.routerConfig.routes</span>"&gt;&lt;/codex-account-nav-links&gt;
+        &lt;/codex-account&gt;
+    &lt;/div&gt;
                     </code>
                 </pre>
                 <br>

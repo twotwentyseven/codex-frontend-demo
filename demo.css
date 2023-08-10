@@ -522,3 +522,7 @@ code span {
     left: 10px;
     z-index: 9999;
 }
+
+.non-default {
+    opacity: 0.5;
+}

@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODEXFit Frontend Library v3</title>
+    <script src="https://demo.codexfit.com/autoconfigure.js"></script>
+    
+    <!-- <link href="https://api-v3.codexfit.com/app.css" rel="stylesheet" type="text/css"> -->
+    <link href="css-variables.css" rel="stylesheet" type="text/css"/>
+    <link href="demo.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,200;1,6..12,400;1,6..12,600;1,6..12,700&display=swap" rel="stylesheet">
+    <style>
+        pre {
+            max-width: 600px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <svg viewBox="0 0 365 38" xmlns="http://www.w3.org/2000/svg">
+                <path d="M26.9,44.65 C21.3999725,44.65 17.016683,42.8000185 13.75,39.1 C10.5833175,35.5333155 9,31.1000265 9,25.8 C9,20.4999735 10.5833175,16.083351 13.75,12.55 C17.08335,8.8499815 21.4666395,7 26.9,7 C30.833353,7 34.366651,8.0833225 37.5,10.25 C40.16668,12.050009 42.133327,14.5999835 43.4,17.9 L36.9,20.85 L36.85,20.85 L36.4,19.8 C35.666663,18.066658 34.5500075,16.700005 33.05,15.7 C31.516659,14.6666615 29.75001,14.15 27.75,14.15 C25.616656,14.15 23.8666735,14.449997 22.5,15.05 C21.1333265,15.650003 20.0000045,16.449995 19.1,17.45 C17.233324,19.5500105 16.3,22.333316 16.3,25.8 C16.3,29.200017 17.233324,31.9833225 19.1,34.15 C21.0000095,36.350011 23.883314,37.45 27.75,37.45 C29.816677,37.45 31.583326,36.950005 33.05,35.95 C34.6166745,34.9166615 35.73333,33.5500085 36.4,31.85 L36.85,30.75 L36.9,30.75 L43.4,33.75 C42.0999935,36.9833495 40.1333465,39.533324 37.5,41.4 C34.3999845,43.5666775 30.8666865,44.65 26.9,44.65 Z M78.6,44.65 C73.133306,44.65 68.6166845,42.8000185 65.05,39.1 C61.6166495,35.566649 59.9,31.13336 59.9,25.8 C59.9,20.4999735 61.633316,16.0666845 65.1,12.5 C68.6000175,8.833315 73.0999725,7 78.6,7 C84.1000275,7 88.5999825,8.833315 92.1,12.5 C95.5333505,16.033351 97.25,20.46664 97.25,25.8 C97.25,31.1666935 95.5333505,35.616649 92.1,39.15 C88.5999825,42.816685 84.1000275,44.65 78.6,44.65 Z M78.6,37.45 C82.1666845,37.45 84.94999,36.350011 86.95,34.15 C88.9833435,31.9833225 90,29.200017 90,25.8 C90,22.399983 88.9833435,19.633344 86.95,17.5 C84.816656,15.2666555 82.0333505,14.15 78.6,14.15 C75.133316,14.15 72.3500105,15.2666555 70.25,17.5 C68.2166565,19.633344 67.2,22.399983 67.2,25.8 C67.2,29.200017 68.2166565,31.9833225 70.25,34.15 C72.316677,36.350011 75.0999825,37.45 78.6,37.45 Z M115.75,7.5 L131.55,7.5 C133.816678,7.5 135.94999,7.9166625 137.95,8.75 C139.95001,9.550004 141.783325,10.783325 143.45,12.45 C146.916684,15.983351 148.65,20.4666395 148.65,25.9 C148.65,31.3333605 146.916684,35.8333155 143.45,39.4 C141.883326,41.000008 140.050011,42.233329 137.95,43.1 C135.94999,43.9333375 133.816678,44.35 131.55,44.35 L115.75,44.35 L115.75,7.5 Z M131.4,37.25 C134.366682,37.25 136.766658,36.1666775 138.6,34 C140.433343,31.866656 141.35,29.166683 141.35,25.9 C141.35,22.6666505 140.433343,19.983344 138.6,17.85 C136.733324,15.649989 134.333348,14.55 131.4,14.55 L123.05,14.55 L123.05,37.25 L131.4,37.25 Z M167.15,7.5 L195.2,7.5 L195.2,14.6 L167.15,14.6 L167.15,22.3 L189.5,22.3 L189.5,29.5 L167.15,29.5 L167.15,37.2 L195.2,37.2 L195.2,44.35 L167.15,44.35 L167.15,7.5 Z M224.6,25.35 L210.85,7.5 L220.1,7.5 L229.1,19.45 L238.15,7.5 L247.35,7.5 L233.6,25.35 L248.25,44.35 L239.05,44.35 L229.1,31.2 L219.15,44.35 L209.95,44.35 L224.6,25.35 Z M265,7.5 L292.6,7.5 L292.6,14.6 L272.3,14.6 L272.3,25.2 L286.85,25.2 L286.85,32.4 L272.3,32.4 L272.3,44.35 L265,44.35 L265,7.5 Z M310.1,7.5 L317.4,7.5 L317.4,44.35 L310.1,44.35 L310.1,7.5 Z M346.05,14.6 L334.4,14.6 L334.4,7.5 L364.95,7.5 L364.95,14.6 L353.3,14.6 L353.3,44.35 L346.05,44.35 L346.05,14.6 Z" id="codexfit"></path>
+            </svg>
+        </a>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">Modals</a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="#" data-codex-modal-toggle="codex-login-register">Login/Register Modal</a>
+                            </li>
+                            <li>
+                                <a href="#" data-codex-modal-toggle="codex-checkout">Cart Modal</a>
+                            </li>
+                            <li>
+                                <a href="modal.html">How modals work</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">Login/Register</a>
+                    <nav>
+                        <ul>
+                            
+                            <li>
+                                <a href="login.html">Login/Logout</a>
+                            </li>
+                            <li>
+                                <a href="register.html">Register</a>
+                            </li>
+                            <li>
+                                <a href="password.html">Password</a>
+                            </li>
+                            <li>
+                                <a href="verifysms.html">SMS Verification</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">Purchasing</a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="bundles.html">Bundles</a>
+                            </li>
+                            <li>
+                                <a href="plans.html">Plans</a>
+                            </li>
+                            <li>
+                                <a href="cart.html">Cart</a>
+                            </li>
+                            <li>
+                                <a href="sca-confirmation.html">SCA Confirmation</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">Booking</a>
+                    <nav>
+                        <ul> 
+                            <li>
+                                <a href="timetable.html">Timetable</a>
+                            </li>
+                            <li>
+                                <a href="event.html">Event</a>
+                            </li>  
+                            <li>
+                                <a href="waitlist.html">Waitlist</a>
+                            </li>  
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">On Demand</a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="videos.html">Videos</a>
+                            </li>
+                            <li>
+                                <a href="video.html">Video</a>
+                            </li>
+                            <li>
+                                <a href="video-collections.html">Video Collections</a>
+                            </li>
+                            <li>
+                                <a href="video-collection.html">Video Collection</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">Instructors</a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="instructors.html">Instructors</a>
+                            </li>
+                            <li>
+                                <a href="instructor.html">Instructor Detail</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">Customer Account</a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="account.html">Account</a>
+                            </li>
+                            <li>
+                                <a href="account-setup.html">Account Set up</a>
+                            </li>
+                            
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="variables.html">Variables</a>
+                </li>
+                <!-- <li>
+                    Overrides
+                </li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <div>
+
+        <div class="row">
+            <div class="cell small-12">
+                <h1>Variable List</h1>
+
+                <h2>Font Family</h2>
+                
+                <p>Headline font family</p>
+                <pre><code>--codex-header-font-family: 'Nova Square', cursive;</code></pre>
+                <p>Subtitle font family</p>
+                <pre><code>--codex-subtitle-font-family: 'Nova Square', cursive;</code></pre>
+                <p>Body font family</p>
+                <pre><code>--codex-body-font-family: 'Nunito Sans', sans-serif;</code></pre>
+                <p>Button font family</p>
+                <pre><code>--codex-btn-font-family: 'Nunito Sans', sans-serif;</code></pre>
+
+                <h2>Typography</h2>
+                        
+                <h3>Mobile</h3>
+
+                <p>Headline font size/line-height</p>
+                <pre><code>--codex-header-font-size: 2.5rem;</code><br></pre>
+                <pre><code>--codex-header-line-height: 1.1em;</code><br></pre>
+                <pre><code>--codex-heading-font-weight: 600;</code></pre>
+
+                <p>Title font size/line-height</p>
+                <pre><code>--codex-title-font-size: 2rem;</code><br></pre>
+                <pre><code>--codex-title-line-height: 1.1em;</code><br></pre>
+                <pre><code>--codex-title-font-weight: 600;</code></pre>                
+
+                <p>Subtitle font size/line-height</p>
+                <pre><code>--codex-subtitle-font-size: 1.5rem;</code><br></pre>
+                <pre><code>--codex-subtitle-line-height: 2.25rem;</code><br></pre>
+                <pre><code>--codex-subtitle-font-weight: 400;</code></pre>
+
+                <p>Body font size/line-height</p>
+                <pre><code>--codex-body-font-size: 1rem;</code><br></pre>
+                <pre><code>--codex-body-line-height: 1.1em;</code><br></pre>
+                <pre><code>--codex-body-font-weight: 400;</code></pre>
+
+                <p>Input/Select font size/line-height</p>
+                <pre><code>--codex-feild-font-size: 1rem;</code><br></pre>
+                <pre><code>--codex-field-line-height: 1.1em;</code><br></pre>
+                <pre><code>--codex-field-font-weight: 400;</code></pre>
+
+                <p>Dropdown internal font size/line-height</p>
+                <pre><code>--codex-dropdown-font-size: 0.9375rem;</code><br></pre>
+                <pre><code>--codex-dropdown-line-height: 1.5em;</code></pre>
+
+                <p>Video countdown font size/line-height</p>
+                <pre><code>--codex-countdown-font-size: 4rem;</code><br></pre>
+                <pre><code>--codex-countdown-line-height: 1.25em;</code></pre>
+                
+                <p>Info/tooltip font size/line-height</p>
+                <pre><code>--codex-info-font-size: 0.75rem;</code></pre>
+                
+                <p>Bundle Price<p>
+                <pre><code>--codex-bundle-credit-price-size: 2.5rem;</code><br></pre>
+                <pre><code>--codex-credit-price-font-weight: 400;</code><br></pre>
+                
+                <p>Plan Price</p>
+                <pre><code>--codex-plan-billing-price-size: 2.5rem;</code><br></pre>
+                <pre><code>--codex-plan-font-weight: 400;</code><br></pre>
+
+                <h3>Desktop</h3>
+                <p>Headline font size/line-height</p>
+                <pre><code>--codex-header-font-size-lg: 3rem;</code><br></pre>
+                <pre><code>--codex-header-line-height-lg: 1.25em;</code></pre>
+
+                <p>Title font size/line-height</p>
+                <pre><code>--codex-title-font-size-lg: 1.5rem;</code><br></pre>
+                <pre><code>--codex-title-line-height-lg: 1.25em;</code></pre>
+
+                <p>Subtitle font size/line-height</p>
+                <pre><code>--codex-subtitle-font-size-lg: 1.5rem;</code><br></pre>
+                <pre><code>--codex-subtitle-line-height-lg: 2.25rem;</code></pre>
+                
+                <p>Body font size/line-height</p>
+                <pre><code>--codex-body-font-size-lg: 1rem;</code><br></pre>
+                <pre><code>--codex-body-line-height-lg: 1.25em;</code></pre>
+                
+                <p>Input/Select font size/line-height</p>
+                <pre><code>--codex-feild-font-size-lg: 1rem;</code><br></pre>
+                <pre><code>--codex-field-line-height-lg: 1.25em;</code></pre>
+
+                <p>Dropdown internal font size/line-height</p>
+                <pre><code>--codex-dropdown-font-size-lg: 0.9375rem;</code><br></pre>
+                <pre><code>--codex-dropdown-line-height-lg: 1.5em;</code></pre>
+                
+                <p>Video countdown font size/line-height</p>
+                <pre><code>--codex-countdown-font-size-lg: 4rem;</code><br></pre>
+                <pre><code>--codex-countdown-line-height-lg: 1.25em;</code></pre>
+                
+                <p>Info/tooltip font size/line-height</p>
+                <pre><code>--codex-info-font-size-lg: 0.875rem;</code></pre>
+                
+                <p>Bold font weight</p>
+                <pre><code>--codex-bold-font-weight</code></pre>
+            
+                <h2>Colours</h2>
+
+                <p>Colours need to be a defined as RBG variables <code>255 255 255</code> with space between, no commas. Accepts transparent.</p>
+                
+                <p>Primary colour</p>
+                <pre><code>--codex-primary-color: 255 217 34;</code></pre>
+
+                <p>Secondary colour</p>
+                <pre><code>--codex-secondary-color: 96 96 96;</code></pre>
+
+                <p>Tertiary colour</p>
+                <pre><code>--codex-tertiary-color: 0 0 0;</code></pre>
+                
+                <p>Body text colour</p>
+                <pre><code>--codex-body-color: 255 255 255;</code></pre>
+                
+                <p>Body background colour</p>
+                <pre><code>--codex-body-background: 0 0 0;</code></pre>
+                
+                <p>Body inverted text colour</p>
+                <pre><code>--codex-body-inverted-color: 0 0 0;</code></pre>
+                
+                <p>Body inverted background colour</p>
+                <pre><code>--codex-body-inverted-background: 255 255 255;</code></pre>
+                
+                <p>Link colour (falls back to primary colour)</p>
+                <pre><code>--codex-link-color: 0 0 0;</code></pre>
+                
+                <p>Border colour</p>
+                <pre><code>--codex-border-color: 255 255 255;</code></pre>
+                
+                <p>Danger colour (cancel)</p>
+                <pre><code>--codex-danger-color: 255 0 0;</code></pre>
+                
+                <p>Warning colour</p>
+                <pre><code>--codex-warning-color: 255 193 7;</code></pre>
+                
+                <p>Success colour</p>
+                <pre><code>--codex-success-color: 25 135 84;</code></pre>
+                
+                <p>Success inverted colour (For content that would need to be visible ontop of the success colour)</p>
+                <pre><code>--codex-success-inverted-color: 255 255 255;</code></pre>
+                
+                <p>Error color</p>
+                <pre><code>--codex-error-color: 241 38 49;</code></pre>
+                
+                <p>Info/small text colour</p>
+                <pre><code>--codex-info-color: 13 202 240;</code></pre>
+
+                <p>Disabled element colour</p>
+                <pre><code>--codex-disabled-color: 102 102 102;</code></pre>
+
+                <h2>Misc</h2>
+
+                <p>Border thickness</p>
+                <pre><code>--codex-border-width</code></pre>
+
+                <p>Form max width</p>
+                <pre><code>--codex-form-max-width</code></pre>
+
+                <p>Content max width</p>
+                <pre><code>--content-max-width</code></pre>
+                    
+                    
+                <h2>Buttons</h2>
+
+                <p>Button height</p>
+                <pre><code>--codex-btn-height: 46px;</code></pre>
+                
+                <p>Button corner roundness</p>
+                <pre><code>--codex-btn-radius: 0rem;</code></pre>
+                
+                <p>Button minimum width</p>
+                <pre><code>--codex-btn-min-width: 0rem;</code></pre>
+
+                <p>Button max width</p>
+                <pre><code>--codex-btn-max-width</code></pre>
+                
+                <p>Button left & right padding</p>
+                <pre><code>--codex-btn-padding-x: 20px;</code></pre>
+                
+                <p>Button top & bottom padding (Inproper formated fonts might require custom styles to be applied).</p>
+                <pre><code>--codex-btn-padding-y: 10px;</code></pre>
+                
+                <p>Button Border thickness</p>
+                <pre><code>--codex-btn-border-width: 2px;</code></pre>
+                
+                <p>Button Typography</p>
+                <pre><code>--codex-btn-font-size: 16px;</code><br></pre>
+                <pre><code>--codex-btn-line-height: 1.2em;</code><br></pre>
+                <pre><code>--codex-btn-font-weight: 500;</code></pre>
+
+                <h3>Primary Button</h3>
+                
+                <p>Background colour</p>
+                <pre><code>--codex-btn-primary-color: 255 217 34;</code></pre>
+                
+                <p>Border colour</p>
+                <pre><code>--codex-btn-primary-border-color: 255 217 34;</code></pre>
+                
+                <p>Text colour</p>
+                <pre><code>--codex-btn-primary-text-color: 0 0 0;</code></pre>
+
+                <h3>Secondary Button</h3>
+                
+                <p>Background colour</p>
+                <pre><code>--codex-btn-secondary-color: transparent;</code></pre>
+                
+                <p>Border colour</p>
+                <pre><code>--codex-btn-secondary-border-color: 255 217 34;</code></pre>
+                
+                <p>Text colour</p>
+                <pre><code>--codex-btn-secondary-text-color: 255 217 34;</code></pre>
+
+                <p>Hover state for primary is secondary and vice versa</p>
+
+                <h3>Close Button (X)</h3>
+                
+                <p>X colour</p>
+                <pre><code>--codex-close-btn-color: 255 255 255;</code></pre>
+
+                
+                <h2>Form/Input/field Elements</h2>
+                    
+                <h3>Colours</h3>
+                
+                <p>Text colour</p>
+                <pre><code>--codex-field-color: 255 255 255;</code></pre>
+                
+                <p>Background colour</p>
+                <pre><code>--codex-field-background: 51 51 51;</code></pre>
+                
+                <p>Border colour</p>
+                <pre><code>--codex-field-border-color: 51 51 51;</code></pre>
+
+                <h3>Measurements</h3>
+                
+                <p>Border thickness</p>
+                <pre><code>--codex-field-border-width: 0.125rem;</code></pre>
+                
+                <p>Border corner roundness</p>
+                <pre><code>--codex-field-radius: 0rem;</code></pre>
+                
+                <p>Padding left & right</p>
+                <pre><code>--codex-field-padding-x: 0.5rem;</code></pre>
+                
+                <p>Padding top & bottom</p>
+                <pre><code>--codex-field-padding-y: 0.5rem;</code></pre>
+                
+                <p>Form max-width</p>
+                <pre><code>--codex-form-max-width: 640px;</code></pre>
+
+
+                <h2>Grid</h2>
+                    
+                <p>Body max-width</p>
+                <pre><code>--codex-body-width: 100%;</code></pre>
+
+                <p>Mobile Gutters (space between the edge of the component and browser).</p>
+                <pre><code>--codex-gutter-mob: 0.625rem;</code></pre>
+                
+                <p>Tablet Gutters (space between the edge of the component and browser).</p>
+                <pre><code>--codex-gutter-tab: 1.25rem;</code></pre>
+                
+                <p>Desktop Gutters (space between the edge of the component and browser).</p>
+                <pre><code>--codex-gutter-desk: 2.5rem;</code></pre>
+
+                <p>Space between grid item. Each item will have this unit so it will be double the number given. (10px = 20px gap)</p>
+                <pre><code>--codex-grid: 10px;</code></pre>
+
+                <p>Space between grid item top and bottom (fallback to --codex-grid). Each item will have this unit so it will be double the number given. (10px = 20px gap)</p>
+                <pre><code>--codex-grid-y: 16px;</code></pre>
+
+
+                <h2>Components</h2>
+
+                <h3>Cards</h3>
+                    
+                <h4>Default card</h4>
+                
+                <p>Item width</p>
+                <p>Easiest way to adjust these is just to change the percentage number the rest if the calculation should always be the same. unless no space is required.</p>
+                <pre><code>--codex-card-width: calc(33.33% - calc(var(--codex-grid)*2));</code></pre>
+
+                <p>Border colour</p>
+                <pre><code>--codex-card-border-color: 0 0 0;</code></pre>
+                
+                <p>Background colour</p>
+                <pre><code>--codex-card-background: 0 0 0;</code></pre>
+                
+                <p>Title background colour</p>
+                <pre><code>--codex-card-title-background: 51 51 51;</code></pre>
+                
+                <p>Title colour</p>
+                <pre><code>--codex-card-title-color: 255 255 255;</code></pre>
+
+                <p>Title padding</p>
+                <pre><code>--codex-card-title-padding: 0.75rem</code></pre>
+                
+                <p>Bookmark colour</p>
+                <pre><code>--codex-bookmark-color: 255 255 255;</code></pre>
+            
+                <p>Card corner roundness</p>
+                <pre><code>--codex-card-radius: 0rem;</code></pre>
+
+                <p>Card padding</p>
+                <pre><code>--codex-card-padding: 0.5rem;</code></pre>
+
+                <p>Card border thickness</p>
+                <pre><code>--codex-card-border-width: 0;</code></pre>
+                
+
+                <p>Button background colour</p>
+                <pre><code>--codex-card-btn-background</code></pre>
+                
+                <p>Button border colour</p>
+                <pre><code>--codex-card-btn-border</code></pre>
+                
+                <p>Button text colour</p>
+                <pre><code>--codex-card-btn-text-color</code></pre>
+
+                <p>Button padding left & right</p>
+                <pre><code>--codex-card-btn-padding-x</code></pre>
+                
+                <p>Button padding top & bottom</p>
+                <pre><code>--codex-card-btn-padding-y</code></pre>
+
+                
+                <h4>Bundle card</h4>
+                
+                <p>Item width</p>
+                <pre><code>--codex-bundle-width: calc(33.33% - calc(var(--codex-grid)*2));</code></pre>
+
+                <p>Border thickness</p>
+                <pre><code>--codex-bundle-border-width: 1px;</code></pre>
+                
+                <p>Border colour</p>
+                <pre><code>--codex-bundle-card-border-color: 217 217 217;</code></pre>
+                
+                <p>Background colour</p>
+                <pre><code>--codex-bundle-card-background: 0 0 0;</code></pre>
+                
+                <p>Title background colour</p>
+                <pre><code>--codex-bundle-title-background: 51 51 51;</code></pre>
+                
+                <p>Title colour</p>
+                <pre><code>--codex-bundle-title-color: 255 217 34;</code></pre>
+
+                <p>Title padding</p>
+                <pre><code>--codex-bundle-title-padding: 0.75rem</code></pre>
+                
+                <p>Text Colour</p>
+                <pre><code>--codex-bundle-text-color: 255 255 255;</code></pre>
+
+                <p>Card corner roundness</p>
+                <pre><code>--codex-bundle-radius: 0rem;</code></pre>
+
+                <p>Padding</p>
+                <pre><code>--codex-bundle-padding: 1.5rem;</code></pre>
+
+                <p>Button background colour</p>
+                <pre><code>--codex-bundle-btn-background</code></pre>
+
+                <p>Button border colour</p>
+                <pre><code>--codex-bundle-btn-border</code></pre>
+
+                <p>Button text colour</p>
+                <pre><code>--codex-bundle-btn-text-color</code></pre>
+
+                
+                <h4>Plan card</h4>
+                
+                <p>Item width</p>
+                <pre><code>--codex-plan-width: calc(33.33% - calc(var(--codex-grid)*2));</code></pre>
+                
+                <p>Border thickness</p>
+                <pre><code>--codex-plan-border-width: 1px;</code></pre>
+
+                <p>Border colour</p>
+                <pre><code>--codex-plan-card-border-color: 217 217 217;</code></pre>
+                
+                <p>Background colour</p>
+                <pre><code>--codex-plan-card-background: 0 0 0;</code></pre>
+                
+                <p>Title background colour</p>
+                <pre><code>--codex-plan-title-background: 51 51 51;</code></pre>
+                
+                <p>Title colour</p>
+                <pre><code>--codex-plan-title-color: 255 217 34;</code></pre>
+                
+                <p>Title padding</p>
+                <pre><code>--codex-plan-title-padding: 0.75rem;</code></pre>
+                
+                <p>Text Colour</p>
+                <pre><code>--codex-plan-text-color: 255 255 255;</code></pre>
+                
+                <p>Padding</p>   
+                <pre><code>--codex-plan-padding: 1.5rem;</code></pre>
+
+                <p>Card corner roundness</p>
+                <pre><code>--codex-plan-radius: 0rem;</code></pre>
+
+                <p>Button background colour</p>
+                <pre><code>--codex-plan-btn-background</code></pre>
+
+                <p>Button border colour</p>
+                <pre><code>--codex-plan-btn-border</code></pre>
+
+                <p>Button text colour</p>
+                <pre><code>--codex-plan-btn-text-color</code></pre>
+
+
+                <h4>Giftcards</h4>
+
+                <p>Item width</p>
+                <pre><code>--codex-giftcard-width: calc(33.33% - calc(var(--codex-grid)*2));</code></pre>
+
+                <p>Border colour</p>
+                <pre><code>--codex-giftcard-card-border-color</code></pre>
+
+                <p>Card corner roundness</p>
+                <pre><code>--codex-giftcard-radius: 0rem;</code></pre>
+
+                <p>Border thickness</p>
+                <pre><code>--codex-giftcard-border-width: 0;</code></pre>
+
+                <p>Background colour</p>
+                <pre><code>--codex-giftcard-card-background</code></pre>
+
+                <p>Title background colour</p>
+                <pre><code>--codex-giftcard-title-background</code></pre>
+                
+                <p>Title colour</p>
+                <pre><code>--codex-giftcard-title-color</code></pre>
+
+                <p>Text colour</p>
+                <pre><code>--codex-giftcard-text-color</code></pre>
+
+                <p>Padding</p>
+                <pre><code>--codex-giftcard-padding</code></pre>
+
+                <p>Button background colour</p>
+                <pre><code>--codex-giftcard-btn-background</code></pre>
+
+                <p>Button border colour</p>
+                <pre><code>--codex-giftcard-btn-border</code></pre>
+
+                <p>Button text colour</p>
+                <pre><code>--codex-giftcard-btn-text-color</code></pre>
+                
+                
+                <h4>Event card</h4>
+                
+                <p>Item width</p>
+                <pre><code>--codex-event-width: calc(33.33% - calc(var(--codex-grid)*2));</code></pre>
+
+                <p>Border colour</p>
+                <pre><code>--codex-event-card-border-color</code></pre>
+
+                <p>Background colour</p>
+                <pre><code>--codex-event-card-background: 0 0 0;</code></pre>
+
+                <p>Text colour</p>
+                <pre><code>--codex-event-text-color: 255 255 255;</code></pre>
+
+                <p>Padding</p>
+                <pre><code>--codex-event-card-padding: 1rem;</code></pre>
+
+                <p>Card corner roundness</p>
+                <pre><code>--codex-event-card-radius</code></pre>
+
+                <p>Border thickness</p>
+                <pre><code>--codex-event-card-border-width: 0;</code></pre>
+                
+                <p>Button background colour</p>
+                <pre><code>--codex-event-btn-background</code></pre>
+
+                <p>Button border colour</p>
+                <pre><code>--codex-event-btn-border</code></pre>
+
+                <p>Button text colour</p>
+                <pre><code>--codex-event-btn-text-color</code></pre>
+
+                
+                <h4>Event Modal/Page</h4>
+
+                <p>Background colour</p>
+                <pre><code>--codex-event-modal-background-color: 233 228 226;</code></pre>
+
+                <p>Border colour</p>
+                <pre><code>--codex-event-modal-border-color: 233 228 226;</code></pre>
+                
+                <p>Text colour</p>
+                <pre><code>--codex-event-modal-text-color: 0 0 0;</code></pre>
+
+                <p>X colour</p>
+                <pre><code>--codex-event-modal-close-btn-color: 255 255 255;</code></pre>
+
+                <h4>Slot</h4>
+
+                <p>slot width (clamp recommended for responsive)</p>
+                <pre><code>--codex-slot-width:;</code></pre>
+
+                <p>slot height (clamp recommended for responsive)</p>
+                <pre><code>--codex-slot-height:;</code></pre>
+
+                <p>slot radius</p>
+                <pre><code>--codex-slot-radius: 100%;</code></pre>
+
+
+                <h4>Key</h4>
+
+                <p>Booking slot text colour</p>
+                <pre><code>--codex-bookable-text-color: 0 0 0</code></pre>
+
+                <p>Booking available colour</p>
+                <pre><code>--codex-available-color: 255 217 34;</code></pre>
+
+                <p>Customer's Booking colour</p>
+                <pre><code>--codex-booked-color: 5 150 105;</code></pre>
+                
+                <p>Instructor colour</p>
+                <pre><code>--codex-instructor-color: 255 0 144;</code></pre>
+                
+                <p>Non-bookable slot background colour</p>
+                <pre><code>--codex-nonbookable-background: 0 0 0;</code></pre>
+
+                <p>Non-bookable slot text colour</p>
+                <pre><code>--codex-nonbookable-color: 255 255 255;</code></pre>
+
+                <p>Booking helper background colour</p>
+                <pre><code>--codex-event-banner-background: 96 96 96;</code></pre>
+
+                <p>Booking helper text colour</p>
+                <pre><code>--codex-event-banner-text-color: 0 0 0;</code></pre>
+
+                
+                <h4>Video card</h4>
+                
+                <p>Item width</p>
+                <pre><code>--codex-video-width: calc(25% - calc(var(--codex-grid)*2));</code></pre>
+                
+                <p>Border colour</p>
+                <pre><code>--codex-video-card-border-color: transparent;</code></pre>
+                
+                <p>Background colour</p>
+                <pre><code>--codex-video-card-background: 0 0 0;</code></pre>
+
+                <p>Text colour</p>
+                <pre><code>--codex-video-text-color: 255 255 255;</code></pre>
+
+                <p>Bookmark colour</p>
+                <pre><code>--codex-video-bookmark-color: 255 255 255;</code></pre>
+                
+                <p>Border thickness</p>
+                <pre><code>--codex-video-border-width: 0;</code></pre>
+
+                <p>Border corner roundness</p>
+                <pre><code>--codex-video-radius: 0px;</code></pre>
+
+                <p>Padding</p>
+                <pre><code>--codex-video-padding: 1rem;</code></pre>
+
+                <p>Button background colour</p>
+                <pre><code>--codex-video-btn-background</code></pre>
+
+                <p>Button border colour</p>
+                <pre><code>--codex-video-btn-border</code></pre>
+
+                <p>Button text colour</p>
+                <pre><code>--codex-video-btn-text-color</code></pre>
+
+                
+                <h4>Instructor card</h4>
+                
+                <p>Item width</p>
+                <pre><code>--codex-instructor-card-width: calc(50% - 1.25rem);</code></pre>
+                
+                <p>Text colour</p>
+                <pre><code>--codex-instructor-card-text-color: 255 255 255;</code></pre>
+                
+                <p>Bookmark colour</p>
+                <pre><code>--codex-instructor-bookmark-color</code></pre>
+                
+                <p>Padding</p>
+                <pre><code>--codex-instructor-card-padding: 1rem;</code></pre>
+
+                <p>Border colour</p>
+                <pre><code>--codex-instructor-card-border</code></pre>
+
+                <p>Border thickness</p>
+                <pre><code>--codex-instructor-border-width: 0;</code></pre>
+                
+                <p>Background colour</p>
+                <pre><code>--codex-instructor-card-background</code></pre>
+
+                <p>Button background colour</p>
+                <pre><code>--codex-instructor-btn-background</code></pre>   
+
+                <p>Button border colour</p>
+                <pre><code>--codex-instructor-btn-border</code></pre>
+
+                <p>Button text colour</p>
+                <pre><code>--codex-instructor-btn-text-color</code></pre>
+                
+
+                <h4>Account Card</h4>
+                
+                <p>Border colour</p>
+                <pre><code>--codex-account-card-border-color: 217 217 217;</code></pre>
+                
+                <p>Border thickness</p>
+                <pre><code>--codex-account-border-width: 1px;</code></pre>
+
+                <p>Card corner roundness</p>
+                <pre><code>--codex-account-radius</code></pre>
+                
+                <p>Background colour</p>
+                <pre><code>--codex-account-card-background</code></pre>
+
+                <p>Title background colour</p>
+                <pre><code>--codex-account-card-title-background</code></pre>
+
+                <p>Title text colour</p>
+                <pre><code>--codex-account-card-title-color</code></pre>
+
+                <p>Padding</p>
+                <pre><code>--codex-account-padding</code></pre>
+
+                <p>Button text colour</p>
+                <pre><code>--codex-account-card-text-color</code></pre>
+
+                <p>Button background colour</p>
+                <pre><code>--codex-account-card-btn-background</code></pre>
+
+                <p>Button border colour</p>
+                <pre><code>--codex-account-card-btn-border</code></pre>
+
+                <p>Button text colour</p>
+                <pre><code>--codex-account-card-btn-text-color</code></pre>
+                
+
+                <h3>filters</h3>
+                
+                <p>Dropdown background colour</p>
+                <pre><code>--codex-dropdown-background: 200 200 200;</code></pre>
+                
+                <p>Dropdown primary colour (selected option)</p>
+                <pre><code>--codex-dropdown-primary-color: 48 48 48;</code></pre>
+
+                <p>Dropdown primary border colour (selected option)</p>
+                <pre><code>--codex-dropdown-primary-border-color: 48 48 48;</code></pre>
+            
+                <p>Dropdown primary text colour (selected option)</p>
+                <pre><code>--codex-dropdown-primary-text-color: 255 255 255;</code></pre>
+
+                <p>Dropdown secondary background colour (hover option)</p>
+                <pre><code>--codex-dropdown-secondary-color: 96 96 96;</code></pre>
+                
+                <p>Dropdown secondary text border (hover option)</p>
+                <pre><code>--codex-dropdown-secondary-border-color: 96 96 96;</code></pre>
+                
+                <p>Dropdown secondary text colour (hover option)</p>
+                <pre><code>--codex-dropdown-secondary-text-color: 255 255 255;</code></pre>
+                
+                <p>Active filter background colour</p>
+                <pre><code>--codex-tag-background: 255 217 34;</code></pre>
+                
+                <p>Active filter text colour</p>
+                <pre><code>--codex-tag-text-color: 0 0 0;</code></pre>
+
+                <p>Active filter font size</p>
+                <pre><code>--codex-tag-font-size</code></pre>
+                
+                <p>Active filter border colour</p>
+                <pre><code>--codex-tag-border-color: 255 217 34;</code></pre>
+                
+                <p>Active filter border roundness</p>
+                <pre><code>--codex-tag-radius</code></pre>
+                
+                <p>Active filter border thickness</p>
+                <pre><code>--codex-tag-border-width</code></pre>
+
+                <p>Active filter padding left & right</p>
+                <pre><code>--codex-tag-padding-x</code></pre>
+                
+                <p>Active filter padding top & bottom</p>
+                <pre><code>--codex-tag-padding-y</code></pre>
+                
+                <div class="non-default">
+                    <p>Switch background colour (Not a default filter type)</p>
+                    <pre><code>--codex-switch-background: 48 48 48;</code></pre>
+                    
+                    <p>Switch thumb colour (Not a default filter type)</p>
+                    <pre><code>--codex-switch-thumb-color: 255 255 255;</code></pre>
+                </div>
+
+
+                <h3>Timetable</h3>
+
+                <h4>Navigation (Quick date selector)</h4>
+
+                <p>Timetable navigation width</p>
+                <pre><code>--codex-nav-width: 100%;</code></pre>
+
+                <!-- <pre><code>--codex-nav-background-color: 255 255 255;</code></pre> -->
+                
+                <p>Navigation card corner roundness</p>
+                <pre><code>--codex-nav-card-radius: 0;</code></pre>
+                    
+                <p>Navigation card border thickness</p>
+                <pre><code>--codex-nav-card-border-width: 0;</code></pre>
+
+                <p>Navigation card border colour</p>
+                <pre><code>--codex-nav-card-border-color: 0 0 0;</code></pre>
+
+                <p>Navigation card background colour</p>
+                <pre><code>--codex-nav-card-background: 0 0 0;</code></pre>
+
+                <p>Navigation card text colour</p>
+                <pre><code>--codex-nav-card-text-color: 255 255 255;</code></pre>
+
+                <p>Navigation card active background colour</p>
+                <pre><code>--codex-nav-card-active-background: 255 217 34;</code></pre>
+
+                <p>Navigation card active text colour</p>
+                <pre><code>--codex-nav-card-active-text-color: 0 0 0;</code></pre>
+
+                <h4>Navigation Time (AM/PM/ALL DAY)</h4>
+
+                <p>Border thickness</p>
+                <pre><code>--codex-nav-btn-border-width</code></pre>
+
+                <p>Active button background colour</p>
+                <pre><code>--codex-nav-btn-primary-background: 255 217 34;</code></pre>
+
+                <p>Active button border colour</p>
+                <pre><code>--codex-nav-btn-primary-border-color: 255 217 34;</code></pre>
+
+                <p>Active button text colour</p>
+                <pre><code>--codex-nav-btn-primary-text-color: 0 0 0;</code></pre>
+                
+                <p>Button background colour</p>
+                <pre><code>--codex-nav-btn-secondary-background: 0 0 0;</code></pre>
+
+                <p>Button border colour</p>
+                <pre><code>--codex-nav-btn-secondary-border-color: 0 0 0;</code></pre>
+                
+                <p>Button text colour</p>
+                <pre><code>--codex-nav-btn-secondary-text-color: 255 255 255;</code></pre>
+
+                <h3>Loader states</h3>
+
+                <p>Loading modal size</p>
+                <pre><code>--codex-loader-size</code></pre>
+                
+                <p>Loading spinner size</p>
+                <pre><code>--codex-loader-size-inner</code></pre>
+                    
+                <p>Loading spinner colour</p>
+                <pre><code>--codex-loader-color: 48 48 48;</code></pre>
+                
+                <p>Skeleton loader pulsing colour (mimics text)</p>
+                <pre><code>--codex-skeleton-color: 200 200 200;</code></pre>
+
+                <h3>Video detail</h3>
+
+                <p>Video control colours</p>
+                <p>This colour can be a hex or rgb but requires rgb()</p>
+                <pre><code>--codex-video-primary-color: rgb(255 255 255);</code></pre>
+
+                <p>Video content text colours</p>
+                <pre><code>--codex-video-content-color</code></pre>
+
+                <h3>Account</h3>
+                
+                <p>Account navigation font size/line-height</p>
+                <pre><code>--codex-account-nav-font-size</code></pre>
+                <pre><code>--codex-account-nav-line-height</code></pre>
+                <pre><code>--codex-account-nav-font-weight: 600;</code></pre>
+
+                <p>Account navigation border colour</p>
+                <pre><code>--codex-account-nav-border-color:;</code></pre>
+
+                <p>Account navigation border corner roundness</p>
+                <pre><code>--codex-account-nav-radius</code></pre>
+                        
+                <p>Account navigation background colour</p>
+                <pre><code>--codex-account-nav-background: 255 255 255;</code></pre>
+
+                <p>Account navigation text colour</p>
+                <pre><code>--codex-account-nav-text-color: 0 0 0;</code></pre>
+                
+                <p>Account navigation item hover background colour</p>
+                <pre><code>--codex-account-nav-primary: 48 48 48;</code></pre>
+                    
+                <p>Account navigation item hover text colour</p>
+                <pre><code>--codex-account-nav-primary-text-color: 255 255 255;</code></pre>  
+
+                <p>Account navigation item padding left & right</p>
+                <pre><code>--codex-account-nav-padding-x</code></pre>
+
+                <p>Account navigation item padding left & right (desktop)</p>
+                <pre><code>--codex-account-nav-padding-x-lg</code></pre>
+                
+                <p>Account navigation item padding top & bottom</p>
+                <pre><code>--codex-account-nav-padding-y</code></pre>
+
+                <h2>Modals</h2>
+
+                <p>Background colour</p>
+                <pre><code>--codex-modal-background-color: 0 0 0;</code></pre>
+
+                <p>Border colour</p>
+                <pre><code>--codex-modal-border-color: 0 0 0;</code></pre>
+
+                <p>Text colour</p>
+                <pre><code>--codex-modal-text-color: 255 255 255;</code></pre>
+
+                <p>Border corner roundness</p>
+                <pre><code>--codex-modal-radius: 0rem;</code></pre>
+                
+                <p>Max width</p>
+                <pre><code>--codex-modal-max-width: 40rem;</code></pre>
+
+                <p>Min width</p>
+                <pre><code>--codex-modal-min-width</code></pre>
+
+                <p>Gutters</p>
+                <pre><code>--codex-modal-gutters</code></pre>
+                    
+                <p>Overlay background colour</p>
+                <pre><code>--codex-overlay-background: 0 0 0;</code></pre>
+                
+                <p>Overlay opacity</p>
+                <pre><code>--codex-overlay-alpha: 0.4;</code></pre>
+
+
+                <h2>Cart</h2>
+
+                <p>Min width</p>
+                <pre><code>--codex-cart-min-width: 32.5rem;</code></pre>
+
+                <p>Min width</p>
+                <pre><code>--codex-cart-max-width: 32.5rem;</code></pre>
+
+                <h3>Typography</h3>
+                
+                <p>Header font family</p>
+                <pre><code>--codex-cart-header-font-family: 'Nunito Sans', sans-serif;</code></pre>
+                
+                <p>Header font size/line-height</p>
+                <pre><code>--codex-cart-item-header-font-size: 0.875rem;</code></pre>
+                <pre><code>--codex-cart-item-header-line-height: 1.25rem;</code></pre>
+                
+                <p>Body font family</p>
+                <pre><code>--codex-cart-body-font-family: 'Nunito Sans', sans-serif;</code></pre>
+
+                <p>Body font size/line-height</p>
+                <pre><code>--codex-cart-item-font-size: 0.75rem;</code></pre>
+                <pre><code>--codex-cart-item-line-height: 1rem;</code></pre>
+                
+                <h3>Other styles</h3>
+
+                <p>Background colour</p>
+                <pre><code>--codex-cart-background-color: 0 0 0;</code></pre>
+
+                <p>Border colour (outer)</p>
+                <pre><code>--codex-cart-border-color: 0 0 0;</code></pre>
+                
+                <p>Border thickness</p>
+                <pre><code>--codex-cart-border-width: 1px;</code></pre>
+
+                <p>Primary text colour</p>
+                <pre><code>--codex-cart-text-primary: 255 255 255;</code></pre>
+                
+                <p>Secondary text colour</p>
+                <pre><code>--codex-cart-text-secondary: 102 102 102;</code></pre>
+
+                <p>Tertiary text colour</p>
+                <pre><code>--codex-cart-text-tertiary: 255 255 255;</code></pre>
+
+                <p>Accent line colour</p>
+                <pre><code>--codex-cart-line-color: 102 102 102;</code></pre>
+
+                <p>Button primary background colour</p>
+                <pre><code>--codex-cart-btn-primary:  255 217 34;</code></pre>
+                <p>Button primary border colour</p>
+                <pre><code>--codex-cart-btn-primary-border:  255 217 34;</code></pre>
+
+                <p>Button primary text colour</p>
+                <pre><code>--codex-cart-btn-primary-text-color: 0 0 0;</code></pre>
+                
+                <p>Button secondary background colour</p>
+                <pre><code>--codex-cart-btn-secondary: transparent;</code></pre>
+                
+                <p>Button secondary border colour</p>
+                <pre><code>--codex-cart-btn-secondary-border: 255 217 34;</code></pre>
+
+                <p>Button secondary text colour</p>
+                <pre><code>--codex-cart-btn-secondary-text-color: 255 217 34;</code></pre>
+                
+                <p>Link colour</p>
+                <pre><code>--codex-cart-link-color: 255 217 34;</code></pre>
+
+                <p>Remove item link colour</p>
+                <pre><code>--codex-cart-remove-color: 255 255 255;</code></pre>
+
+                <p>Close button (x)</p>
+                <pre><code>--codex-cart-close-btn: 255 255 255;</code></pre>
+
+                <p>Voucher field background colour</p>
+                <pre><code>--codex-cart-voucher-background: 48 48 48;</code></pre>
+                
+                <p>Voucher field text colour</p>
+                <pre><code>--codex-cart-voucher-text-color: 255 255 255;</code></pre>
+
+                <p>Announcement bar background colour</p>
+                <pre><code>--codex-cart-announcement-background: 200 200 200;</code></pre>
+                
+                <p>Announcement bar text colour</p>
+                <pre><code>--codex-cart-announcement-text-color: 0 0 0;</code></pre>
+
+                <p>Loading spinner colour</p>
+                <pre><code>--codex-cart-loader-color: 48 48 48;</code></pre>
+                
+                <div class="non-default">
+                    <h3>Cart Summary</h3>
+
+                    <p>Background colour</p>
+                    <pre><code>--codex-cart-summary-background: 255 0 0;</code></pre>
+
+                    <p>Border colour</p>
+                    <pre><code>--codex-cart-summary-border: 0 0 0;</code></pre>
+
+                    <p>Text colour</p>
+                    <pre><code>--codex-cart-summary-text-color: 0 0 0;</code></pre>
+                </div>
+
+                
+                <h2>SVGs</h2>
+
+                <p>Success colour</p>
+                <p>This colour can be a hex or rgb but requires rgb()</p>
+                <pre><code>--success-color: rgb(48 48 48);</code></pre>
+                    
+                <p>Success inverted colour </p>
+                <p>This colour can be a hex or rgb but requires rgb()</p>
+                <pre><code>--success-reverse-color: rgb(0 0 0);</code></pre>
+                    
+
+                <p>Success inverted colour </p>
+                <p>This colour can be a hex or rgb but requires rgb()</p>
+                <pre><code>--stroke-color: #000;</code></pre>
+
+                <h2>Site Header</h2>
+                <p>Required so modals know what height to offset so they do not cover the site header</p>
+
+                <p>header height (mobile)</p>
+                <pre><code>--site-header-height: 64px;</code></pre>
+
+                <p>header height (Desktop)</p>
+                <pre><code>--site-header-height-lg</code></pre>
+
+                <h2>Animation Duration</h2>
+
+                <p>Button duration</p>
+                <pre><code>--codex-btn-duration</code></pre>
+                
+                <p>Image duration</p>
+                <pre><code>--codex-images-duration</code></pre>
+                
+                <p>Text duration</p>
+                <pre><code>--codex-text-duration</code></pre>
+                
+            </div>
+        </div>
+        
+    </div>
+
+</body>
+</html>

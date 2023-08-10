@@ -165,29 +165,29 @@
 
                 <pre>
                     <code>
-                        Codex().set(
-                            'auto_configure', {
-                                modals: {
-                                    'codex-login-register': {
-                                        modalProps: { 
-                                            'v-slot': '{close}',
-                                            ':delay-close': 9999,
-                                        },
-                                        props: {
-                                            'login-redirect': '/pages/my-account',
-                                            'register-redirect': '/pages/book',
-                                            ':password-redirect': false,
-                                            ':delay-close': 2000,
-                                            ':show-login-default': true,
-                                            'v-on:redirect': 'close'
-                                        }
-                                    },
-                                    'codex-checkout': {
-                                        modalProps: { 'x-position': 'right', 'y-position': 'top' }
-                                    }
-                                }
-                            }
-                        )
+    Codex().set(
+        'auto_configure', {
+            modals: {
+                'codex-login-register': {
+                    modalProps: { 
+                        'v-slot': '{close}',
+                        ':delay-close': 9999,
+                    },
+                    props: {
+                        'login-redirect': '/pages/my-account',
+                        'register-redirect': '/pages/book',
+                        ':password-redirect': false,
+                        ':delay-close': 2000,
+                        ':show-login-default': true,
+                        'v-on:redirect': 'close'
+                    }
+                },
+                'codex-checkout': {
+                    modalProps: { 'x-position': 'right', 'y-position': 'top' }
+                }
+            }
+        }
+    )
                     </code>
                 </pre>
 
@@ -205,9 +205,9 @@
 
                 <pre>
                     <code>
-                        &lt;codex-modal name="codex-bundle-modal" x-position="center" y-position="center" :delay-close="5000" v-slot="{close, redirect}"&gt;
-                            &lt;codex-bundles&gt;&lt;/codex-bundles&gt;
-                        &lt;/codex-modal&gt;
+    &lt;codex-modal name="codex-bundle-modal" x-position="center" y-position="center" :delay-close="5000" v-slot="{close, redirect}"&gt;
+        &lt;codex-bundles&gt;&lt;/codex-bundles&gt;
+    &lt;/codex-modal&gt;
                     </code>
                 </pre>
 
@@ -221,9 +221,9 @@
 
                 <pre>
                     <code>
-                        &lt;a data-codex-modal-toggle="codex-login-register" href="#"&gt;Login&lt;/a&gt;
+    &lt;a data-codex-modal-toggle="codex-login-register" href="#"&gt;Login&lt;/a&gt;
 
-                        &lt;a data-codex-modal-toggle="codex-checkout" href="#"&gt;Cart&lt;/a&gt;
+    &lt;a data-codex-modal-toggle="codex-checkout" href="#"&gt;Cart&lt;/a&gt;
                     </code>
                 </pre>
 
@@ -232,19 +232,19 @@
                 <p>Open:</p>
                 <pre>
                     <code>
-                        document.dispatchEvent(new Event('codex.modal.open.<span>codex-bundle-modal</span>'))
+    document.dispatchEvent(new Event('codex.modal.open.<span>codex-bundle-modal</span>'))
                     </code>
                 </pre>
                 <p>Close:</p>
                 <pre>
                     <code>
-                        document.dispatchEvent(new Event('codex.modal.close.<span>codex-bundle-modal</span>'))
+    document.dispatchEvent(new Event('codex.modal.close.<span>codex-bundle-modal</span>'))
                     </code>
                 </pre>
                 <p>Toggle:</p>
                 <pre>
                     <code>
-                        document.dispatchEvent(new Event('codex.modal.toggle.<span>codex-bundle-modal</span>'))
+    document.dispatchEvent(new Event('codex.modal.toggle.<span>codex-bundle-modal</span>'))
                     </code>
                 </pre>
 
