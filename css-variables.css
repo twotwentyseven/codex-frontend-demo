@@ -234,7 +234,9 @@
 				--codex-video-padding: 1rem;
 			
 			/* account */
-				--codex-account-card-border-color: 217 217 217;
+				--codex-account-card-background: 0 0 0;
+				--codex-account-card-text-color: 255 255 255;
+				--codex-account-card-border-color: 0 0 0;
 				--codex-account-border-width: 1px;
 
 			/* instructor card */
@@ -334,10 +336,10 @@
 			/* colors */
 				/* --codex-account-nav-border-color */
 				
-				--codex-account-nav-background: 255 255 255;
+				--codex-account-nav-background: 51 51 51;
 				--codex-account-nav-text-color: 0 0 0;
-				--codex-account-nav-primary: 48 48 48;
-				--codex-account-nav-primary-text-color: 255 255 255;
+				--codex-account-nav-primary: 255 217 34;
+				--codex-account-nav-primary-text-color: 0 0 0;
 
 		/* Account End */
 
