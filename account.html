@@ -18,7 +18,18 @@
             'routerConfig', {
                 mode: 'hash',
                 routes: [
-                    { path: '/', component: 'overview', title: 'Overview' },
+                    { path: '/', component: 'overview', title: 'Overview', children: 
+                    [
+                        { component: 'codex-available-credits' },
+                        { component: 'codex-bookings-completed' },
+                        { component: 'codex-subscriptions-overview' },
+                        { component: 'codex-refer-friend' },
+                        { component: 'codex-bookings', props: { type: 'upcoming' } },
+                        { component: 'codex-waitlists' },
+                        { component: 'codex-heading', props: { tag: 'div', title: 'Video Views' } },
+                        { component: 'codex-video-views' },
+                    ]
+                    },
                     { path: '/credits', component: 'credits', title: 'Credits' },
                     { path: '/membership', component: 'membership', title: 'Memberships' },
                     { path: '/favourites', component: 'favourites', title: 'Favourites' },
