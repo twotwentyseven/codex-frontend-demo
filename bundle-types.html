@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODEXFit Frontend Library v3</title>
+    <script src="https://demo.codexfit.com/autoconfigure.js"></script>
+    
+    <!-- <link href="https://api-v3.codexfit.com/app.css" rel="stylesheet" type="text/css"> -->
+    <link href="css-variables.css" rel="stylesheet" type="text/css"/>
+    <link href="demo.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,200;1,6..12,400;1,6..12,600;1,6..12,700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <svg viewBox="0 0 365 38" xmlns="http://www.w3.org/2000/svg">
+                <path d="M26.9,44.65 C21.3999725,44.65 17.016683,42.8000185 13.75,39.1 C10.5833175,35.5333155 9,31.1000265 9,25.8 C9,20.4999735 10.5833175,16.083351 13.75,12.55 C17.08335,8.8499815 21.4666395,7 26.9,7 C30.833353,7 34.366651,8.0833225 37.5,10.25 C40.16668,12.050009 42.133327,14.5999835 43.4,17.9 L36.9,20.85 L36.85,20.85 L36.4,19.8 C35.666663,18.066658 34.5500075,16.700005 33.05,15.7 C31.516659,14.6666615 29.75001,14.15 27.75,14.15 C25.616656,14.15 23.8666735,14.449997 22.5,15.05 C21.1333265,15.650003 20.0000045,16.449995 19.1,17.45 C17.233324,19.5500105 16.3,22.333316 16.3,25.8 C16.3,29.200017 17.233324,31.9833225 19.1,34.15 C21.0000095,36.350011 23.883314,37.45 27.75,37.45 C29.816677,37.45 31.583326,36.950005 33.05,35.95 C34.6166745,34.9166615 35.73333,33.5500085 36.4,31.85 L36.85,30.75 L36.9,30.75 L43.4,33.75 C42.0999935,36.9833495 40.1333465,39.533324 37.5,41.4 C34.3999845,43.5666775 30.8666865,44.65 26.9,44.65 Z M78.6,44.65 C73.133306,44.65 68.6166845,42.8000185 65.05,39.1 C61.6166495,35.566649 59.9,31.13336 59.9,25.8 C59.9,20.4999735 61.633316,16.0666845 65.1,12.5 C68.6000175,8.833315 73.0999725,7 78.6,7 C84.1000275,7 88.5999825,8.833315 92.1,12.5 C95.5333505,16.033351 97.25,20.46664 97.25,25.8 C97.25,31.1666935 95.5333505,35.616649 92.1,39.15 C88.5999825,42.816685 84.1000275,44.65 78.6,44.65 Z M78.6,37.45 C82.1666845,37.45 84.94999,36.350011 86.95,34.15 C88.9833435,31.9833225 90,29.200017 90,25.8 C90,22.399983 88.9833435,19.633344 86.95,17.5 C84.816656,15.2666555 82.0333505,14.15 78.6,14.15 C75.133316,14.15 72.3500105,15.2666555 70.25,17.5 C68.2166565,19.633344 67.2,22.399983 67.2,25.8 C67.2,29.200017 68.2166565,31.9833225 70.25,34.15 C72.316677,36.350011 75.0999825,37.45 78.6,37.45 Z M115.75,7.5 L131.55,7.5 C133.816678,7.5 135.94999,7.9166625 137.95,8.75 C139.95001,9.550004 141.783325,10.783325 143.45,12.45 C146.916684,15.983351 148.65,20.4666395 148.65,25.9 C148.65,31.3333605 146.916684,35.8333155 143.45,39.4 C141.883326,41.000008 140.050011,42.233329 137.95,43.1 C135.94999,43.9333375 133.816678,44.35 131.55,44.35 L115.75,44.35 L115.75,7.5 Z M131.4,37.25 C134.366682,37.25 136.766658,36.1666775 138.6,34 C140.433343,31.866656 141.35,29.166683 141.35,25.9 C141.35,22.6666505 140.433343,19.983344 138.6,17.85 C136.733324,15.649989 134.333348,14.55 131.4,14.55 L123.05,14.55 L123.05,37.25 L131.4,37.25 Z M167.15,7.5 L195.2,7.5 L195.2,14.6 L167.15,14.6 L167.15,22.3 L189.5,22.3 L189.5,29.5 L167.15,29.5 L167.15,37.2 L195.2,37.2 L195.2,44.35 L167.15,44.35 L167.15,7.5 Z M224.6,25.35 L210.85,7.5 L220.1,7.5 L229.1,19.45 L238.15,7.5 L247.35,7.5 L233.6,25.35 L248.25,44.35 L239.05,44.35 L229.1,31.2 L219.15,44.35 L209.95,44.35 L224.6,25.35 Z M265,7.5 L292.6,7.5 L292.6,14.6 L272.3,14.6 L272.3,25.2 L286.85,25.2 L286.85,32.4 L272.3,32.4 L272.3,44.35 L265,44.35 L265,7.5 Z M310.1,7.5 L317.4,7.5 L317.4,44.35 L310.1,44.35 L310.1,7.5 Z M346.05,14.6 L334.4,14.6 L334.4,7.5 L364.95,7.5 L364.95,14.6 L353.3,14.6 L353.3,44.35 L346.05,44.35 L346.05,14.6 Z" id="codexfit"></path>
+            </svg>
+        </a>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">Modals</a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="#" data-codex-modal-toggle="codex-login-register">Login/Register Modal</a>
+                            </li>
+                            <li>
+                                <a href="#" data-codex-modal-toggle="codex-checkout">Cart Modal</a>
+                            </li>
+                            <li>
+                                <a href="modal.html">How modals work</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">Login/Register</a>
+                    <nav>
+                        <ul>
+                            
+                            <li>
+                                <a href="login.html">Login/Logout</a>
+                            </li>
+                            <li>
+                                <a href="register.html">Register</a>
+                            </li>
+                            <li>
+                                <a href="password.html">Password</a>
+                            </li>
+                            <li>
+                                <a href="verifysms.html">SMS Verification</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">Purchasing</a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="bundles.html">Bundles</a>
+                            </li>
+                            <li>
+                                <a href="bundle-types.html">Bundle types</a>
+                            </li>
+                            <li>
+                                <a href="plans.html">Plans</a>
+                            </li>
+                            <li>
+                                <a href="cart.html">Cart</a>
+                            </li>
+                            <li>
+                                <a href="sca-confirmation.html">SCA Confirmation</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">Booking</a>
+                    <nav>
+                        <ul> 
+                            <li>
+                                <a href="timetable.html">Timetable</a>
+                            </li>
+                            <li>
+                                <a href="event.html">Event</a>
+                            </li>  
+                            <li>
+                                <a href="waitlist.html">Waitlist</a>
+                            </li>  
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">On Demand</a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="videos.html">Videos</a>
+                            </li>
+                            <li>
+                                <a href="video.html">Video</a>
+                            </li>
+                            <li>
+                                <a href="video-collections.html">Video Collections</a>
+                            </li>
+                            <li>
+                                <a href="video-collection.html">Video Collection</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">Instructors</a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="instructors.html">Instructors</a>
+                            </li>
+                            <li>
+                                <a href="instructor.html">Instructor Detail</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">Customer Account</a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="account.html">Account</a>
+                            </li>
+                            <li>
+                                <a href="account-setup.html">Account Set up</a>
+                            </li>
+                            
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="variables.html">Variables</a>
+                </li>
+                <!-- <li>
+                    Overrides
+                </li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <div data-codex>
+
+        <codex-bundle-types></codex-bundle-types>
+
+    </div>
+
+</body>
+</html>
