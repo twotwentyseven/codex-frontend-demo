@@ -21,6 +21,10 @@
             </svg>
         </a>
         <nav>
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
             <ul>
                 <li>
                     <a href="#">Modals</a>
@@ -154,11 +158,20 @@
 
     <div data-codex>
     
-        <codex-register title="Register"></codex-register>
-
-        <codex-logout></codex-logout>
+        <codex-login-register :show-register-default="true" :show-labels="true"></codex-login-register>
 
     </div>
+
+    <div class="row">
+        <div class="cell small-12">
+            <pre>
+                <code>
+    &lt;codex-login-register :show-register-default="true" :show-labels="true"&gt;&lt;/codex-login-register&gt;      
+                </code>
+            </pre>
+        </div>
+    </div>
+
 
 </body>
 </html>

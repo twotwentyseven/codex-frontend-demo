@@ -26,6 +26,10 @@
             </svg>
         </a>
         <nav>
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
             <ul>
                 <li>
                     <a href="#">Modals</a>
@@ -201,7 +205,7 @@
                 <pre><code>--codex-body-font-weight: 400;</code></pre>
 
                 <p>Input/Select font size/line-height</p>
-                <pre><code>--codex-feild-font-size: 1rem;</code><br></pre>
+                <pre><code>--codex-field-font-size: 1rem;</code><br></pre>
                 <pre><code>--codex-field-line-height: 1.1em;</code><br></pre>
                 <pre><code>--codex-field-font-weight: 400;</code></pre>
 
@@ -242,7 +246,7 @@
                 <pre><code>--codex-body-line-height-lg: 1.25em;</code></pre>
                 
                 <p>Input/Select font size/line-height</p>
-                <pre><code>--codex-feild-font-size-lg: 1rem;</code><br></pre>
+                <pre><code>--codex-field-font-size-lg: 1rem;</code><br></pre>
                 <pre><code>--codex-field-line-height-lg: 1.25em;</code></pre>
 
                 <p>Dropdown internal font size/line-height</p>
@@ -754,6 +758,9 @@
 
                 <p>Border thickness</p>
                 <pre><code>--codex-instructor-border-width: 0;</code></pre>
+
+                <p>Border corner roundness</p>
+                <pre><code>--codex-instructor-radius: 16px;</code></pre>
                 
                 <p>Background colour</p>
                 <pre><code>--codex-instructor-card-background</code></pre>
@@ -894,6 +901,9 @@
 
                 <p>Border thickness</p>
                 <pre><code>--codex-nav-btn-border-width</code></pre>
+
+                <p>Border corner roundness</p>
+                <pre><code>--codex-nav-btn-radius</code></pre>
 
                 <p>Active button background colour</p>
                 <pre><code>--codex-nav-btn-primary-background: 255 217 34;</code></pre>
@@ -1161,7 +1171,7 @@
     --codex-body-font-size
     --codex-body-line-height
     --codex-body-font-weight
-    --codex-feild-font-size
+    --codex-field-font-size
     --codex-field-line-height
     --codex-field-font-weight
     --codex-dropdown-font-size
@@ -1181,7 +1191,7 @@
     --codex-subtitle-line-height-lg
     --codex-body-font-size-lg
     --codex-body-line-height-lg
-    --codex-feild-font-size-lg
+    --codex-field-font-size-lg
     --codex-field-line-height-lg
     --codex-dropdown-font-size-lg
     --codex-dropdown-line-height-lg
@@ -1333,6 +1343,7 @@
     --codex-instructor-card-padding
     --codex-instructor-card-border
     --codex-instructor-border-width
+    --codex-instructor-radius
     --codex-instructor-card-background
     --codex-instructor-btn-background   
     --codex-instructor-btn-border
@@ -1375,6 +1386,7 @@
     --codex-nav-card-active-background
     --codex-nav-card-active-text-color
     --codex-nav-btn-border-width
+    --codex-nav-btn-radius
     --codex-nav-btn-primary-background
     --codex-nav-btn-primary-border-color
     --codex-nav-btn-primary-text-color
@@ -1442,7 +1454,12 @@
     --codex-cart-summary-text-color
     --codex-btn-duration
     --codex-images-duration
-    --codex-text-duration</code>
+    --codex-text-duration
+    --success-color
+    --success-reverse-color
+    --stroke-color
+    --site-header-height
+    --site-header-height-lg</code>
                 </pre>
             </div>
         </div>

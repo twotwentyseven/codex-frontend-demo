@@ -586,7 +586,7 @@ code span {
         position: static;
         height: auto;
         width: auto;
-        overflow: auto;
+        overflow: visible;
     }
 
     .menu__btn, #menu__toggle {
