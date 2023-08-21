@@ -217,7 +217,7 @@
 
 		<template v-slot:event-modal="{ id, eventObject, purchaseUrl, isModal, closeModal }">
 
-			<codex-event :id="id" :event-object="eventObject" account-url="/pages/my-account" purchase-url="/pages/buy-page" :show-when-logged-out="true" :is-modal="isModal" :close-modal="closeModal">
+			<codex-event :id="id" :event-object="eventObject" account-url="account.html" purchase-url="purchase.html" :show-when-logged-out="true" :is-modal="isModal" :close-modal="closeModal">
 
 			</codex-event>
 
@@ -228,6 +228,7 @@
 
 	<div class="row">
         <div class="cell small-12">
+			<h2>Code Example</h2>
             <pre>
                 <code>
     &lt;codex-timetable-alt
@@ -235,7 +236,7 @@
 		start-date="2022-10-01"
 		:show-bookmark-toggle="true"
 		:show-events-when-logged-out="true"
-		event-detail-url="/pages/event"
+		event-detail-url="event.html"
 		:show-date-on-event-card="true"
 		:days-to-show="{
 			640: 1,
@@ -288,12 +289,39 @@
 
 		&lt;template v-slot:event-modal="{ id, eventObject, purchaseUrl, isModal, closeModal }"&gt;
 
-			&lt;codex-event :id="id" :event-object="eventObject" account-url="/pages/my-account" purchase-url="/pages/buy-page" :show-when-logged-out="true" :is-modal="isModal" :close-modal="closeModal"&gt;
+			&lt;codex-event :id="id" :event-object="eventObject" account-url="account.html" purchase-url="purchase.html" :show-when-logged-out="true" :is-modal="isModal" :close-modal="closeModal"&gt;
 
 			&lt;/codex-event&gt;
 
 		&lt;/template&gt;
 	&lt;/codex-timetable-alt&gt;
+				</code>
+			</pre>
+			<br>
+			<h3>Required props for redirects:</h3>
+			<p>Timetable Component</p>
+			<pre><code>
+	event-detail-url="events.html"
+			</code></pre>
+			<br>
+			<p>Event Component</p>
+			<pre><code>
+	account-url="account.html"
+			</code></pre>
+			<pre><code>
+	purchase-url="purchase.html"
+			</code></pre>
+			<pre><code>
+	timetable-url="timetable.html
+			</code></pre>
+			<pre><code>
+	event-url="event.html"
+			</code></pre>
+			<pre><code>
+	video-url="video.html
+			</code></pre>
+		</div>
+	</div>
 
 </body>
 </html>

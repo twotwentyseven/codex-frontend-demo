@@ -158,7 +158,7 @@
 
     <div data-codex>
         
-        <codex-login-register :show-login-default="true" :show-labels="true"></codex-login-register>
+        <codex-login-register :show-login-default="true" :show-labels="true" account-url="account.html" purchase-url="purchase.html" booking-url="timetable.html"></codex-login-register>
 
         <codex-logout></codex-logout>
 
@@ -168,13 +168,28 @@
         <div class="cell small-12">
             <pre>
                 <code>
-    &lt;codex-login-register :show-login-default="true" :show-labels="true"&gt;&lt;/codex-login-register&gt;
+    &lt;codex-login-register :show-login-default="true" account-url="account.html" purchase-url="purchase.html" booking-url="timetable.html" :show-labels="true"&gt;&lt;/codex-login-register&gt;
 
     &lt;codex-logout&gt;&lt;/codex-logout&gt; 
                 </code>
             </pre>
+            <br>
+            <h3>Required props for redirects:</h3>
+			<pre><code>
+    account-url="account.html"
+			</code></pre>
+            <pre><code>
+    purchase-url="purchase.html"
+			</code></pre>
+            <pre><code>
+    booking-url="timetable.html"
+			</code></pre>
         </div>
     </div>
+
+    
+    
+    
 
 </body>
 </html>

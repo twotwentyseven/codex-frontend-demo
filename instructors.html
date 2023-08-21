@@ -159,7 +159,7 @@
     <div data-codex>
 
         <codex-instructors 
-            instructor-detail-url="/instructor/{handle}"
+            instructor-detail-url="instructor.html?instructor={handle}"
             no-results-text="Sorry, we couldn't find what you were looking for"
             :show-description="true"
             :truncate-length="100"
@@ -194,12 +194,54 @@
 
     </div>
 
-    <!-- <script src="/dist/app.js"></script> -->
-    <!-- <link href="/dist/app.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="/dist/_index.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="/dist/cdx-instructors.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="/dist/cdx-filters.css" rel="stylesheet" type="text/css"> -->
-    <!-- <link href="/demo/demo.css" rel="stylesheet" type="text/css"> -->
+    
+    <div class="row">
+        <div class="cell small-12">
+			<h2>Code Example</h2>
+            <pre>
+                <code>
+    &lt;codex-instructors 
+        instructor-detail-url="instructor.html?instructor={handle}"
+        no-results-text="Sorry, we couldn't find what you were looking for"
+        :show-description="true"
+        :truncate-length="100"
+        :filters="{
+                name: {
+                selector: 'first_name',
+                multi: true,
+                title: 'Instructor Name'
+            },
+            workoutType: {
+                selector: 'metafields.tags',
+                options: [
+                    { value: 'barre', displayValue: 'Barre' },
+                    { value: 'strength', displayValue: 'Strength' },
+                ],
+                multi: true,
+                title: 'Workout Type'
+            },
+            musicGenre: {
+                selector: 'tags',
+                options: [
+                    { value: 'music:hiphop', displayValue: 'Hip Hop' },
+                    { value: 'music:pop', displayValue: 'Pop' },
+                ],
+                multi: true,
+                title: 'Music Genre'
+            },
+            options: {
+                searchKeys: ['full_name', 'metafields.description', 'tags']
+            }
+    }"&gt;&lt;/codex-instructors&gt;
+				</code>
+			</pre>
+            <br>
+			<h3>Required props for redirects:</h3>
+			<pre><code>
+                instructor-detail-url="instructor.html?instructor={handle}"
+			</code></pre>
+		</div>
+	</div>
 
 </body>
 </html>
