@@ -205,8 +205,32 @@
         'routerConfig', {
             mode: 'hash',
             routes: [
-                { path: '/', component: 'overview', title: 'Account Overview' },
-                { path: '/favourites', component: 'favourites', title: 'Favourites' },
+                { path: '/', component: 'overview', title: 'Overview', <span>children</span>: 
+                [
+                    { component: 'codex-available-credits' },
+                    { component: 'codex-bookings-completed' },
+                    { component: 'codex-subscriptions-overview' },
+                    { component: 'codex-bookings', props: { 
+                            type: 'upcoming',
+                            eventDetailUrl: "/event.html?id={ id }"
+                        } 
+                    },
+                    { component: 'codex-waitlists' }
+                ]
+                },
+                { path: '/favourites', component: 'favourites', title: 'Favourites', <span>children</span>: 
+                [
+                    { component: 'codex-heading', props: { 
+                        tag: 'div', title: 'Favourite Instructors' } 
+                    },
+                    { component: 'codex-instructors', props: { 
+                        onlyShowBookmarked: true, 
+                        hideFilters: true,
+                        instructorDetailUrl: 'instructor.html?instructor={handle}'
+                        } 
+                    }
+                ]
+                },
                 { path: '/membership', component: 'membership', title: 'Subscriptions' },
                 { path: '/details', component: 'details', title: 'Account Details', <span>children</span>: 
                     [
@@ -302,6 +326,16 @@
                 <br>
 
             </div>
+
+            <br>
+            <h3>Required props for redirects:</h3>
+            <p>Booking component (needs to be added through overide)</p>
+			<pre><code>
+                event-detail-url="event.html?id={ id }"
+			</code></pre>
+            <pre><code>
+                videoDetailUrl="video.html?id={ id }"
+			</code></pre>
         </div>
     </div>
 </body>
