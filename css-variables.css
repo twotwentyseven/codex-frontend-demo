@@ -426,4 +426,20 @@
 
 	--site-header-height: 64px;
 	--site-header-height-lg: 64px;
+
+	/* --codex-bundle-type-nav-background-color: 246 246 246;
+	--codex-bundle-type-background-color: 255 255 255;
+	--codex-bundle-type-border-color: 214 214 214;
+	--codex-bundle-type-btn-background: 88 88 90;
+	--codex-bundle-type-btn-border: 88 88 90;
+	--codex-bundle-type-btn-text-color: 255 255 255;
+	--codex-bundle-type-btn-default-background: transparent;
+	--codex-bundle-type-btn-default-border: transparent;
+	--codex-bundle-type-btn-default-text-color: 88 88 90;
+	--codex-bundle-type-radius: 8px;
+	--codex-bundle-type-border-width: 1px;
+	--codex-bundle-type-btn-border-width: 0;
+	--codex-bundle-type-btn-padding-x: 24px;
+	--codex-bundle-type-btn-padding-y: 15px;
+	--codex-bundle-type-padding: 24px; */
 }

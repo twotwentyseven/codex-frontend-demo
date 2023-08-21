@@ -187,7 +187,7 @@
                 <p>Headline font size/line-height</p>
                 <pre><code>--codex-header-font-size: 2.5rem;</code><br></pre>
                 <pre><code>--codex-header-line-height: 1.1em;</code><br></pre>
-                <pre><code>--codex-heading-font-weight: 600;</code></pre>
+                <pre><code>--codex-header-font-weight: 600;</code></pre>
 
                 <p>Title font size/line-height</p>
                 <pre><code>--codex-title-font-size: 2rem;</code><br></pre>
@@ -516,6 +516,9 @@
 
                 <p>Title padding</p>
                 <pre><code>--codex-bundle-title-padding: 0.75rem</code></pre>
+
+                <p>Title corner roundness</p>
+                <pre><code>--codex-bundle-title-radius: 0;</code></pre>
                 
                 <p>Text Colour</p>
                 <pre><code>--codex-bundle-text-color: 255 255 255;</code></pre>
@@ -558,6 +561,9 @@
                 
                 <p>Title padding</p>
                 <pre><code>--codex-plan-title-padding: 0.75rem;</code></pre>
+
+                <p>Title corner roundness</p>
+                <pre><code>--codex-plan-title-radius: 0;</code></pre>
                 
                 <p>Text Colour</p>
                 <pre><code>--codex-plan-text-color: 255 255 255;</code></pre>
@@ -600,6 +606,9 @@
                 
                 <p>Title colour</p>
                 <pre><code>--codex-giftcard-title-color</code></pre>
+
+                <p>Title corner roundness</p>
+                <pre><code>--codex-giftcard-title-radius: 0;</code></pre>
 
                 <p>Text colour</p>
                 <pre><code>--codex-giftcard-text-color</code></pre>
@@ -663,6 +672,15 @@
 
                 <p>X colour</p>
                 <pre><code>--codex-event-modal-close-btn-color: 255 255 255;</code></pre>
+
+                <p>Mobile Gutters (space between the edge of the component and browser).</p>
+                <pre><code>--codex-event-gutter-mob: 1.25rem;</code></pre>
+                
+                <p>Tablet Gutters (space between the edge of the component and browser).</p>
+                <pre><code>--codex-event-gutter-tab: 1.5rem;</code></pre>
+                
+                <p>Desktop Gutters (space between the edge of the component and browser).</p>
+                <pre><code>--codex-event-gutter-desk: 2.5rem;</code></pre>
 
                 <h4>Slot</h4>
 
@@ -1067,6 +1085,15 @@
                 <p>Min width</p>
                 <pre><code>--codex-cart-max-width: 32.5rem;</code></pre>
 
+                <p>Cart mobile gutters</p>
+                <pre><code>--codex-cart-gutter-mob</code></pre>
+
+                <p>Cart tablet gutters</p>
+                <pre><code>--codex-cart-gutter-tab</code></pre>
+
+                <p>Cart desktop gutters</p>
+                <pre><code>--codex-cart-gutter-desk</code></pre>
+
                 <h3>Typography</h3>
                 
                 <p>Header font family</p>
@@ -1210,7 +1237,7 @@
     --codex-btn-font-family
     --codex-header-font-size
     --codex-header-line-height
-    --codex-heading-font-weight
+    --codex-header-font-weight
     --codex-title-font-size
     --codex-title-line-height
     --codex-title-font-weight
@@ -1319,6 +1346,7 @@
     --codex-bundle-title-background
     --codex-bundle-title-color
     --codex-bundle-title-padding
+    --codex-bundle-title-radius
     --codex-bundle-text-color
     --codex-bundle-radius
     --codex-bundle-padding
@@ -1347,6 +1375,7 @@
     --codex-plan-title-background
     --codex-plan-title-color
     --codex-plan-title-padding
+    --codex-plan-title-radius
     --codex-plan-text-color
     --codex-plan-padding
     --codex-plan-radius
@@ -1360,6 +1389,7 @@
     --codex-giftcard-card-background
     --codex-giftcard-title-background
     --codex-giftcard-title-color
+    --codex-giftcard-title-radius
     --codex-giftcard-text-color
     --codex-giftcard-padding
     --codex-giftcard-btn-background
@@ -1379,6 +1409,9 @@
     --codex-event-modal-border-color
     --codex-event-modal-text-color
     --codex-event-modal-close-btn-color
+    --codex-event-gutter-mob
+    --codex-event-gutter-tab
+    --codex-event-gutter-desk
     --codex-slot-width
     --codex-slot-height
     --codex-slot-radius
@@ -1486,6 +1519,9 @@
     --codex-overlay-alpha
     --codex-cart-min-width
     --codex-cart-max-width
+    --codex-cart-gutter-mob
+    --codex-cart-gutter-tab
+    --codex-cart-gutter-desk
     --codex-cart-header-font-family
     --codex-cart-item-header-font-size
     --codex-cart-item-header-line-height
