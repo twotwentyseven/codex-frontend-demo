@@ -129,6 +129,9 @@
                             <li>
                                 <a href="instructor.html">Instructor Detail</a>
                             </li>
+                            <li>
+                                <a href="instructor-adv.html">Instructor Detail (advanced)</a>
+                            </li>
                         </ul>
                     </nav>
                 </li>
@@ -158,7 +161,7 @@
 
     <div data-codex>
 
-        <codex-videos video-detail-url="/video/{id}"
+        <codex-videos video-detail-url="video.html?id={id}"
             :filters="{
                 name: {
                     selector: 'instructor.full_name',
@@ -182,13 +185,40 @@
 
     </div>
 
-    <!-- <script src="/dist/app.js"></script>
-    <link href="/dist/app.css" rel="stylesheet" type="text/css">
-    <link href="/dist/_index.css" rel="stylesheet" type="text/css">
-    <link href="/dist/cdx-videos.css" rel="stylesheet" type="text/css">
-    <link href="/dist/cdx-filters.css" rel="stylesheet" type="text/css">
-    <link href="/dist/cdx-login.css" rel="stylesheet" type="text/css">
-    <link href="/demo/demo.css" rel="stylesheet" type="text/css">
- -->
+    <div class="row">
+        <div class="cell small-12">
+			<h2>Code Example</h2>
+            <pre>
+                <code>
+    &lt;codex-videos
+    video-detail-url="video.html?id={id}"
+    :filters="{
+        name: {
+            selector: 'instructor.full_name',
+            multi: true,
+            title: 'Instructor Name'
+        },
+        workoutType: {
+            selector: 'metafields.tags',
+            options: [
+                { value: 'barre', displayValue: 'Barre' },
+                { value: 'strength', displayValue: 'Strength' },
+            ],
+            multi: true,
+            title: 'Workout Type'
+        },
+        options: {
+            searchKeys: ['full_name', 'metafields.description', 'tags']
+        }
+    }"&gt;&lt;/codex-videos&gt;
+				</code>
+			</pre>
+			<br>
+			<h3>Required props for redirects:</h3>
+			<pre><code>
+    video-detail-url="video.html?id={id}"
+			</code></pre>
+		</div>
+	</div>
 </body>
 </html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODEXFit Frontend Library v3</title>
+    <script src="https://demo.codexfit.com/autoconfigure.js"></script>
+    
+    <!-- <link href="https://api-v3.codexfit.com/app.css" rel="stylesheet" type="text/css"> -->
+    <link href="css-variables.css" rel="stylesheet" type="text/css"/>
+    <link href="demo.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,200;1,6..12,400;1,6..12,600;1,6..12,700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <svg viewBox="0 0 365 38" xmlns="http://www.w3.org/2000/svg">
+                <path d="M26.9,44.65 C21.3999725,44.65 17.016683,42.8000185 13.75,39.1 C10.5833175,35.5333155 9,31.1000265 9,25.8 C9,20.4999735 10.5833175,16.083351 13.75,12.55 C17.08335,8.8499815 21.4666395,7 26.9,7 C30.833353,7 34.366651,8.0833225 37.5,10.25 C40.16668,12.050009 42.133327,14.5999835 43.4,17.9 L36.9,20.85 L36.85,20.85 L36.4,19.8 C35.666663,18.066658 34.5500075,16.700005 33.05,15.7 C31.516659,14.6666615 29.75001,14.15 27.75,14.15 C25.616656,14.15 23.8666735,14.449997 22.5,15.05 C21.1333265,15.650003 20.0000045,16.449995 19.1,17.45 C17.233324,19.5500105 16.3,22.333316 16.3,25.8 C16.3,29.200017 17.233324,31.9833225 19.1,34.15 C21.0000095,36.350011 23.883314,37.45 27.75,37.45 C29.816677,37.45 31.583326,36.950005 33.05,35.95 C34.6166745,34.9166615 35.73333,33.5500085 36.4,31.85 L36.85,30.75 L36.9,30.75 L43.4,33.75 C42.0999935,36.9833495 40.1333465,39.533324 37.5,41.4 C34.3999845,43.5666775 30.8666865,44.65 26.9,44.65 Z M78.6,44.65 C73.133306,44.65 68.6166845,42.8000185 65.05,39.1 C61.6166495,35.566649 59.9,31.13336 59.9,25.8 C59.9,20.4999735 61.633316,16.0666845 65.1,12.5 C68.6000175,8.833315 73.0999725,7 78.6,7 C84.1000275,7 88.5999825,8.833315 92.1,12.5 C95.5333505,16.033351 97.25,20.46664 97.25,25.8 C97.25,31.1666935 95.5333505,35.616649 92.1,39.15 C88.5999825,42.816685 84.1000275,44.65 78.6,44.65 Z M78.6,37.45 C82.1666845,37.45 84.94999,36.350011 86.95,34.15 C88.9833435,31.9833225 90,29.200017 90,25.8 C90,22.399983 88.9833435,19.633344 86.95,17.5 C84.816656,15.2666555 82.0333505,14.15 78.6,14.15 C75.133316,14.15 72.3500105,15.2666555 70.25,17.5 C68.2166565,19.633344 67.2,22.399983 67.2,25.8 C67.2,29.200017 68.2166565,31.9833225 70.25,34.15 C72.316677,36.350011 75.0999825,37.45 78.6,37.45 Z M115.75,7.5 L131.55,7.5 C133.816678,7.5 135.94999,7.9166625 137.95,8.75 C139.95001,9.550004 141.783325,10.783325 143.45,12.45 C146.916684,15.983351 148.65,20.4666395 148.65,25.9 C148.65,31.3333605 146.916684,35.8333155 143.45,39.4 C141.883326,41.000008 140.050011,42.233329 137.95,43.1 C135.94999,43.9333375 133.816678,44.35 131.55,44.35 L115.75,44.35 L115.75,7.5 Z M131.4,37.25 C134.366682,37.25 136.766658,36.1666775 138.6,34 C140.433343,31.866656 141.35,29.166683 141.35,25.9 C141.35,22.6666505 140.433343,19.983344 138.6,17.85 C136.733324,15.649989 134.333348,14.55 131.4,14.55 L123.05,14.55 L123.05,37.25 L131.4,37.25 Z M167.15,7.5 L195.2,7.5 L195.2,14.6 L167.15,14.6 L167.15,22.3 L189.5,22.3 L189.5,29.5 L167.15,29.5 L167.15,37.2 L195.2,37.2 L195.2,44.35 L167.15,44.35 L167.15,7.5 Z M224.6,25.35 L210.85,7.5 L220.1,7.5 L229.1,19.45 L238.15,7.5 L247.35,7.5 L233.6,25.35 L248.25,44.35 L239.05,44.35 L229.1,31.2 L219.15,44.35 L209.95,44.35 L224.6,25.35 Z M265,7.5 L292.6,7.5 L292.6,14.6 L272.3,14.6 L272.3,25.2 L286.85,25.2 L286.85,32.4 L272.3,32.4 L272.3,44.35 L265,44.35 L265,7.5 Z M310.1,7.5 L317.4,7.5 L317.4,44.35 L310.1,44.35 L310.1,7.5 Z M346.05,14.6 L334.4,14.6 L334.4,7.5 L364.95,7.5 L364.95,14.6 L353.3,14.6 L353.3,44.35 L346.05,44.35 L346.05,14.6 Z" id="codexfit"></path>
+            </svg>
+        </a>
+        <nav>
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+            <ul>
+                <li>
+                    <a href="#">Modals</a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="#" data-codex-modal-toggle="codex-login-register">Login/Register Modal</a>
+                            </li>
+                            <li>
+                                <a href="#" data-codex-modal-toggle="codex-checkout">Cart Modal</a>
+                            </li>
+                            <li>
+                                <a href="modal.html">How modals work</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">Login/Register</a>
+                    <nav>
+                        <ul>
+                            
+                            <li>
+                                <a href="login.html">Login/Logout</a>
+                            </li>
+                            <li>
+                                <a href="register.html">Register</a>
+                            </li>
+                            <li>
+                                <a href="password.html">Password</a>
+                            </li>
+                            <li>
+                                <a href="verifysms.html">SMS Verification</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">Purchasing</a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="bundles.html">Bundles</a>
+                            </li>
+                            <li>
+                                <a href="bundle-types.html">Bundle types</a>
+                            </li>
+                            <li>
+                                <a href="plans.html">Plans</a>
+                            </li>
+                            <li>
+                                <a href="cart.html">Cart</a>
+                            </li>
+                            <li>
+                                <a href="sca-confirmation.html">SCA Confirmation</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">Booking</a>
+                    <nav>
+                        <ul> 
+                            <li>
+                                <a href="timetable.html">Timetable</a>
+                            </li>
+                            <li>
+                                <a href="event.html">Event</a>
+                            </li>  
+                            <li>
+                                <a href="waitlist.html">Waitlist</a>
+                            </li>  
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">On Demand</a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="videos.html">Videos</a>
+                            </li>
+                            <li>
+                                <a href="video.html">Video</a>
+                            </li>
+                            <li>
+                                <a href="video-collections.html">Video Collections</a>
+                            </li>
+                            <li>
+                                <a href="video-collection.html">Video Collection</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">Instructors</a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="instructors.html">Instructors</a>
+                            </li>
+                            <li>
+                                <a href="instructor.html">Instructor Detail</a>
+                            </li>
+                            <li>
+                                <a href="instructor-adv.html">Instructor Detail (advanced)</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">Customer Account</a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="account.html">Account</a>
+                            </li>
+                            <li>
+                                <a href="account-setup.html">Account Set up</a>
+                            </li>
+                            
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="variables.html">Variables</a>
+                </li>
+                <!-- <li>
+                    Overrides
+                </li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <div data-codex>
+
+        <div class="row">
+            <div class="cell small-12">
+                <h1>Instructor page</h1>
+                <p>Add '?instructor={instructor.handle}' to url to change demo instructor. An instructor needs to be set up on the backend.</p>
+            </div>
+        </div>
+
+        <codex-instructor :show-tags="['Yoga', 'Spin']">
+
+            <template v-slot:wrapper-start="{ instructor }">
+                <div class="cdx_social-links">
+                    <a v-if="instructor.metafields?.facebook" target="-blank" :href="instructor.metafields?.facebook" class="cdx_spotify">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24"><path d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47062 14 5.5 16 5.5H17.5V2.1401C17.1743 2.09685 15.943 2 14.6429 2C11.9284 2 10 3.65686 10 6.69971V9.5H7V13.5H10V22H14V13.5Z"></path></svg>
+                    </a>
+                    <a v-if="instructor.metafields?.twitter" target="-blank" :href="instructor.metafields?.twitter" class="cdx_spotify">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24"><path d="M22.2125 5.65605C21.4491 5.99375 20.6395 6.21555 19.8106 6.31411C20.6839 5.79132 21.3374 4.9689 21.6493 4.00005C20.8287 4.48761 19.9305 4.83077 18.9938 5.01461C18.2031 4.17106 17.098 3.69303 15.9418 3.69434C13.6326 3.69434 11.7597 5.56661 11.7597 7.87683C11.7597 8.20458 11.7973 8.52242 11.8676 8.82909C8.39047 8.65404 5.31007 6.99005 3.24678 4.45941C2.87529 5.09767 2.68005 5.82318 2.68104 6.56167C2.68104 8.01259 3.4196 9.29324 4.54149 10.043C3.87737 10.022 3.22788 9.84264 2.64718 9.51973C2.64654 9.5373 2.64654 9.55487 2.64654 9.57148C2.64654 11.5984 4.08819 13.2892 6.00199 13.6731C5.6428 13.7703 5.27232 13.8194 4.90022 13.8191C4.62997 13.8191 4.36771 13.7942 4.11279 13.7453C4.64531 15.4065 6.18886 16.6159 8.0196 16.6491C6.53813 17.8118 4.70869 18.4426 2.82543 18.4399C2.49212 18.4402 2.15909 18.4205 1.82812 18.3811C3.74004 19.6102 5.96552 20.2625 8.23842 20.2601C15.9316 20.2601 20.138 13.8875 20.138 8.36111C20.138 8.1803 20.1336 7.99886 20.1256 7.81997C20.9443 7.22845 21.651 6.49567 22.2125 5.65605Z"></path></svg>
+                    </a>
+                    <a v-if="instructor.metafields?.twitter_x" target="-blank" :href="instructor.metafields?.twitter_x" class="cdx_spotify">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24"><path d="M8 2H1L9.26086 13.0145L1.44995 21.9999H4.09998L10.4883 14.651L16 22H23L14.3917 10.5223L21.8001 2H19.1501L13.1643 8.88578L8 2ZM17 20L5 4H7L19 20H17Z"></path></svg>
+                    </a>
+                    <a v-if="instructor.metafields?.instagram" target="-blank" :href="instructor.metafields?.instagram" class="cdx_spotify">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24"><path d="M13.0281 2.00098C14.1535 2.00284 14.7238 2.00879 15.2166 2.02346L15.4107 2.02981C15.6349 2.03778 15.8561 2.04778 16.1228 2.06028C17.1869 2.10944 17.9128 2.27778 18.5503 2.52528C19.2094 2.77944 19.7661 3.12278 20.3219 3.67861C20.8769 4.23444 21.2203 4.79278 21.4753 5.45028C21.7219 6.08694 21.8903 6.81361 21.9403 7.87778C21.9522 8.14444 21.9618 8.36564 21.9697 8.58989L21.976 8.78397C21.9906 9.27672 21.9973 9.8471 21.9994 10.9725L22.0002 11.7182C22.0003 11.8093 22.0003 11.9033 22.0003 12.0003L22.0002 12.2824L21.9996 13.0281C21.9977 14.1535 21.9918 14.7238 21.9771 15.2166L21.9707 15.4107C21.9628 15.6349 21.9528 15.8561 21.9403 16.1228C21.8911 17.1869 21.7219 17.9128 21.4753 18.5503C21.2211 19.2094 20.8769 19.7661 20.3219 20.3219C19.7661 20.8769 19.2069 21.2203 18.5503 21.4753C17.9128 21.7219 17.1869 21.8903 16.1228 21.9403C15.8561 21.9522 15.6349 21.9618 15.4107 21.9697L15.2166 21.976C14.7238 21.9906 14.1535 21.9973 13.0281 21.9994L12.2824 22.0002C12.1913 22.0003 12.0973 22.0003 12.0003 22.0003L11.7182 22.0002L10.9725 21.9996C9.8471 21.9977 9.27672 21.9918 8.78397 21.9771L8.58989 21.9707C8.36564 21.9628 8.14444 21.9528 7.87778 21.9403C6.81361 21.8911 6.08861 21.7219 5.45028 21.4753C4.79194 21.2211 4.23444 20.8769 3.67861 20.3219C3.12278 19.7661 2.78028 19.2069 2.52528 18.5503C2.27778 17.9128 2.11028 17.1869 2.06028 16.1228C2.0484 15.8561 2.03871 15.6349 2.03086 15.4107L2.02457 15.2166C2.00994 14.7238 2.00327 14.1535 2.00111 13.0281L2.00098 10.9725C2.00284 9.8471 2.00879 9.27672 2.02346 8.78397L2.02981 8.58989C2.03778 8.36564 2.04778 8.14444 2.06028 7.87778C2.10944 6.81278 2.27778 6.08778 2.52528 5.45028C2.77944 4.79194 3.12278 4.23444 3.67861 3.67861C4.23444 3.12278 4.79278 2.78028 5.45028 2.52528C6.08778 2.27778 6.81278 2.11028 7.87778 2.06028C8.14444 2.0484 8.36564 2.03871 8.58989 2.03086L8.78397 2.02457C9.27672 2.00994 9.8471 2.00327 10.9725 2.00111L13.0281 2.00098ZM12.0003 7.00028C9.23738 7.00028 7.00028 9.23981 7.00028 12.0003C7.00028 14.7632 9.23981 17.0003 12.0003 17.0003C14.7632 17.0003 17.0003 14.7607 17.0003 12.0003C17.0003 9.23738 14.7607 7.00028 12.0003 7.00028ZM12.0003 9.00028C13.6572 9.00028 15.0003 10.3429 15.0003 12.0003C15.0003 13.6572 13.6576 15.0003 12.0003 15.0003C10.3434 15.0003 9.00028 13.6576 9.00028 12.0003C9.00028 10.3434 10.3429 9.00028 12.0003 9.00028ZM17.2503 5.50028C16.561 5.50028 16.0003 6.06018 16.0003 6.74943C16.0003 7.43867 16.5602 7.99944 17.2503 7.99944C17.9395 7.99944 18.5003 7.43954 18.5003 6.74943C18.5003 6.06018 17.9386 5.49941 17.2503 5.50028Z"></path></svg>
+                    </a>
+                    <a v-if="instructor.metafields?.youtube" target="-blank" :href="instructor.metafields?.youtube" class="cdx_spotify">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24"><path d="M12.2439 4C12.778 4.00294 14.1143 4.01586 15.5341 4.07273L16.0375 4.09468C17.467 4.16236 18.8953 4.27798 19.6037 4.4755C20.5486 4.74095 21.2913 5.5155 21.5423 6.49732C21.942 8.05641 21.992 11.0994 21.9982 11.8358L21.9991 11.9884L21.9991 11.9991C21.9991 11.9991 21.9991 12.0028 21.9991 12.0099L21.9982 12.1625C21.992 12.8989 21.942 15.9419 21.5423 17.501C21.2878 18.4864 20.5451 19.261 19.6037 19.5228C18.8953 19.7203 17.467 19.8359 16.0375 19.9036L15.5341 19.9255C14.1143 19.9824 12.778 19.9953 12.2439 19.9983L12.0095 19.9991L11.9991 19.9991C11.9991 19.9991 11.9956 19.9991 11.9887 19.9991L11.7545 19.9983C10.6241 19.9921 5.89772 19.941 4.39451 19.5228C3.4496 19.2573 2.70692 18.4828 2.45587 17.501C2.0562 15.9419 2.00624 12.8989 2 12.1625V11.8358C2.00624 11.0994 2.0562 8.05641 2.45587 6.49732C2.7104 5.51186 3.45308 4.73732 4.39451 4.4755C5.89772 4.05723 10.6241 4.00622 11.7545 4H12.2439ZM9.99911 8.49914V15.4991L15.9991 11.9991L9.99911 8.49914Z"></path></svg>
+                    </a>
+                </div>
+            </template>
+    
+            <template v-slot:container-end="{instructor}">
+                <div class="cdx_instructor-additional-content">
+                    <div v-if="instructor" class="cdx_timetable-container">
+                        <codex-timetable-alt 
+                            purchase-url="/buy"
+                            event-detail-url="/event?id={id}"
+                            :show-date-on-event-card="true"
+                            :show-events-when-logged-out="true"
+                            :hide-filters="true"
+                            :main-carousel-settings="{
+                                spaceBetween: 0,
+                                slidesPerView: 1,
+                                threshold: 10,
+                                breakpoints: {
+                                    1024: {
+                                        slidesPerView: 3,
+                                        spaceBetween: 30
+                                    },
+                                    1200: {
+                                        slidesPerView: 5,
+                                        spaceBetween: 10
+                                    }
+                                }
+                            }"
+                            :nav-carousel-settings="{
+                                spaceBetween: 5,
+                                slidesPerView: 3,
+                                threshold: 10,
+                                breakpoints: {
+                                    1024: {
+                                        slidesPerView: 5,
+                                        spaceBetween: 10
+                                    },
+                                    1200: {
+                                        slidesPerView: 7,
+                                        spaceBetween: 10
+                                    }
+                                }
+                            }"
+                            :filters="{
+                                instructors: {
+                                    selector: 'instructor.id',
+                                    options: 'api/instructors:id:first_name',
+                                    multi: true,
+                                    title: 'By Instructor',
+                                    default: [instructor.id]   
+                                },
+                                options: {
+                                    showSearch: false
+                                }
+                            }"
+                        >
+                            <template v-slot:header>
+                                <div class="cdx_header">{{ $t('instructor.related_timetable', {'name': instructor.first_name}) }}</div>
+                            </template>
+        
+                            <template v-slot:event-modal="{ id, eventObject, purchaseUrl, isModal, closeModal }">
+        
+                                <codex-event :id="id"
+                                    :show-when-logged-out="true"
+                                    :event-object="eventObject" 
+                                    :event-url="`event.html?id={id}`"
+                                    account-url="account.html"
+                                    purchase-url="purchase.html"
+                                    :video-url="`video.html?id={video.id}`"
+                                    :is-modal="isModal" 
+                                    :close-modal="closeModal">
+                                </codex-event>
+        
+                            </template>
+        
+                        </codex-timetable-alt>
+                    </div>
+                    <div class="cdx_header">{{ $t('instructor.recommended_videos', {'name': instructor.first_name}) }}</div>
+                    <codex-videos v-if="instructor" :video-detail-url="`/video?id={id}`" :hide-filters="true" :truncate-length="100" :limit="3" :filters="[{  
+                        key: 'instructor',
+                        title: 'Instructor',
+                        options: 'api/instructors:id:first_name',
+                        api: true,
+                        default: [instructor.id]   
+                    }]">
+                    </codex-videos>
+                </div>
+            </template>
+        </codex-instructor>
+
+    </div>
+    <div class="row">
+        <div class="cell small-12">
+            <h2>Advanced Example</h2>
+            <p>This example makes use of metafields and customer styles to include extra content. Metafields JSON provided below, add to the instructor config to enable.</p>
+            <pre>
+                <code>
+    &lt;codex-instructor :show-tags="['Yoga', 'Spin']"&gt;
+        &lt;template v-slot:wrapper-start="{ instructor }"&gt;
+            &lt;div class="cdx_social-links"&gt;
+                &lt;a v-if="instructor.metafields?.facebook" target="-blank" :href="instructor.metafields?.facebook" class="cdx_spotify"&gt;
+                    &lt;svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24"&gt;&lt;path d="M14 13.5H16.5L17.5 9.5H14V7.5C14 6.47062 14 5.5 16 5.5H17.5V2.1401C17.1743 2.09685 15.943 2 14.6429 2C11.9284 2 10 3.65686 10 6.69971V9.5H7V13.5H10V22H14V13.5Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+                &lt;/a&gt;
+                &lt;a v-if="instructor.metafields?.twitter" target="-blank" :href="instructor.metafields?.twitter" class="cdx_spotify"&gt;
+                    &lt;svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24"&gt;&lt;path d="M22.2125 5.65605C21.4491 5.99375 20.6395 6.21555 19.8106 6.31411C20.6839 5.79132 21.3374 4.9689 21.6493 4.00005C20.8287 4.48761 19.9305 4.83077 18.9938 5.01461C18.2031 4.17106 17.098 3.69303 15.9418 3.69434C13.6326 3.69434 11.7597 5.56661 11.7597 7.87683C11.7597 8.20458 11.7973 8.52242 11.8676 8.82909C8.39047 8.65404 5.31007 6.99005 3.24678 4.45941C2.87529 5.09767 2.68005 5.82318 2.68104 6.56167C2.68104 8.01259 3.4196 9.29324 4.54149 10.043C3.87737 10.022 3.22788 9.84264 2.64718 9.51973C2.64654 9.5373 2.64654 9.55487 2.64654 9.57148C2.64654 11.5984 4.08819 13.2892 6.00199 13.6731C5.6428 13.7703 5.27232 13.8194 4.90022 13.8191C4.62997 13.8191 4.36771 13.7942 4.11279 13.7453C4.64531 15.4065 6.18886 16.6159 8.0196 16.6491C6.53813 17.8118 4.70869 18.4426 2.82543 18.4399C2.49212 18.4402 2.15909 18.4205 1.82812 18.3811C3.74004 19.6102 5.96552 20.2625 8.23842 20.2601C15.9316 20.2601 20.138 13.8875 20.138 8.36111C20.138 8.1803 20.1336 7.99886 20.1256 7.81997C20.9443 7.22845 21.651 6.49567 22.2125 5.65605Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+                &lt;/a&gt;
+                &lt;a v-if="instructor.metafields?.twitter_x" target="-blank" :href="instructor.metafields?.twitter_x" class="cdx_spotify"&gt;
+                    &lt;svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24"&gt;&lt;path d="M8 2H1L9.26086 13.0145L1.44995 21.9999H4.09998L10.4883 14.651L16 22H23L14.3917 10.5223L21.8001 2H19.1501L13.1643 8.88578L8 2ZM17 20L5 4H7L19 20H17Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+                &lt;/a&gt;
+                &lt;a v-if="instructor.metafields?.instagram" target="-blank" :href="instructor.metafields?.instagram" class="cdx_spotify"&gt;
+                    &lt;svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24"&gt;&lt;path d="M13.0281 2.00098C14.1535 2.00284 14.7238 2.00879 15.2166 2.02346L15.4107 2.02981C15.6349 2.03778 15.8561 2.04778 16.1228 2.06028C17.1869 2.10944 17.9128 2.27778 18.5503 2.52528C19.2094 2.77944 19.7661 3.12278 20.3219 3.67861C20.8769 4.23444 21.2203 4.79278 21.4753 5.45028C21.7219 6.08694 21.8903 6.81361 21.9403 7.87778C21.9522 8.14444 21.9618 8.36564 21.9697 8.58989L21.976 8.78397C21.9906 9.27672 21.9973 9.8471 21.9994 10.9725L22.0002 11.7182C22.0003 11.8093 22.0003 11.9033 22.0003 12.0003L22.0002 12.2824L21.9996 13.0281C21.9977 14.1535 21.9918 14.7238 21.9771 15.2166L21.9707 15.4107C21.9628 15.6349 21.9528 15.8561 21.9403 16.1228C21.8911 17.1869 21.7219 17.9128 21.4753 18.5503C21.2211 19.2094 20.8769 19.7661 20.3219 20.3219C19.7661 20.8769 19.2069 21.2203 18.5503 21.4753C17.9128 21.7219 17.1869 21.8903 16.1228 21.9403C15.8561 21.9522 15.6349 21.9618 15.4107 21.9697L15.2166 21.976C14.7238 21.9906 14.1535 21.9973 13.0281 21.9994L12.2824 22.0002C12.1913 22.0003 12.0973 22.0003 12.0003 22.0003L11.7182 22.0002L10.9725 21.9996C9.8471 21.9977 9.27672 21.9918 8.78397 21.9771L8.58989 21.9707C8.36564 21.9628 8.14444 21.9528 7.87778 21.9403C6.81361 21.8911 6.08861 21.7219 5.45028 21.4753C4.79194 21.2211 4.23444 20.8769 3.67861 20.3219C3.12278 19.7661 2.78028 19.2069 2.52528 18.5503C2.27778 17.9128 2.11028 17.1869 2.06028 16.1228C2.0484 15.8561 2.03871 15.6349 2.03086 15.4107L2.02457 15.2166C2.00994 14.7238 2.00327 14.1535 2.00111 13.0281L2.00098 10.9725C2.00284 9.8471 2.00879 9.27672 2.02346 8.78397L2.02981 8.58989C2.03778 8.36564 2.04778 8.14444 2.06028 7.87778C2.10944 6.81278 2.27778 6.08778 2.52528 5.45028C2.77944 4.79194 3.12278 4.23444 3.67861 3.67861C4.23444 3.12278 4.79278 2.78028 5.45028 2.52528C6.08778 2.27778 6.81278 2.11028 7.87778 2.06028C8.14444 2.0484 8.36564 2.03871 8.58989 2.03086L8.78397 2.02457C9.27672 2.00994 9.8471 2.00327 10.9725 2.00111L13.0281 2.00098ZM12.0003 7.00028C9.23738 7.00028 7.00028 9.23981 7.00028 12.0003C7.00028 14.7632 9.23981 17.0003 12.0003 17.0003C14.7632 17.0003 17.0003 14.7607 17.0003 12.0003C17.0003 9.23738 14.7607 7.00028 12.0003 7.00028ZM12.0003 9.00028C13.6572 9.00028 15.0003 10.3429 15.0003 12.0003C15.0003 13.6572 13.6576 15.0003 12.0003 15.0003C10.3434 15.0003 9.00028 13.6576 9.00028 12.0003C9.00028 10.3434 10.3429 9.00028 12.0003 9.00028ZM17.2503 5.50028C16.561 5.50028 16.0003 6.06018 16.0003 6.74943C16.0003 7.43867 16.5602 7.99944 17.2503 7.99944C17.9395 7.99944 18.5003 7.43954 18.5003 6.74943C18.5003 6.06018 17.9386 5.49941 17.2503 5.50028Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+                &lt;/a&gt;
+                &lt;a v-if="instructor.metafields?.youtube" target="-blank" :href="instructor.metafields?.youtube" class="cdx_spotify"&gt;
+                    &lt;svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 24 24"&gt;&lt;path d="M12.2439 4C12.778 4.00294 14.1143 4.01586 15.5341 4.07273L16.0375 4.09468C17.467 4.16236 18.8953 4.27798 19.6037 4.4755C20.5486 4.74095 21.2913 5.5155 21.5423 6.49732C21.942 8.05641 21.992 11.0994 21.9982 11.8358L21.9991 11.9884L21.9991 11.9991C21.9991 11.9991 21.9991 12.0028 21.9991 12.0099L21.9982 12.1625C21.992 12.8989 21.942 15.9419 21.5423 17.501C21.2878 18.4864 20.5451 19.261 19.6037 19.5228C18.8953 19.7203 17.467 19.8359 16.0375 19.9036L15.5341 19.9255C14.1143 19.9824 12.778 19.9953 12.2439 19.9983L12.0095 19.9991L11.9991 19.9991C11.9991 19.9991 11.9956 19.9991 11.9887 19.9991L11.7545 19.9983C10.6241 19.9921 5.89772 19.941 4.39451 19.5228C3.4496 19.2573 2.70692 18.4828 2.45587 17.501C2.0562 15.9419 2.00624 12.8989 2 12.1625V11.8358C2.00624 11.0994 2.0562 8.05641 2.45587 6.49732C2.7104 5.51186 3.45308 4.73732 4.39451 4.4755C5.89772 4.05723 10.6241 4.00622 11.7545 4H12.2439ZM9.99911 8.49914V15.4991L15.9991 11.9991L9.99911 8.49914Z"&gt;&lt;/path&gt;&lt;/svg&gt;
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/template&gt;
+        &lt;template v-slot:container-end="{instructor}"&gt;
+            &lt;div class="cdx_instructor-additional-content"&gt;
+                &lt;div v-if="instructor" class="cdx_timetable-container"&gt;
+                    &lt;codex-timetable-alt 
+                        purchase-url="/buy"
+                        event-detail-url="/event?id={id}"
+                        :show-date-on-event-card="true"
+                        :show-events-when-logged-out="true"
+                        :hide-filters="true"
+                        :main-carousel-settings="{
+                            spaceBetween: 0,
+                            slidesPerView: 1,
+                            threshold: 10,
+                            breakpoints: {
+                                1024: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 30
+                                },
+                                1200: {
+                                    slidesPerView: 5,
+                                    spaceBetween: 10
+                                }
+                            }
+                        }"
+                        :nav-carousel-settings="{
+                            spaceBetween: 5,
+                            slidesPerView: 3,
+                            threshold: 10,
+                            breakpoints: {
+                                1024: {
+                                    slidesPerView: 5,
+                                    spaceBetween: 10
+                                },
+                                1200: {
+                                    slidesPerView: 7,
+                                    spaceBetween: 10
+                                }
+                            }
+                        }"
+                        :filters="{
+                            instructors: {
+                                selector: 'instructor.id',
+                                options: 'api/instructors:id:first_name',
+                                multi: true,
+                                title: 'By Instructor',
+                                default: [instructor.id]   
+                            },
+                            options: {
+                                showSearch: false
+                            }
+                        }"
+                    &gt;
+                        &lt;template v-slot:header&gt;
+                            &lt;div class="cdx_header"&gt;{{ $t('instructor.related_timetable', {'name': instructor.first_name}) }}&lt;/div&gt;
+                        &lt;/template&gt;
+
+                        &lt;template v-slot:event-modal="{ id, eventObject, purchaseUrl, isModal, closeModal }"&gt;
+
+                            &lt;codex-event :id="id"
+                                :show-when-logged-out="true"
+                                :event-object="eventObject" 
+                                :event-url="`event.html?id={id}`"
+                                account-url="account.html"
+                                purchase-url="purchase.html"
+                                :video-url="`video.html?id={video.id}`"
+                                :is-modal="isModal" 
+                                :close-modal="closeModal"&gt;
+                            &lt;/codex-event&gt;
+
+                        &lt;/template&gt;
+
+                    &lt;/codex-timetable-alt&gt;
+                &lt;/div&gt;
+                &lt;div class="cdx_header"&gt;{{ $t('instructor.recommended_videos', {'name': instructor.first_name}) }}&lt;/div&gt;
+                &lt;codex-videos v-if="instructor" :video-detail-url="`/video?id={id}`" :hide-filters="true" :truncate-length="100" :limit="3" :filters="[{  
+                    key: 'instructor',
+                    title: 'Instructor',
+                    options: 'api/instructors:id:first_name',
+                    api: true,
+                    default: [instructor.id]   
+                }]"&gt;
+                &lt;/codex-videos&gt;
+            &lt;/div&gt;
+        &lt;/template&gt;
+    &lt;/codex-instructor&gt;
+				</code>
+			</pre>
+            <br>
+			<h3>JSON for backend:</h3>
+			<pre><code>
+    {
+        "facebook": {
+            "name": "Facebook",
+            "type": "text"
+        },
+        "twitter": {
+            "name": "Twitter",
+            "type": "text"
+        },
+        "twitter_x": {
+            "name": "Twitter x",
+            "type": "text"
+        },
+        "instagram": {
+            "name": "Instagram",
+            "type": "text"
+        },
+        "youtube": {
+            "name": "Youtube",
+            "type": "text"
+        },
+        "description": {
+            "name": "Description",
+            "type": "textarea"
+        }
+    }
+			</code></pre>
+		</div>
+	</div>
+
+</body>
+</html>

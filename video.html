@@ -179,6 +179,9 @@
                             <li>
                                 <a href="instructor.html">Instructor Detail</a>
                             </li>
+                            <li>
+                                <a href="instructor-adv.html">Instructor Detail (advanced)</a>
+                            </li>
                         </ul>
                     </nav>
                 </li>
@@ -208,9 +211,25 @@
 
     <div data-codex>
 
-        <codex-video show-login-button="true" color="rgb(255 217 34)" :show-countdown="true"></codex-video>
+        <codex-video show-login-button="true" color="rgb(255 217 34)" purchase-url="purchase.html" :show-countdown="true"></codex-video>
 
     </div>
+
+    <div class="row">
+        <div class="cell small-12">
+			<h2>Code Example</h2>
+            <pre>
+                <code>
+    &lt;codex-video show-login-button="true" color="rgb(255 217 34)" purchase-url="purchase.html" :show-countdown="true"&gt;&lt;/codex-video&gt;
+				</code>
+			</pre>
+			<br>
+			<h3>Required props for redirects:</h3>
+			<pre><code>
+        purchase-url="purchase.html"
+			</code></pre>
+		</div>
+	</div>
 
 </body>
 </html>
