@@ -34,7 +34,12 @@
                     { path: '/membership', component: 'membership', title: 'Memberships' },
                     { path: '/favourites', component: 'favourites', title: 'Favourites' },
                     { path: '/details', component: 'details', title: 'Details' },
-                    { path: '/history', component: 'history', title: 'History' }
+                    { path: '/history', component: 'history', title: 'History', children: 
+                    [
+                        { component: 'codex-bookings', props: { type: 'past', eventMetrics: true } },
+                        { component: 'codex-transactions' },
+                    ]
+                    }
                 ]
             }
         )  
