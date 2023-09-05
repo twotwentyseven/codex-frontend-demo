@@ -171,34 +171,21 @@
 			:show-events-when-logged-out="true"
 			event-detail-url="/pages/event"
 			:show-date-on-event-card="true"
+			:nav-days-to-show="{
+				640:1,
+				768:3,
+				1024:5,
+				1200:7
+			}"
 			:days-to-show="{
 				640: 1,
 				1024: 2,
 				1200: 3,
 			}"
-			:main-carousel-settings="{
-				spaceBetween: 20,
-				slidesPerView: 1,
-				threshold: 10,
-				breakpoints: {
-					1024: {
-						slidesPerView: 2
-					},
-					1200: {
-						slidesPerView: 3
-					}
-				}
-			}"
 			:nav-carousel-settings="{
 				spaceBetween: 10,
-				slidesPerView: 4,
-				threshold: 10,
-				breakpoints: {
-					1024: {
-						spaceBetween: 20,
-						slidesPerView: 7
-					}
-				}
+				slidesPerView: 'auto',
+				threshold: 10
 			}"
 			:filters="{
 				location: {
@@ -232,6 +219,20 @@
 
     </div>
 
+	<!-- :main-carousel-settings="{
+		spaceBetween: 20,
+		slidesPerView: 1,
+		threshold: 10,
+		breakpoints: {
+			1024: {
+				slidesPerView: 2
+			},
+			1200: {
+				slidesPerView: 3
+			}
+		}
+	}" -->
+
 	<div class="row">
         <div class="cell small-12">
 			<h2>Code Example</h2>
@@ -249,29 +250,10 @@
 			1024: 2,
 			1200: 3,
 		}"
-		:main-carousel-settings="{
-			spaceBetween: 20,
-			slidesPerView: 1,
-			threshold: 10,
-			breakpoints: {
-				1024: {
-					slidesPerView: 2
-				},
-				1200: {
-					slidesPerView: 3
-				}
-			}
-		}"
 		:nav-carousel-settings="{
 			spaceBetween: 10,
-			slidesPerView: 4,
+			slidesPerView: 'auto',
 			threshold: 10,
-			breakpoints: {
-				1024: {
-					spaceBetween: 20,
-					slidesPerView: 7
-				}
-			}
 		}"
 		:filters="{
 			location: {
