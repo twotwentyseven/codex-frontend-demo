@@ -307,8 +307,8 @@
 			--codex-event-modal-close-btn-color: 0 0 0;
 
 			/* measurements  */
-				/* --codex-slot-width:; */
-				/* --codex-slot-height:; */
+				--codex-slot-width: 40px;
+				--codex-slot-height: 40px;
 
 		/* Timetable End */
 
