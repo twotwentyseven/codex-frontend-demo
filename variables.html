@@ -702,14 +702,26 @@
 
                 <h4>Key</h4>
 
-                <p>Booking slot text colour</p>
+                <p>Booking slot text colour (will be depricated use [--codex-available-text-color])</p>
                 <pre><code>--codex-bookable-text-color: 0 0 0</code></pre>
 
                 <p>Booking available colour</p>
                 <pre><code>--codex-available-color: 255 217 34;</code></pre>
 
-                <p>Customer's Booking colour</p>
+                <p>Booking available colour</p>
+                <pre><code>--codex-available-text-color: 0 0 0;</code></pre>
+
+                <p>Customers booking colour</p>
                 <pre><code>--codex-booked-color: 5 150 105;</code></pre>
+
+                <p>Customers booking text colour</p>
+                <pre><code>--codex-booked-text-color: 0 0 0;</code></pre>
+
+                <p>Disabled slot colour (this colour is reused in other areas of the site)</p>
+                <pre><code>--codex-disabled-text-color: 102 102 102;</code></pre>
+
+                <p>Disabled slot text colour</p>
+                <pre><code>--codex-disabled-text-color: 102 102 102;</code></pre>
                 
                 <p>Instructor colour</p>
                 <pre><code>--codex-instructor-color: 255 0 144;</code></pre>
@@ -946,6 +958,15 @@
 
                 <p>Timetable navigation width</p>
                 <pre><code>--codex-nav-width: 100%;</code></pre>
+
+                <p>Timetable navigation data card width (mobile)</p>
+                <pre><code>--codex-nav-card-width</code></pre>
+
+                <p>Timetable navigation data card width (tablet)</p>
+                <pre><code>--codex-nav-card-width-md</code></pre>
+
+                <p>Timetable navigation data card width (desktop)</p>
+                <pre><code>--codex-nav-card-width-lg</code></pre>
 
                 <!-- <pre><code>--codex-nav-background-color: 255 255 255;</code></pre> -->
                 
@@ -1423,7 +1444,9 @@
     --codex-slot-radius
     --codex-bookable-text-color
     --codex-available-color
+    --codex-available-text-color
     --codex-booked-color
+    --codex-booked-text-color
     --codex-instructor-color
     --codex-nonbookable-background
     --codex-nonbookable-color
