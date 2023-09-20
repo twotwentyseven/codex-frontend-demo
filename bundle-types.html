@@ -164,9 +164,106 @@
 
     <div data-codex>
 
-        <codex-bundle-types :bundle-types='["intro-offers","standard","reformer","special-deals","kids","events"]'></codex-bundle-types>
+        <codex-bundle-types :bundle-types='["intro-offers","standard","reformer","special-deals","kids","events"]'>
+            <template v-slot:metafields="{ bundle }">
+                <template v-if="bundle?.metafields?.t_c">
+                    <input type="checkbox" id="modal">
+                    <label for="modal" class="cdx_t-c">{{ $t('bundle.terms_button') }}</label>
+                    <label for="modal" class="cdx_modal-background"></label>
+                    <div class="cdx_modal-t-c">
+                        <div class="cdx_modal-header">
+                            {{ $t('bundle.terms_and_conditions_title') }}
+                        </div>
+
+                        <div class="cdx_content" v-html="bundle.metafields?.t_c"></div>
+
+                        <label for="modal" class="cdx_btn">
+                            {{ $t('bundle.close_terms') }}
+                        </label>
+                    </div>
+                </template>
+            </template>
+        </codex-bundle-types>
 
     </div>
+
+    <style>
+
+        input[type="checkbox"] {
+            display:none;
+        }
+        input[type="checkbox"]:checked ~ .cdx_modal-t-c,
+        input[type="checkbox"]:checked ~ .cdx_modal-background {
+            display: block;
+        }
+        .cdx_modal-background {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(6,6,6,0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+            z-index: 9998;
+        }
+        .cdx_modal-t-c {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%); 
+            display: none;	
+            max-width: 626px;
+            width: calc(100% - 64px);
+            max-height: 656px;
+            overflow: auto;
+            background-color: #fff;
+            box-sizing: border-box;
+            padding: 24px;
+            border-radius: 16px;
+            z-index: 9999;
+        }
+
+        .cdx_modal-header {
+            background-color: #f6f6f6;
+            padding: 12px;
+            box-sizing: border-box;
+            font-size: 24px;
+            color: #58585A;
+            font-weight: 700;
+            line-height: 1.2em;
+            margin-bottom: 40px;
+        }
+
+        .cdx_content {
+            margin-bottom: 40px;
+            color: #58585A;
+        }
+
+        .cdx_content ul {
+            list-style-position: inside;
+            padding-left: 0;
+        }
+
+        .cdx_content ul li > * {
+            display: inline;
+        } 
+
+        .cdx_content ul li:not(:last-of-type) {
+            margin-bottom: 16px;
+        }
+
+        .cdx_content ul li > * {
+            display: inline-block;
+        } 
+        /* below is optional, it is just an example for the blue button */
+        .cdx_t-c {
+            width: 100%;
+            order: 7;
+            margin: 16px 0;
+            color: #C7B88A;
+            text-decoration: underline;
+        }
+    </style>
 
 </body>
 </html>
