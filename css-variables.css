@@ -232,6 +232,13 @@
 				--codex-video-border-width: 0;
 				--codex-video-radius: 0px;
 				--codex-video-padding: 1rem;
+
+			/* appointments */
+
+				--codex-appointments-card-border-color: 0 0 0;
+				--codex-appointments-card-background: 0 0 0;
+				--codex-appointments-card-text-color: 0 0 0;
+				--codex-appointments-card-padding: 40px;
 			
 			/* account */
 				--codex-account-card-background: 0 0 0;
