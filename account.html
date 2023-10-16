@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,200;1,6..12,400;1,6..12,600;1,6..12,700&display=swap" rel="stylesheet">
     
-    <script>
+    <script>        
     
         Codex().set(
             'routerConfig', {
@@ -30,17 +30,17 @@
                         { component: 'codex-video-views' },
                     ]
                     },
-                    { path: '/credits', component: 'credits', title: 'Credits' },
-                    { path: '/membership', component: 'membership', title: 'Memberships' },
+                    { path: '/credits', component: 'credits', title: t('account.my_credits') },
+                    { path: '/membership', component: 'membership', title: t('account.my_membership') },
                     { path: '/favourites', component: 'favourites', title: t('account.favourites') },
-                    { path: '/details', component: 'details', title: 'Details' },
-                    { path: '/history', component: 'history', title: 'History', children: 
+                    { path: '/details', component: 'details', title: t('account.account_details') },
+                    { path: '/history', component: 'history', title: t('account.class_history'), children: 
                     [
                         { component: 'codex-bookings', props: { type: 'past', eventMetrics: true } },
                         { component: 'codex-transactions' },
                     ]
                     },
-                    { path: '/notifications', component: 'notifications', title: 'Notifications' },
+                    { path: '/notifications', component: 'notifications', title: t('notification.summary_title') }
                 ]
             }
         )  
