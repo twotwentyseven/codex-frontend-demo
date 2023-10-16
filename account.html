@@ -18,7 +18,7 @@
             'routerConfig', {
                 mode: 'hash',
                 routes: [
-                    { path: '/', component: 'overview', title: 'Overview', children: 
+                    { path: '/', component: 'overview', title: t('account.account_overview') }, children: 
                     [
                         { component: 'codex-available-credits' },
                         { component: 'codex-bookings-completed' },
@@ -32,7 +32,7 @@
                     },
                     { path: '/credits', component: 'credits', title: 'Credits' },
                     { path: '/membership', component: 'membership', title: 'Memberships' },
-                    { path: '/favourites', component: 'favourites', title: 'Favourites' },
+                    { path: '/favourites', component: 'favourites', title: t('account.favourites') },
                     { path: '/details', component: 'details', title: 'Details' },
                     { path: '/history', component: 'history', title: 'History', children: 
                     [
