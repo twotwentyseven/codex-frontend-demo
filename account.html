@@ -15,23 +15,24 @@
     <script> 
 
         Codex().set('locale', 'it_IT');
-
-        if (window.codex.locale == "en-GB") {
-            const overview = 'overview'
-            const credits = 'credits'
-            const membership = 'membership'
-            const favourites = 'favourites'
-            const details = 'details'
-            const history = 'history'
-            const notifications = 'notifications'
-        } else if (window.codex.locale == "it_IT") {
-            const overview = 'overviewo'
-            const credits = 'credito'
-            const membership = 'membershipo'
-            const favourites = 'favouriteo'
-            const details = 'detailo'
-            const history = 'historyo'
-            const notifications = 'notificationo'
+        console.log(codex.locale)
+        
+        var overview = 'overview'
+        var credits = 'credits'
+        var membership = 'membership'
+        var favourites = 'favourites'
+        var details = 'details'
+        var history = 'history'
+        var notifications = 'notifications'
+        
+        if (codex.locale == "it_IT") {
+            var overview = 'overviewo'
+            var credits = 'credito'
+            var membership = 'membershipo'
+            var favourites = 'favouriteo'
+            var details = 'detailo'
+            var history = 'historyo'
+            var notifications = 'notificationo'
         }
 
         Codex().set(
