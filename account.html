@@ -13,19 +13,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,200;1,6..12,400;1,6..12,600;1,6..12,700&display=swap" rel="stylesheet">
     
     <script> 
-        const overview = $t('account.account_overview')
-        const credits = $t('account.my_credits')
-        const membership = $t('account.my_membership')
-        const favourites = $t('account.favourites')
-        const details = $t('account.account_details')
-        const history = $t('account.class_history')
-        const notifications = $t('notification.summary_title')
+        if (window.codex.locale = "en-GB") {
+            const overview = 'overview'
+            const credits = 'credits'
+            const membership = 'membership'
+            const favourites = 'favourites'
+            const details = 'details'
+            const history = 'history'
+            const notifications = 'notifications'
+        } else if (window.codex.locale = "it_IT") {
+            const overview = 'overviewo'
+            const credits = 'credito'
+            const membership = 'membershipo'
+            const favourites = 'favouriteo'
+            const details = 'detailo'
+            const history = 'historyo'
+            const notifications = 'notificationo'
+        }
 
         Codex().set(
             'routerConfig', {
                 mode: 'hash',
                 routes: [
-                    { path: '/', component: 'overview', title: `${overview}`, children: 
+                    { path: '/', component: 'overview', title: overview, children: 
                     [
                         { component: 'codex-available-credits' },
                         { component: 'codex-bookings-completed' },
@@ -37,17 +47,17 @@
                         { component: 'codex-video-views' },
                     ]
                     },
-                    { path: '/credits', component: 'credits', title: `${credits}`  },
-                    { path: '/membership', component: 'membership', title: `${membership}` },
-                    { path: '/favourites', component: 'favourites', title: `${favourites}` },
-                    { path: '/details', component: 'details', title: `${details}` },
-                    { path: '/history', component: 'history', title: `${history}`, children: 
+                    { path: '/credits', component: 'credits', title: credits  },
+                    { path: '/membership', component: 'membership', title: membership },
+                    { path: '/favourites', component: 'favourites', title: favourites },
+                    { path: '/details', component: 'details', title: details },
+                    { path: '/history', component: 'history', title: history, children: 
                     [
                         { component: 'codex-bookings', props: { type: 'past', eventMetrics: true } },
                         { component: 'codex-transactions' },
                     ]
                     },
-                    { path: '/notifications', component: 'notifications', title: `${notifications}` }
+                    { path: '/notifications', component: 'notifications', title: notifications }
                 ]
             }
         )  
