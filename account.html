@@ -19,13 +19,13 @@
         const favourites = $t('account.favourites')
         const details = $t('account.account_details')
         const history = $t('account.class_history')
-        const notifications = $t('notification.summary_title')         
+        const notifications = $t('notification.summary_title')
 
         Codex().set(
             'routerConfig', {
                 mode: 'hash',
                 routes: [
-                    { path: '/', component: 'overview', title: `${overview}` }, children: 
+                    { path: '/', component: 'overview', title: `${overview}`, children: 
                     [
                         { component: 'codex-available-credits' },
                         { component: 'codex-bookings-completed' },
