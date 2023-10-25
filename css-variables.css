@@ -249,6 +249,9 @@
 				--codex-account-card-title-background: 51 51 51;
 				--codex-account-card-title-color: 255 217 34;
 
+				--codex-unread-card-background: 0 0 0;
+				--codex-unread-card-text-color: 255 255 255;
+
 			/* instructor card */
 			--codex-instructor-card-text-color: 255 255 255;
 
