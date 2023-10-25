@@ -13,12 +13,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,200;1,6..12,400;1,6..12,600;1,6..12,700&display=swap" rel="stylesheet">
     
     <script>
-    
+
         Codex().set(
             'routerConfig', {
                 mode: 'hash',
                 routes: [
-                    { path: '/', component: 'overview', title: 'Overview', children: 
+                    { path: '/', component: 'overview', title: 'overview', children: 
                     [
                         { component: 'codex-available-credits' },
                         { component: 'codex-bookings-completed' },
@@ -30,16 +30,19 @@
                         { component: 'codex-video-views' },
                     ]
                     },
-                    { path: '/credits', component: 'credits', title: 'Credits' },
-                    { path: '/membership', component: 'membership', title: 'Memberships' },
-                    { path: '/favourites', component: 'favourites', title: 'Favourites' },
-                    { path: '/details', component: 'details', title: 'Details' },
-                    { path: '/history', component: 'history', title: 'History', children: 
+                    { path: '/credits', component: 'credits', title: 'credits'  },
+                    { path: '/membership', component: 'membership', title: 'membership' },
+                    { path: '/favourites', component: 'favourites', title: 'favourites' },
+                    { path: '/details', component: 'details', title: 'details' },
+                    { path: '/history', component: 'history', title: 'history', children: 
                     [
                         { component: 'codex-bookings', props: { type: 'past', eventMetrics: true } },
                         { component: 'codex-transactions' },
                     ]
+                    },
+                    { path: '/notifications', component: 'notifications', title: 'notifications' }
                     }
+
                 ]
             }
         )  
@@ -68,6 +71,9 @@
                             </li>
                             <li>
                                 <a href="#" data-codex-modal-toggle="codex-checkout">Cart Modal</a>
+                            </li>
+                            <li>
+                                <a href="notification.html">Notifications Popup</a>
                             </li>
                             <li>
                                 <a href="modal.html">How modals work</a>
