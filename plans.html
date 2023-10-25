@@ -166,6 +166,12 @@
     </header>
 
     <div data-codex>
+
+        <div class="row">
+            <div class="cell small-12">
+                <h1>Plans</h1>
+            </div>
+        </div>    
     
         <codex-plans :variable-start-date="true">
             <template v-slot:metafields="{ plan }">
@@ -188,6 +194,264 @@
             </template>
         </codex-plans>
 
+        <div class="row">
+            <div class="cell small-12">
+                <pre>
+                    <code>
+        &lt;codex-plans&gt;&lt;/codex-plans&gt;      
+                    </code>
+                </pre>
+            </div>
+
+            <div class="cell small-12 intro">
+                        
+                <h2>Component Props</h2>
+
+                <div class="flex-table">
+                    <div class="table-head">
+                        <div class="table-row">
+                            <div class="table-col">
+                                PropName<br>
+                                <code>prop-name=""</code>
+                            </div>
+                            <div class="table-col">Description</div>
+                            <div class="table-col">Type</div>
+                            <div class="table-col">Default</div>
+                            <div class="table-col">Required</div>
+                            <div class="table-col">Validation</div>
+                        </div>
+                    </div>
+                    <div class="table-body">
+                        <div class="table-row">
+                            <div class="table-col">
+                                variableStartDate<br>
+                                <code>variable-start-date=""</code>
+                            </div>
+                            <div class="table-col">
+                                Variable start date enables a dropdown that allows a future start date to be selected.
+                            </div>
+                            <div class="table-col">Boolean</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">true || false</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-col">
+                                hideIfNoResults<br>
+                                <code>hide-if-no-results=""</code>
+                            </div>
+                            <div class="table-col">
+                                Hide if no results will not output anything if there are no plans matching the provided filters. This means no messaging outline there are no plans.
+                            </div>
+                            <div class="table-col">Boolean</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">true || false</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-col">
+                                hideDisabledPlans<br>
+                                <code>hide-disabled-plans=""</code>
+                            </div>
+                            <div class="table-col">
+                                Hide disabled plans will hide plans that are not available for purchase by certain customers. For example if intro plans can only be once and this is set to true then it won't show to customer who have already bought it.
+                            </div>
+                            <div class="table-col">Boolean</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">true || false</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-col">
+                                disableCurrentlyPurchasedPlans<br>
+                                <code>disable-currently-purchase-plans=""</code>
+                            </div>
+                            <div class="table-col">
+                                Disable currently purchased plans refers to whether or not a customer can purchase a plan if they already own it.
+                            </div>
+                            <div class="table-col">Boolean</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">true || false</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-col">
+                                daysOfWeekToShow<br>
+                                <code>days-of-week-to-show=""</code>
+                            </div>
+                            <div class="table-col">
+                                
+                            </div>
+                            <div class="table-col">Array</div>
+                            <div class="table-col">[0,1,2,3,4,5,6]</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">0 = Sunday, 6 = Saturday</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-col">
+                                showPricesInline<br>
+                                <code>show-prices-inline=""</code>
+                            </div>
+                            <div class="table-col">
+                                Show prices inline will show the bundle price within the button.
+                            </div>
+                            <div class="table-col">Boolean</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">true || false</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-col">
+                                contentWrapperType
+                                <code>content-wrapper-type=""</code>
+                            </div>
+                            <div class="table-col">
+                                Content wrapper type refers to whether the bundles are displayed as a stack of bundles or if they render as a carsouel(swiperJS) with the settings defined in the contentWrapperSettings prop.
+                            </div>
+                            <div class="table-col">String</div>
+                            <div class="table-col">'div'</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">'div' || 'swiper'</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-col">
+                                contentWrapperSettings<br>
+                                <code>:content-wrapper-settings=""</code>
+                            </div>
+                            <div class="table-col">
+                                Content wrapper settings controls the carousel settings if content wrapper type is set to swiper, for full list of settings visit <a href="https://swiperjs.com/swiper-api">SwiperJS</a><br>
+                                All settings can be used they need to be pass through as an object. See validation for example.<br>
+                            </div>
+                            <div class="table-col">Object</div>
+                            <div class="table-col">{}</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">
+                            <pre>
+                                    <code>
+        {
+            slidesPerView: 'auto',
+            autoplay: {
+                delay: 5000
+            }
+        }
+                                    </code>
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell small-12">
+                <h3>Version 2</h3>
+                <pre>
+                    <code>
+        &lt;codex-plans&gt;
+            &lt;template v-slot:metafields="{ plan }"&gt;
+                &lt;template v-if="plan?.metafields?.t_c"&gt;
+                    &lt;input type="checkbox" id="modal"&gt;
+                    &lt;label for="modal" class="cdx_t-c"&gt;{{ $t('plan.terms_button') }}&lt;/label&gt;
+                    &lt;label for="modal" class="cdx_modal-background"&gt;&lt;/label&gt;
+                    &lt;div class="cdx_modal-t-c"&gt;
+                        &lt;div class="cdx_modal-header"&gt;
+                            {{ $t('plan.terms_and_conditions_title') }}
+                        &lt;/div&gt;
+
+                        &lt;div class="cdx_content" v-html="plan.metafields?.t_c"&gt;&lt;/div&gt;
+
+                        &lt;label for="modal" class="cdx_btn"&gt;
+                            {{ $t('plan.close_terms') }}
+                        &lt;/label&gt;
+                    &lt;/div&gt;
+                &lt;/template&gt;
+            &lt;/template&gt;
+        &lt;/codex-plans&gt;
+
+        &lt;style&gt;
+
+            input[type="checkbox"] {
+                display:none;
+            }
+            input[type="checkbox"]:checked ~ .cdx_modal-t-c,
+            input[type="checkbox"]:checked ~ .cdx_modal-background {
+                display: block;
+            }
+            .cdx_modal-background {
+                width: 100%;
+                height: 100%;
+                background-color: rgba(6,6,6,0.5);
+                position: fixed;
+                top: 0;
+                left: 0;
+                display: none;
+                z-index: 9998;
+            }
+            .cdx_modal-t-c {
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%); 
+                display: none;	
+                max-width: 626px;
+                width: calc(100% - 64px);
+                max-height: 656px;
+                overflow: auto;
+                background-color: #fff;
+                box-sizing: border-box;
+                padding: 24px;
+                border-radius: 16px;
+                z-index: 9999;
+            }
+
+            .cdx_modal-header {
+                background-color: #f6f6f6;
+                padding: 12px;
+                box-sizing: border-box;
+                font-size: 24px;
+                color: #58585A;
+                font-weight: 700;
+                line-height: 1.2em;
+                margin-bottom: 40px;
+            }
+
+            .cdx_content {
+                margin-bottom: 40px;
+                color: #58585A;
+            }
+
+            .cdx_content ul {
+                list-style-position: inside;
+                padding-left: 0;
+            }
+
+            .cdx_content ul li > * {
+                display: inline;
+            } 
+
+            .cdx_content ul li:not(:last-of-type) {
+                margin-bottom: 16px;
+            }
+
+            .cdx_content ul li > * {
+                display: inline-block;
+            } 
+            /* below is optional, it is just an example for the blue button */
+            .cdx_t-c {
+                width: 100%;
+                order: 7;
+                margin: 16px 0;
+                color: #C7B88A;
+                text-decoration: underline;
+            }
+        &lt;/style&gt;
+                    </code>
+                </pre>
+
+                <p>This version allows a terms condition button/link to be added which triggers a popup. The <code>t_c</code> metafield will need to be setup in the plans config. The custom styles will need to be added to the sites stylesheet.</p>
+            </div>
+
+        </div>
     </div>
 
     <style>

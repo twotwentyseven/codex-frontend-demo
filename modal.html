@@ -199,7 +199,10 @@
                     }
                 },
                 'codex-checkout': {
-                    modalProps: { 'x-position': 'right', 'y-position': 'top' }
+                    modalProps: { 'x-position': 'right', 'y-position': 'top' },
+                    props: {
+                        'v-on:cartUpdate': 'open'
+                    }
                 }
             }
         }
@@ -227,6 +230,167 @@
                     </code>
                 </pre>
 
+            </div>
+
+            <div class="cell small-12 intro">
+                
+                <h2>Component Props</h2>
+
+                <div class="flex-table">
+                    <div class="table-head">
+                        <div class="table-row">
+                            <div class="table-col">
+                                PropName<br>
+                                <code>prop-name=""</code>
+                            </div>
+                            <div class="table-col">Description</div>
+                            <div class="table-col">Type</div>
+                            <div class="table-col">Default</div>
+                            <div class="table-col">Required</div>
+                            <div class="table-col">Validation</div>
+                        </div>
+                    </div>
+                    <div class="table-body">
+                        <div class="table-row">
+                            <div class="table-col">
+                                defaultState
+                                <code>:default-state=""</code>
+                            </div>
+                            <div class="table-col">Default state refers to whether the modal is open or close when it first loads. An example of this would be, SMS verification, this would need to be open by default if it is required. A login modal should be closed by default unless the site requires login to access.</div>
+                            <div class="table-col">Boolean</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">true || false</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-col">
+                                transition<br>
+                                <code>transition=""</code>
+                            </div>
+                            <div class="table-col">
+                                Transition refers to transition name for css targeting. For more information on this visit: <a href="https://vuejs.org/guide/built-ins/transition.html#css-based-transitions">https://vuejs.org/guide/built-ins/transition.html#css-based-transitions</a>
+                                <br>
+                                Here is an example of css needed to make the default transition work.
+                                <pre>
+                                <code>  
+    .fade-enter-active,
+    .fade-leave-active {
+    transition: opacity 0.5s ease;
+    }
+
+    .fade-enter-from,
+    .fade-leave-to {
+    opacity: 0;
+    }
+                                </code>
+                                </pre>
+                            </div>
+                            <div class="table-col">String</div>
+                            <div class="table-col">'fade'</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">N/A</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-col">
+                                portalSelector<br>
+                                <code>portal-selector=""</code>
+                            </div>
+                            <div class="table-col">Portal Selector refers to where the modal should be placed within the DOM the default is attached to the body, if left blank it would nest whereever the modal has been placed. This allows for you to overcome z-indexing issues.</div>
+                            <div class="table-col">String</div>
+                            <div class="table-col">'body'</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">N/A</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-col">
+                                showCloseButton<br>
+                                <code>:show-close-button=""</code>
+                            </div>
+                            <div class="table-col">Show close button refers to whether or not to display the closing (X) button in the top right. An example of this would be a require modal like SMS verification would not have a close button as it closes on a successful submit.</div>
+                            <div class="table-col">Boolean</div>
+                            <div class="table-col">true</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">true || false</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-col">
+                                useOverlay<br>
+                                <code>:use-overlay=""</code>
+                            </div>
+                            <div class="table-col">Use Overlay refers to whether or not the modal has a background overlay that will darken or lighten all content underneath</div>
+                            <div class="table-col">Boolean</div>
+                            <div class="table-col">true</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">true || false</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-col">
+                                modalName<br>
+                                <code>modal-name=""</code>
+                            </div>
+                            <div class="table-col">Modal Name is used for targeting the modal with javascript. Each modal needs a unique name.</div>
+                            <div class="table-col">String</div>
+                            <div class="table-col">'default'</div>
+                            <div class="table-col">true</div>
+                            <div class="table-col">N/A</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-col">
+                                delayClose<br>
+                                <code>:delay-close=""</code>
+                            </div>
+                            <div class="table-col">Delay close refers to the time taken (in seconds) until the modal auto closes.</div>
+                            <div class="table-col">Number, Boolean</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">Time in seconds (5000) 5s || false</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-col">
+                                fullScreen<br>
+                                <code>:full-screen=""</code>
+                            </div>
+                            <div class="table-col">Full screen refers to whether the modal should take up the full width of the screen.</div>
+                            <div class="table-col">Boolean</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">true || false</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-col">
+                                fullScreenHeight
+                                <code>:full-screen-height=""</code>
+                            </div>
+                            <div class="table-col">Full screen height refers to whether the modal should take up the full height of the screen.</div>
+                            <div class="table-col">Boolean</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">false</div>
+                            <div class="table-col">true || false</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-col">
+                                xPosition<br>
+                                <code>x-position=""</code>
+                            </div>
+                            <div class="table-col">X position refer to where the modal it sit on the X-asis</div>
+                            <div class="table-col">String</div>
+                            <div class="table-col">'center'</div>
+                            <div class="table-col">true</div>
+                            <div class="table-col">'left' || 'right' || 'center'</div>
+                        </div>
+                        <div class="table-row">
+                            <div class="table-col">
+                                yPosition<br>
+                                <code>y-position=""</code>
+                            </div>
+                            <div class="table-col">Y position refer to where the modal it sit on the Y-asis</div>
+                            <div class="table-col">String</div>
+                            <div class="table-col">'center'</div>
+                            <div class="table-col">true</div>
+                            <div class="table-col">'top' || 'bottom' || 'center'</div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="cell small-12 intro">

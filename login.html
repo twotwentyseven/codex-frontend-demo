@@ -194,11 +194,228 @@
     booking-url="timetable.html"
 			</code></pre>
         </div>
+
+        <div class="cell small-12 intro">
+                
+            <h2>Component Props</h2>
+
+            <div class="flex-table">
+                <div class="table-head">
+                    <div class="table-row">
+                        <div class="table-col">
+                            PropName<br>
+                            <code>prop-name=""</code>
+                        </div>
+                        <div class="table-col">Description</div>
+                        <div class="table-col">Type</div>
+                        <div class="table-col">Default</div>
+                        <div class="table-col">Required</div>
+                        <div class="table-col">Validation</div>
+                    </div>
+                </div>
+                <div class="table-body">
+                    <div class="table-row">
+                        <div class="table-col">
+                            button_title<br>
+                            <code>button_title=""</code>
+                        </div>
+                        <div class="table-col"><span class="warning">This is an internal Prop that should only be used in rare usecases as it will not have access to translations.</span><br>
+                            This prop refers to the title that shows above the login/register button this can be see in use in the cart when you have items and are logged out.
+                        </div>
+                        <div class="table-col">String, Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'String' || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            login_title<br>
+                            <code>button_title=""</code>
+                        </div>
+                        <div class="table-col"><span class="warning">This is an internal Prop that should only be used in rare usecases as it will not have access to translations.</span><br>
+                            This prop refers to the title that shows above the login form after clicking the login button this can be see in use in the cart when you have items and are logged out and have clicked the login button.
+                        </div>
+                        <div class="table-col">String, Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'String' || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            login_overview<br>
+                            <code>login_overview=""</code>
+                        </div>
+                        <div class="table-col"><span class="warning">This is an internal Prop that should only be used in rare usecases as it will not have access to translations.</span><br>
+                            This prop refers to the overview/description that shows above the login form after clicking the login button this can be see in use in the cart when you have items and are logged out and have clicked the login button.
+                        </div>
+                        <div class="table-col">String, Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'String' || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            register_title<br>
+                            <code>register_title=""</code>
+                        </div>
+                        <div class="table-col"><span class="warning">This is an internal Prop that should only be used in rare usecases as it will not have access to translations.</span><br>
+                            This prop refers to the title that shows above the register form after clicking the register button this can be see in use in the cart when you have items and are logged out and have clicked the register button.
+                        </div>
+                        <div class="table-col">String, Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'String' || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            recover_title<br>
+                            <code>recover_title=""</code>
+                        </div>
+                        <div class="table-col"><span class="warning">This is an internal Prop that should only be used in rare usecases as it will not have access to translations.</span><br>
+                            This prop refers to the title that shows above the recover password form after clicking the recover password link this can be see in use in the cart when you have items and are logged out and have clicked the recover password link.
+                        </div>
+                        <div class="table-col">String, Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'String' || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            recover_overview<br>
+                            <code>recover_overview=""</code>
+                        </div>
+                        <div class="table-col"><span class="warning">This is an internal Prop that should only be used in rare usecases as it will not have access to translations.</span><br>
+                            This prop refers to the overview/description that shows above the recover password form after clicking the recover password link this can be see in use in the cart when you have items and are logged out and have clicked the recover password link.
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            showLoginDefault<br>
+                            <code>:show-login-default=""</code>
+                        </div>
+                        <div class="table-col">Show login default determines whether the login form shows by default</div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            showPasswordResetDefault<br>
+                            <code>:show-password-reset-default=""</code>
+                        </div>
+                        <div class="table-col">Show password reset default determines whether the password recover form shows by default</div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            showRegisterDefault<br>
+                            <code>:show-register-default=""</code>
+                        </div>
+                        <div class="table-col">Show register default determines whether the register form shows by default</div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            showLabels<br>
+                            <code>:show-label=""</code>
+                        </div>
+                        <div class="table-col">Show label refers to whether or not the form fields show labels or not once the field has a valid value</div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            accountUrl<br>
+                            <code>account-url=""</code>
+                        </div>
+                        <div class="table-col">Account URL is defined in the codexfit backend through configs as a global variable, this prop overrides that variable. This can be used to link to a custom page if require.</div>
+                        <div class="table-col">String</div>
+                        <div class="table-col">'/pages/account'</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'/string'</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            purchaseUrl<br>
+                            <code>purchase-url=""</code>
+                        </div>
+                        <div class="table-col">Purchase URL is defined in the codexfit backend through configs as a global variable, this prop overrides that variable. This can be used to link to a custom page if require.</div>
+                        <div class="table-col">String</div>
+                        <div class="table-col">'/pages/buy'</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'/string'</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            bookingUrl<br>
+                            <code>booking-url=""</code>
+                        </div>
+                        <div class="table-col">Booking URL is defined in the codexfit backend through configs as a global variable, this prop overrides that variable. This can be used to link to a custom page if require.</div>
+                        <div class="table-col">String</div>
+                        <div class="table-col">'/pages/timetable'</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'/string'</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            loginRedirect<br>
+                            <code>login-redirect=""</code>
+                        </div>
+                        <div class="table-col">If Login redirect is given a string it will enable auto rediecting (similar to the above prop 'account-url'). On a successful login it will redirect to the specified URL</div>
+                        <div class="table-col">String, Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'/string' || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            registerRedirect<br>
+                            <code>register-redirect=""</code>
+                        </div>
+                        <div class="table-col">If register redirect is given a string it will enable auto rediecting (similar to the above prop 'account-url'). On a successful register it will redirect to the specified URL</div>
+                        <div class="table-col">String, Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'String' || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            passwordRedirect<br>
+                            <code>password-redirect=""</code>
+                        </div>
+                        <div class="table-col">If password redirect is given a string it will enable auto rediecting (similar to the above prop 'account-url'). On a successful password recovery it will redirect to the specified URL</div>
+                        <div class="table-col">String, Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'String' || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            delayClose<br>
+                            <code>:delay-close=""</code>
+                        </div>
+                        <div class="table-col">Delay close refers to the time taken (in seconds) until the redirect will happen for login/register/password recovery.</div>
+                        <div class="table-col">Number, Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">Time in seconds (5000) 5s || false</div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    
-    
-    
-
 </body>
 </html>

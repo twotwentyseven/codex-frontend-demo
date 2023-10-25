@@ -186,23 +186,199 @@
         &lt;codex-event account-url="account.html" purchase-url="purchase.html" :show-when-logged-out="true"&gt;&lt;/codex-event&gt;
 				</code>
 			</pre>
-			<br>
-			<h3>Required props for redirects:</h3>
-			<pre><code>
-	account-url="account.html"
-			</code></pre>
-			<pre><code>
-	purchase-url="purchase.html"
-			</code></pre>
-			<pre><code>
-	timetable-url="timetable.html
-			</code></pre>
-			<pre><code>
-	event-url="event.html"
-			</code></pre>
-			<pre><code>
-	video-url="video.html
-			</code></pre>
+
+        </div>
+
+        <div class="cell small-12 intro">
+                    
+            <h2>Component Props</h2>
+
+            <div class="flex-table">
+                <div class="table-head">
+                    <div class="table-row">
+                        <div class="table-col">
+                            PropName<br>
+                            <code>prop-name=""</code>
+                        </div>
+                        <div class="table-col">Description</div>
+                        <div class="table-col">Type</div>
+                        <div class="table-col">Default</div>
+                        <div class="table-col">Required</div>
+                        <div class="table-col">Validation</div>
+                    </div>
+                </div>
+                <div class="table-body">
+                    <div class="table-row">
+                        <div class="table-col">
+                            id<br>
+                            <code>:id=""</code>
+                        </div>
+                        <div class="table-col">
+                            ID refers to the event id, and will only show event of the id pass through.
+                        </div>
+                        <div class="table-col">[String, Number]</div>
+                        <div class="table-col">null</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            eventObject<br>
+                            <code>event-object=""</code>
+                        </div>
+                        <div class="table-col">
+                            Event object passes through the event object data. 
+                        </div>
+                        <div class="table-col">Object</div>
+                        <div class="table-col">{}</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">{}</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            isModal<br>
+                            <code>is-modal=""</code>
+                        </div>
+                        <div class="table-col">
+                            Is Modal refers to whether the event component is a modal or not.
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            closeModal<br>
+                            <code>close-modal=""</code>
+                        </div>
+                        <div class="table-col">
+                            Close modal is used to pass a function down to the event to that the modal can be closed and the selected event can be clear.c
+                        </div>
+                        <div class="table-col">Function</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            autoBook<br>
+                            <code>auto-book=""</code>
+                        </div>
+                        <div class="table-col">
+                            Auto book enables one click bookings for events with a class layout.
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">true</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            timetableUrl<br>
+                            <code>timetable-url=""</code>
+                        </div>
+                        <div class="table-col">
+                            Timetable URL refers to page that houses the timetable component
+                        </div>
+                        <div class="table-col">String</div>
+                        <div class="table-col">'/pages/timetable'</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'/string'</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            eventUrl<br>
+                            <code>event-url=""</code>
+                        </div>
+                        <div class="table-col">
+                            Event URL refers to page that houses the event component
+                        </div>
+                        <div class="table-col">String</div>
+                        <div class="table-col">'/pages/event'</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'/string'</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            accountUrl<br>
+                            <code>account-url=""</code>
+                        </div>
+                        <div class="table-col">
+                            Account URL refers to page that houses the account component
+                        </div>
+                        <div class="table-col">String</div>
+                        <div class="table-col">'/pages/account'</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'/string'</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            purchaseUrl<br>
+                            <code>purchase-url=""</code>
+                        </div>
+                        <div class="table-col">
+                            Purchase URL refers to page that houses the purchase component
+                        </div>
+                        <div class="table-col">String</div>
+                        <div class="table-col">'/pages/buy'</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'/string'</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            videoUrl<br>
+                            <code>video-url=""</code>
+                        </div>
+                        <div class="table-col">
+                            Video URL refers to page that houses the video component. This prop needs to be passed the video.id to work.
+                        </div>
+                        <div class="table-col">String</div>
+                        <div class="table-col">'/pages/video/{video.id}'</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'/string/{video.id}'</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            slotSize<br>
+                            <code>slot-size=""</code>
+                        </div>
+                        <div class="table-col">
+                            
+                        </div>
+                        <div class="table-col">Number</div>
+                        <div class="table-col">50</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">Number</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            minSlotSize<br>
+                            <code>min-slot-size=""</code>
+                        </div>
+                        <div class="table-col">
+                            
+                        </div>
+                        <div class="table-col">Number</div>
+                        <div class="table-col">50</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">Number</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            showWhenLoggedOut<br>
+                            <code>show-when-logged-out=""</code>
+                        </div>
+                        <div class="table-col">
+                            Show when logged out will show the event details when the customer is not logged in.
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                </div>
+            </div>
 		</div>
 	</div>
 

@@ -221,20 +221,6 @@
 
     </div>
 
-	<!-- :main-carousel-settings="{
-		spaceBetween: 20,
-		slidesPerView: 1,
-		threshold: 10,
-		breakpoints: {
-			1024: {
-				slidesPerView: 2
-			},
-			1200: {
-				slidesPerView: 3
-			}
-		}
-	}" -->
-
 	<div class="row">
         <div class="cell small-12">
 			<h2>Code Example</h2>
@@ -286,30 +272,399 @@
 	&lt;/codex-timetable-alt&gt;
 				</code>
 			</pre>
-			<br>
-			<h3>Required props for redirects:</h3>
-			<p>Timetable Component</p>
-			<pre><code>
-	event-detail-url="events.html"
-			</code></pre>
-			<br>
-			<p>Event Component</p>
-			<pre><code>
-	account-url="account.html"
-			</code></pre>
-			<pre><code>
-	purchase-url="purchase.html"
-			</code></pre>
-			<pre><code>
-	timetable-url="timetable.html
-			</code></pre>
-			<pre><code>
-	event-url="event.html"
-			</code></pre>
-			<pre><code>
-	video-url="video.html
-			</code></pre>
-		</div>
+        </div>
+            
+        <div class="cell small-12 intro">
+                
+            <h2>Component Props</h2>
+
+            <p>For Event component Props visits the <a href="/event.html">event page</a><p>
+
+            <div class="flex-table">
+                <div class="table-head">
+                    <div class="table-row">
+                        <div class="table-col">
+                            PropName<br>
+                            <code>prop-name=""</code>
+                        </div>
+                        <div class="table-col">Description</div>
+                        <div class="table-col">Type</div>
+                        <div class="table-col">Default</div>
+                        <div class="table-col">Required</div>
+                        <div class="table-col">Validation</div>
+                    </div>
+                </div>
+                <div class="table-body">
+                    <div class="table-row">
+                        <div class="table-col">
+                            eventDetailUrl<br>
+                            <code>event-detail-url=""</code>
+                        </div>
+                        <div class="table-col">
+                            Event detail url refers to the page that houses the event component.
+                        </div>
+                        <div class="table-col">String</div>
+                        <div class="table-col">'/pages/class'</div>
+                        <div class="table-col">true</div>
+                        <div class="table-col">'/string'</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            eventPurchaseUrl<br>
+                            <code>event-purchase-url=""</code>
+                        </div>
+                        <div class="table-col">
+                            Event purchase url refers to the page that houses the bundles/plans components.
+                        </div>
+                        <div class="table-col">String</div>
+                        <div class="table-col">'/pages/buy'</div>
+                        <div class="table-col">true</div>
+                        <div class="table-col">'/string'</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            startDate<br>
+                            <code>start-date=""</code>
+                        </div>
+                        <div class="table-col">
+                            Start Date refers to the the date the timetable should start on.
+                        </div>
+                        <div class="table-col">String</div>
+                        <div class="table-col">' '</div>
+                        <div class="table-col">true</div>
+                        <div class="table-col">'Oct 25th 23' || '2022-10-01' must be an excepted date format be <a target="_blank" href="https://momentjs.com/">momentJs</a></div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col"> 
+                            showFromStartOfDay<br>
+                            <code>:show-from-start-of-day=""</code>
+                        </div>
+                        <div class="table-col">
+                            Show from start of day refers to whether todays date shows all events or hides any events are that in the past. 
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">true</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            showBookmarksOnly<br>
+                            <code>:show-bookmarks-only=""</code>
+                        </div>
+                        <div class="table-col">
+                            Show bookmark only refers to whether all events are shown or only if events the customer has bookmarked/favourited are shown.
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            preFilter<br>
+                            <code>:pre-filter=""</code>
+                        </div>
+                        <div class="table-col">
+                            Pre filter allows you to add a filter to the timetable an example of this would be if the site has multiple locations and wants a seperate page for each location. The key must refer to filter.
+                        </div>
+                        <div class="table-col">Object</div>
+                        <div class="table-col">{}</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">{ filterKey: ID, location:1 }</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            hideFilters<br>
+                            <code>:hide-filter=""</code>
+                        </div>
+                        <div class="table-col">
+                            Hide filters disables filters and hides them all.
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            showCalendarNav<br>
+                            <code>:show-calendar-nav=""</code>
+                        </div>
+                        <div class="table-col">
+                            Show calendar nav enables the quick date selection.
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">true</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            showTimeFilters<br>
+                            <code>:show-time-filters=""</code>
+                        </div>
+                        <div class="table-col">
+                            Show time filters enables the All day/AM/PM buttons
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">true</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            updateNavPositionOnClick<br>
+                            <code>:update-nav-position-on-click=""</code>
+                        </div>
+                        <div class="table-col">
+                            Update nav position on click refers to how the quick date selection functions on click
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">true</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            showDateHeader<br>
+                            <code>:show-date-header=""</code>
+                        </div>
+                        <div class="table-col">
+                            Show date header enables the dates above each day column. This tends to be used when showDateOnEventCard is set to false and vice versa.
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">true</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            showDateOnEventCard<br>
+                            <code>:show-date-on-event-card=""</code>
+                        </div>
+                        <div class="table-col">
+                            Show date on event card enables the dates above each event. This tends to be used when showDateHeader is set to false and vice versa.
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <!-- <div class="table-row">
+                        <div class="table-col">
+                            hidePagination<br>
+                            <code>:hide-pagination=""</code>
+                        </div>
+                        <div class="table-col">
+                            
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div> -->
+                    <div class="table-row">
+                        <div class="table-col">
+                            showElapsedEvents<br>
+                            <code>:show-elapsed-events=""</code>
+                        </div>
+                        <div class="table-col">
+                            TBC
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <!-- <div class="table-row">
+                        <div class="table-col">
+                            showEventsWhenLoggedOut<br>
+                            <code>:show-events-when-logged-out=""</code>
+                        </div>
+                        <div class="table-col">
+                            
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div> -->
+                    <div class="table-row">
+                        <div class="table-col">
+                            showEventAsModal<br>
+                            <code>:show-event-as-modal=""</code>
+                        </div>
+                        <div class="table-col">
+                            Show event as modal refers to whether clicking on a event opens a modal or redirects to a new page with an event component.
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">true</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            portalSelector<br>
+                            <code>:portal-selector=""</code>
+                        </div>
+                        <div class="table-col">
+                            Portal Selector refers to where the modal should be placed within the DOM the default is attached to the body, if left blank it would nest whereever the modal has been placed. This allows for you to overcome z-indexing issues.
+                        </div>
+                        <div class="table-col">String</div>
+                        <div class="table-col">'body'</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'element'</div>
+                    </div>
+                    <!-- <div class="table-row">
+                        <div class="table-col">
+                            minDaysToLoad<br>
+                            <code>:min-days-to-load=""</code>
+                        </div>
+                        <div class="table-col">
+                            Min days to load
+                        </div>
+                        <div class="table-col">Number</div>
+                        <div class="table-col">7</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">Number (7, 14, 21)</div>
+                    </div> -->
+                    <!-- <div class="table-row">
+                        <div class="table-col">
+                            limitEvents<br>
+                            <code>:limit-events=""</code>
+                        </div>
+                        <div class="table-col">
+                            
+                        </div>
+                        <div class="table-col">Number, Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">Number || false</div>
+                    </div> -->
+                    <div class="table-row">
+                        <div class="table-col">
+                            navCarouselSettings<br>
+                            <code>:nav-carousel-settings=""</code>
+                        </div>
+                        <div class="table-col">
+                            Nav carousel settings controls the carousel settings, for full list of settings visit <a href="https://swiperjs.com/swiper-api">SwiperJS</a><br>
+                            All settings can be used they need to be pass through as an object. See validation for example.<br>
+                        </div>
+                        <div class="table-col">Object</div>
+                        <div class="table-col">{}</div>
+                        <div class="table-col">true</div>
+                        <div class="table-col">
+                            <pre>
+                                <code>
+    {
+        slidesPerView: 'auto',
+        threshold: 20
+    }
+                                </code>
+                            </pre>
+                            'slidersPerView' setting should be set to 'auto' to improve page speed load on iphone. The width is controlled with css variables.  
+                    </div>
+                    </div>
+                    <!--<div class="table-row">
+                        <div class="table-col">
+                            timetableWrapper<br>
+                            <code>:timetable-wrapper=""</code>
+                        </div>
+                        <div class="table-col">
+                            
+                        </div>
+                        <div class="table-col">String</div>
+                        <div class="table-col">'swiper'</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">Object</div>
+                    </div>-->
+                    <div class="table-row">
+                        <div class="table-col">
+                            disableUnavailableEvents<br>
+                            <code>:disable-unavailable-events=""</code>
+                        </div>
+                        <div class="table-col">
+                            Disable unavailable events will apply an 'inactive' class to the events that are unavailable this can be used to hide or stop customers click on the events.
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">true</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            matchHeight<br>
+                            <code>:match-height=""</code>
+                        </div>
+                        <div class="table-col">
+                            Match height is used to match the height of elements on slide change
+                        </div>
+                        <div class="table-col">Object</div>
+                        <div class="table-col">
+                            <pre>
+                                <code>
+    {
+        selectors: [],
+        options: {}
+    }
+                                </code>
+                            </pre>
+                        </div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">selectors = [], options = {}</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            daysToShow<br>
+                            <code>:days-to-show=""</code>
+                        </div>
+                        <div class="table-col">
+                            Days to show refers to the number of days to show at different breakpionts.
+                        </div>
+                        <div class="table-col">Object</div>
+                        <div class="table-col">
+                            <pre>
+                                <code>
+    {
+        640: 1,
+        768: 3,
+        1024: 7,
+        1200: 7,
+    }
+                                </code>
+                            </pre>
+                        </div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">{ breakpoint: number, breakpoint: number}</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            navDaysToShow<br>
+                            <code>:nav-days-to-show=""</code>
+                        </div>
+                        <div class="table-col">
+                            Nav days to show refers to the number of days to show at different breakpionts on the skeleton loader. The width of these once the swiper has initialised is controlled through the 'slidesPerView' settings and CSS variables. 
+                        </div>
+                        <div class="table-col">Object</div>
+                        <div class="table-col">
+                            <pre>
+                                <code>
+    {
+        640: 3,
+        768: 5,
+        1024: 7,
+        1200: 7,
+    }
+                                </code>
+                            </pre>
+                        </div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">{ breakpoint: number, breakpoint: number}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 	</div>
 
 </body>

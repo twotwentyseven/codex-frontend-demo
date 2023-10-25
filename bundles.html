@@ -11,7 +11,38 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,200;1,6..12,400;1,6..12,600;1,6..12,700&display=swap" rel="stylesheet">
-    
+    <script>
+        Codex().set(
+            'auto_configure', {
+                modals: {
+                    'codex-login-register': {
+                        modalProps: { 
+                            'v-slot': '{close}',
+                            ':delay-close': 3000,
+                        },
+                        props: {
+                            'login-redirect': 'account.html',
+                            'register-redirect': 'timetable.html',
+                            ':password-redirect': false,
+                            ':delay-close': 3000,
+                            ':show-login-default': true,
+                            'v-on:redirect': 'close'
+                        }
+                    },
+                    'codex-checkout': {
+                        modalProps: { 
+                            'x-position': 'right',
+                            'y-position': 'top',
+                            'v-slot': '{open}' 
+                        },
+                        props: {
+                            'v-on:updated': 'open'
+                        }
+                    }
+                }
+            }
+        )
+    </script>
 </head>
 <body>
     <header>
@@ -167,9 +198,126 @@
 
     <div data-codex>
 
+        <div class="row">
+            <div class="cell small-12">
+                <h1>Bundles</h1>
+            </div>
+        </div>    
+
         <codex-bundles></codex-bundles>
 
     </div>
+
+    <div class="row">
+        <div class="cell small-12">
+            <pre>
+                <code>
+    &lt;codex-bundles&gt;&lt;/codex-bundles&gt;      
+                </code>
+            </pre>
+        </div>
+
+        <div class="cell small-12 intro">
+                    
+            <h2>Component Props</h2>
+
+            <div class="flex-table">
+                <div class="table-head">
+                    <div class="table-row">
+                        <div class="table-col">
+                            PropName<br>
+                            <code>prop-name=""</code>
+                        </div>
+                        <div class="table-col">Description</div>
+                        <div class="table-col">Type</div>
+                        <div class="table-col">Default</div>
+                        <div class="table-col">Required</div>
+                        <div class="table-col">Validation</div>
+                    </div>
+                </div>
+                <div class="table-body">
+                    <div class="table-row">
+                        <div class="table-col">
+                            hideIfNoResults<br>
+                            <code>hide-if-no-results=""</code>
+                        </div>
+                        <div class="table-col">
+                            Hide if no results will not output anything if there are no bundles matching the provided filters. This means no messaging outline there are no bundles.
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            hideDisabledBundles<br>
+                            <code>hide-disabled-bundles=""</code>
+                        </div>
+                        <div class="table-col">
+                            Hide disabled bundles will hide bundles that are not available for purchase by certain customers. For example if intro bundles can only be once and this is set to true then it won't show to customer who have already bought it.
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            showPricesInline<br>
+                            <code>show-prices-inline=""</code>
+                        </div>
+                        <div class="table-col">
+                            Show prices inline will show the bundle price within the button.
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            contentWrapperType
+                            <code>content-wrapper-type=""</code>
+                        </div>
+                        <div class="table-col">
+                            Content wrapper type refers to whether the bundles are displayed as a stack of bundles or if they render as a carsouel(swiperJS) with the settings defined in the contentWrapperSettings prop.
+                        </div>
+                        <div class="table-col">String</div>
+                        <div class="table-col">'div'</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'div' || 'swiper'</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            contentWrapperSettings<br>
+                            <code>:content-wrapper-settings=""</code>
+                        </div>
+                        <div class="table-col">
+                            Content wrapper settings controls the carousel settings if content wrapper type is set to swiper, for full list of settings visit <a href="https://swiperjs.com/swiper-api">SwiperJS</a><br>
+                            All settings can be used they need to be pass through as an object. See validation for example.<br>
+                        </div>
+                        <div class="table-col">Object</div>
+                        <div class="table-col">{}</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">
+                           <pre>
+                                <code>
+    {
+        slidesPerView: 'auto',
+        autoplay: {
+            delay: 5000
+        }
+    }
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 
 </body>
 </html>

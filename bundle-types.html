@@ -11,7 +11,38 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,200;1,6..12,400;1,6..12,600;1,6..12,700&display=swap" rel="stylesheet">
-    
+    <script>
+        Codex().set(
+            'auto_configure', {
+                modals: {
+                    'codex-login-register': {
+                        modalProps: { 
+                            'v-slot': '{close}',
+                            ':delay-close': 3000,
+                        },
+                        props: {
+                            'login-redirect': 'account.html',
+                            'register-redirect': 'timetable.html',
+                            ':password-redirect': false,
+                            ':delay-close': 3000,
+                            ':show-login-default': true,
+                            'v-on:redirect': 'close'
+                        }
+                    },
+                    'codex-checkout': {
+                        modalProps: { 
+                            'x-position': 'right',
+                            'y-position': 'top',
+                            'v-slot': '{open}' 
+                        },
+                        props: {
+                            'v-on:cart-update': 'open'
+                        }
+                    }
+                }
+            }
+        )
+    </script>
 </head>
 <body>
     <header>
@@ -167,7 +198,13 @@
 
     <div data-codex>
 
-        <codex-bundle-types :bundle-types='["intro-offers","standard","reformer","special-deals","kids","events"]'>
+        <div class="row">
+            <div class="cell small-12">
+                <h1>Bundle Types</h1>
+            </div>
+        </div>    
+
+        <codex-bundle-types>
             <template v-slot:metafields="{ bundle }">
                 <template v-if="bundle?.metafields?.t_c">
                     <input type="checkbox" id="modal">
@@ -190,7 +227,312 @@
 
     </div>
 
+    <div class="row">
+        <div class="cell small-12">
+            <h3>Version 1</h3>
+            <pre>
+                <code>
+    &lt;codex-bundle-types&gt;&lt;/codex-bundle-types&gt;
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <div data-codex>
+
+        <codex-bundle-types :show-all-by-default="true" bundle-nav-type="carousel">
+            <template v-slot:metafields="{ bundle }">
+                <template v-if="bundle?.metafields?.t_c">
+                    <input type="checkbox" id="modal">
+                    <label for="modal" class="cdx_t-c">{{ $t('bundle.terms_button') }}</label>
+                    <label for="modal" class="cdx_modal-background"></label>
+                    <div class="cdx_modal-t-c">
+                        <div class="cdx_modal-header">
+                            {{ $t('bundle.terms_and_conditions_title') }}
+                        </div>
+
+                        <div class="cdx_content" v-html="bundle.metafields?.t_c"></div>
+
+                        <label for="modal" class="cdx_btn">
+                            {{ $t('bundle.close_terms') }}
+                        </label>
+                    </div>
+                </template>
+            </template>
+        </codex-bundle-types>
+
+    </div>
+
+    <div class="row">
+
+        <div class="cell small-12">
+            <h3>Version 2</h3>
+            <pre>
+                <code>
+    &lt;codex-bundle-types :show-all-by-default="true" bundle-nav-type="carousel"&gt;&lt;/codex-bundle-types&gt;
+                </code>
+            </pre>
+        </div>
+
+        <div class="cell small-12 intro">
+                    
+            <h2>Component Props</h2>
+
+            <div class="flex-table">
+                <div class="table-head">
+                    <div class="table-row">
+                        <div class="table-col">
+                            PropName<br>
+                            <code>prop-name=""</code>
+                        </div>
+                        <div class="table-col">Description</div>
+                        <div class="table-col">Type</div>
+                        <div class="table-col">Default</div>
+                        <div class="table-col">Required</div>
+                        <div class="table-col">Validation</div>
+                    </div>
+                </div>
+                <div class="table-body">
+                    <div class="table-row">
+                        <div class="table-col">
+                            bundleTypes<br>
+                            <code>:bundleTypes=""</code>
+                        </div>
+                        <div class="table-col">
+                            Hide if no results will not output anything if there are no bundles matching the provided filters. This means no messaging outline there are no bundles.
+                        </div>
+                        <div class="table-col">Boolean, Array</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false || ['bundle-handle-1', 'bundle-handle-2', 'bundle-handle-3']</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            showAllByDefault<br>
+                            <code>:show-all-by-default="" </code>
+                        </div>
+                        <div class="table-col">
+                            If true it will show all bundle types listing each out, and setting the bundle type button to active for all, on click it will hide all but the clicked type.
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false || true</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            bundleNavType<br>
+                            <code>bundle-nav-type=""</code>
+                        </div>
+                        <div class="table-col">
+                            Bundle Nav Type determines whether the bundle type buttons switch to a dropdown for scroll on mobile, and slightly alter appearance on desktop.
+                        </div>
+                        <div class="table-col">String</div>
+                        <div class="table-col">'dropdown'</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'carousel' || 'dropdown'</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            hideIfNoResults<br>
+                            <code>hide-if-no-results=""</code>
+                        </div>
+                        <div class="table-col">
+                            Hide if no results will not output anything if there are no bundles matching the provided filters. This means no messaging outline there are no bundles.
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            hideDisabledBundles<br>
+                            <code>hide-disabled-bundles=""</code>
+                        </div>
+                        <div class="table-col">
+                            Hide disabled bundles will hide bundles that are not available for purchase by certain customers. For example if intro bundles can only be once and this is set to true then it won't show to customer who have already bought it.
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            showPricesInline<br>
+                            <code>show-prices-inline=""</code>
+                        </div>
+                        <div class="table-col">
+                            Show prices inline will show the bundle price within the button.
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            contentWrapperType
+                            <code>content-wrapper-type=""</code>
+                        </div>
+                        <div class="table-col">
+                            Content wrapper type refers to whether the bundles are displayed as a stack of bundles or if they render as a carsouel(swiperJS) with the settings defined in the contentWrapperSettings prop.
+                        </div>
+                        <div class="table-col">String</div>
+                        <div class="table-col">'div'</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'div' || 'swiper'</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            contentWrapperSettings<br>
+                            <code>:content-wrapper-settings=""</code>
+                        </div>
+                        <div class="table-col">
+                            Content wrapper settings controls the carousel settings if content wrapper type is set to swiper, for full list of settings visit <a href="https://swiperjs.com/swiper-api">SwiperJS</a><br>
+                            All settings can be used they need to be pass through as an object. See validation for example.<br>
+                        </div>
+                        <div class="table-col">Object</div>
+                        <div class="table-col">{}</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">
+                           <pre>
+                                <code>
+    {
+        slidesPerView: 'auto',
+        autoplay: {
+            delay: 5000
+        }
+    }
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cell small-12">
+            <h3>Version 3</h3>
+            <pre>
+                <code>
+    &lt;codex-bundle-types :show-all-by-default="true" bundle-nav-type="carousel"&gt;
+        &lt;template v-slot:metafields="{ bundle }"&gt;
+            &lt;template v-if="bundle?.metafields?.t_c"&gt;
+                &lt;input type="checkbox" id="modal"&gt;
+                &lt;label for="modal" class="cdx_t-c"&gt;{{ $t('bundle.terms_button') }}&lt;/label&gt;
+                &lt;label for="modal" class="cdx_modal-background"&gt;&lt;/label&gt;
+                &lt;div class="cdx_modal-t-c"&gt;
+                    &lt;div class="cdx_modal-header"&gt;
+                        {{ $t('bundle.terms_and_conditions_title') }}
+                    &lt;/div&gt;
+
+                    &lt;div class="cdx_content" v-html="bundle.metafields?.t_c"&gt;&lt;/div&gt;
+
+                    &lt;label for="modal" class="cdx_btn"&gt;
+                        {{ $t('bundle.close_terms') }}
+                    &lt;/label&gt;
+                &lt;/div&gt;
+            &lt;/template&gt;
+        &lt;/template&gt;
+    &lt;/codex-bundle-types&gt;
+
+    &lt;style&gt;
+
+        input[type="checkbox"] {
+            display:none;
+        }
+        input[type="checkbox"]:checked ~ .cdx_modal-t-c,
+        input[type="checkbox"]:checked ~ .cdx_modal-background {
+            display: block;
+        }
+        .cdx_modal-background {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(6,6,6,0.5);
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+            z-index: 9998;
+        }
+        .cdx_modal-t-c {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%); 
+            display: none;	
+            max-width: 626px;
+            width: calc(100% - 64px);
+            max-height: 656px;
+            overflow: auto;
+            background-color: #fff;
+            box-sizing: border-box;
+            padding: 24px;
+            border-radius: 16px;
+            z-index: 9999;
+        }
+
+        .cdx_modal-header {
+            background-color: #f6f6f6;
+            padding: 12px;
+            box-sizing: border-box;
+            font-size: 24px;
+            color: #58585A;
+            font-weight: 700;
+            line-height: 1.2em;
+            margin-bottom: 40px;
+        }
+
+        .cdx_content {
+            margin-bottom: 40px;
+            color: #58585A;
+        }
+
+        .cdx_content ul {
+            list-style-position: inside;
+            padding-left: 0;
+        }
+
+        .cdx_content ul li > * {
+            display: inline;
+        } 
+
+        .cdx_content ul li:not(:last-of-type) {
+            margin-bottom: 16px;
+        }
+
+        .cdx_content ul li > * {
+            display: inline-block;
+        } 
+        /* below is optional, it is just an example for the blue button */
+        .cdx_t-c {
+            width: 100%;
+            order: 7;
+            margin: 16px 0;
+            color: #C7B88A;
+            text-decoration: underline;
+        }
+    &lt;/style&gt;
+                </code>
+            </pre>
+
+            <p>This version allows a terms condition button/link to be added which triggers a popup. The <code>t_c</code> metafield will need to be setup in the bundles config. The custom styles will need to be added to the sites stylesheet.</p>
+        </div>
+    </div>
+
     <style>
+
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity 0.5s ease;
+        }
+
+        .fade-enter-from,
+        .fade-leave-to {
+            opacity: 0;
+        }
 
         input[type="checkbox"] {
             display:none;

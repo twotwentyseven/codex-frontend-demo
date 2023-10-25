@@ -30,7 +30,14 @@
                         }
                     },
                     'codex-checkout': {
-                        modalProps: { 'x-position': 'right', 'y-position': 'top' }
+                        modalProps: { 
+                            'x-position': 'right',
+                            'y-position': 'top',
+                            'v-slot': '{open}' 
+                        },
+                        props: {
+                            'v-on:cart-update': 'open'
+                        }
                     }
                 }
             }

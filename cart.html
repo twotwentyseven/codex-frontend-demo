@@ -165,20 +165,97 @@
         </nav>
     </header>
 
-    <div data-codex>
+    <div class="row" data-codex>
 
-        <a data-checkout href="#"><h1>Cart Summary (<codex-cart-summary></codex-cart-summary>)</h1></a>
         
-        <h1>Cart</h1>
-        <codex-checkout>
-            <template #empty-cart>
-                
-            </template>
+        <div class="cell small-12">
+            <a data-checkout href="#"><h1>Cart Summary (<codex-cart-summary></codex-cart-summary>)</h1></a>
+			<h2>Code Example</h2>
+            <pre>
+                <code>
+        &lt;codex-cart-summary&gt;&lt;/codex-cart-summary&gt;
+				</code>
+			</pre>
+		</div>
+        
+        <div class="cell small-12">
+            <h1>Cart</h1>
+            <codex-checkout>
+                <template #empty-cart>
+                    
+                </template>
 
-            <template #cart-success-cta>
+                <template #cart-success-cta>
+                    
+                </template>
+            </codex-checkout>
+        </div>
+
+        <div class="cell small-12">
+			<h2>Code Example</h2>
+            <pre>
+                <code>
+        &lt;codex-checkout&gt;
+             &lt;template #empty-cart&gt;
+                    
+             &lt;/template&gt;
+
+             &lt;template #cart-success-cta&gt;
                 
-            </template>
-        </codex-checkout>
+             &lt;/template&gt;
+        &lt;/codex-checkout&gt;
+				</code>
+			</pre>
+		</div>
+
+        <div class="cell small-12 intro">
+                    
+            <h2>Component Props</h2>
+
+            <div class="flex-table">
+                <div class="table-head">
+                    <div class="table-row">
+                        <div class="table-col">
+                            PropName<br>
+                            <code>prop-name=""</code>
+                        </div>
+                        <div class="table-col">Description</div>
+                        <div class="table-col">Type</div>
+                        <div class="table-col">Default</div>
+                        <div class="table-col">Required</div>
+                        <div class="table-col">Validation</div>
+                    </div>
+                </div>
+                <div class="table-body">
+                    <div class="table-row">
+                        <div class="table-col">
+                            announcementBar<br>
+                            <code>announcement-bar=""</code>
+                        </div>
+                        <div class="table-col">
+                            Announcement bar enables the announcement bar and controls the text within the bar. a good use for this is if the site has 2 carts one for codex and one for ecommerce (eg. shopify).
+                        </div>
+                        <div class="table-col">String</div>
+                        <div class="table-col">' '</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'String'</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            announcementUrl
+                            <code>announcement-url=""</code>
+                        </div>
+                        <div class="table-col">
+                            Announcement URL controls the location of the announcement bar when clicked.
+                        </div>
+                        <div class="table-col">String</div>
+                        <div class="table-col">' '</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'/string'</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
