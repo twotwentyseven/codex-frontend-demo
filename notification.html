@@ -11,7 +11,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,200;1,6..12,400;1,6..12,600;1,6..12,700&display=swap" rel="stylesheet">
-    
+    <script>
+        Codex().set(
+            'auto_configure', {
+                modals: {
+                    'codex-login-register': {
+                        modalProps: { 
+                            'v-slot': '{close}',
+                            ':delay-close': 3000,
+                        },
+                        props: {
+                            'login-redirect': 'account.html',
+                            'register-redirect': 'timetable.html',
+                            ':password-redirect': false,
+                            ':delay-close': 3000,
+                            ':show-login-default': true,
+                            'v-on:redirect': 'close'
+                        }
+                    },
+                    'codex-checkout': {
+                        modalProps: { 'x-position': 'right', 'y-position': 'top' }
+                    }
+                }
+            }
+        )
+    </script>
 </head>
 <body>
     <header>
@@ -170,64 +194,27 @@
 
     <div data-codex>
 
-        <codex-videos video-detail-url="video.html?id={id}"
-            :filters="{
-                name: {
-                    selector: 'instructor.full_name',
-                    multi: true,
-                    title: 'Instructor Name'
-                },
-                workoutType: {
-                    selector: 'metafields.tags',
-                    options: [
-                        { value: 'barre', displayValue: 'Barre' },
-                        { value: 'strength', displayValue: 'Strength' },
-                    ],
-                    multi: true,
-                    title: 'Workout Type'
-                },
-                options: {
-                    searchKeys: ['full_name', 'metafields.description', 'tags']
-                }
-            }">
-        </codex-videos>
+        <div class="row">
+            <div class="cell small-12 intro">
+                <h2>Notifications</h2>
+                <p>In order to see a notification popup a new notification will need to be sent from the codexfit backend. (method tbc).</p>
+            </div>
+            <div class="cell small-12">
+                <h2>Code Example</h2>
+                <p>This code that needs to be added just above the <code>&lt;/body&gt;</code> tag. This code should be on all pages across the site so new notifications are sent to customers from any page on the site.</p>
+                <pre>
+                    <code>
+    &lt;div data-codex&gt;
+        &lt;codex-notification-popup-wrapper&gt;&lt;/codex-notification-popup-wrapper&gt;
+    &lt;/div data-codex&gt;
+                    </code>
+                </pre>
+            </div>
+        </div>
+        
+        <codex-notification-popup-wrapper></codex-notification-popup-wrapper>
 
     </div>
 
-    <div class="row">
-        <div class="cell small-12">
-			<h2>Code Example</h2>
-            <pre>
-                <code>
-    &lt;codex-videos
-    video-detail-url="video.html?id={id}"
-    :filters="{
-        name: {
-            selector: 'instructor.full_name',
-            multi: true,
-            title: 'Instructor Name'
-        },
-        workoutType: {
-            selector: 'metafields.tags',
-            options: [
-                { value: 'barre', displayValue: 'Barre' },
-                { value: 'strength', displayValue: 'Strength' },
-            ],
-            multi: true,
-            title: 'Workout Type'
-        },
-        options: {
-            searchKeys: ['full_name', 'metafields.description', 'tags']
-        }
-    }"&gt;&lt;/codex-videos&gt;
-				</code>
-			</pre>
-			<br>
-			<h3>Required props for redirects:</h3>
-			<pre><code>
-    video-detail-url="video.html?id={id}"
-			</code></pre>
-		</div>
-	</div>
 </body>
 </html>
