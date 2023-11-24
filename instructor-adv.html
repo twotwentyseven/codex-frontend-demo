@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,200;1,6..12,400;1,6..12,600;1,6..12,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
     
 </head>
 <body>
@@ -95,7 +96,10 @@
                     <nav>
                         <ul> 
                             <li>
-                                <a href="timetable.html">Timetable</a>
+                                <a href="timetable.html">Timetable Column</a>
+                            </li>
+                            <li>
+                                <a href="timetable_list.html">Timetable List</a>
                             </li>
                             <li>
                                 <a href="event.html">Event</a>
@@ -159,6 +163,9 @@
                     </nav>
                 </li>
                 <li>
+                    <a href="filters.html">Filters</a>
+                </li>
+                <li>
                     <a href="variables.html">Variables</a>
                 </li>
                 <!-- <li>
@@ -205,42 +212,18 @@
             <template v-slot:container-end="{instructor}">
                 <div class="cdx_instructor-additional-content">
                     <div v-if="instructor" class="cdx_timetable-container">
-                        <codex-timetable-alt 
-                            purchase-url="/buy"
-                            event-detail-url="/event?id={id}"
+                        <codex-timetable 
+                            :show-from-start-of-day="false"
+                            :disable-unavailable-events="false"
+                            layout-type="list"
+                            purchase-url="/bundle.html"
+                            event-detail-url="/event.html?id={id}"
                             :show-date-on-event-card="true"
                             :show-events-when-logged-out="true"
                             :hide-filters="true"
-                            :main-carousel-settings="{
-                                spaceBetween: 0,
-                                slidesPerView: 1,
-                                threshold: 10,
-                                breakpoints: {
-                                    1024: {
-                                        slidesPerView: 3,
-                                        spaceBetween: 30
-                                    },
-                                    1200: {
-                                        slidesPerView: 5,
-                                        spaceBetween: 10
-                                    }
-                                }
-                            }"
-                            :nav-carousel-settings="{
-                                spaceBetween: 5,
-                                slidesPerView: 3,
-                                threshold: 10,
-                                breakpoints: {
-                                    1024: {
-                                        slidesPerView: 5,
-                                        spaceBetween: 10
-                                    },
-                                    1200: {
-                                        slidesPerView: 7,
-                                        spaceBetween: 10
-                                    }
-                                }
-                            }"
+                            :disable-grouped-days="true"
+                            :days-to-show="3"
+                            :min-days-to-load="3"
                             :filters="{
                                 instructors: {
                                     selector: 'instructor.id',

@@ -11,7 +11,38 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,200;1,6..12,400;1,6..12,600;1,6..12,700&display=swap" rel="stylesheet">
-    
+    <script>
+        Codex().set(
+            'auto_configure', {
+                modals: {
+                    'codex-login-register': {
+                        modalProps: { 
+                            'v-slot': '{close}',
+                            ':delay-close': 3000,
+                        },
+                        props: {
+                            'login-redirect': 'account.html',
+                            'register-redirect': 'timetable.html',
+                            ':password-redirect': false,
+                            ':delay-close': 3000,
+                            ':show-login-default': true,
+                            'v-on:redirect': 'close'
+                        }
+                    },
+                    'codex-checkout': {
+                        modalProps: { 
+                            'x-position': 'right',
+                            'y-position': 'top',
+                            'v-slot': '{open}' 
+                        },
+                        props: {
+                            'v-on:cart-update': 'open'
+                        }
+                    }
+                }
+            }
+        )
+    </script>
 </head>
 <body>
     <header>
@@ -175,66 +206,50 @@
     </header>
 
     <div data-codex>
+        
+        <div class="row">
+            <div class="cell small-12">
+                <h1>Filters</h1>
+            </div>
 
-        <codex-instructors 
-            instructor-detail-url="instructor.html?instructor={handle}"
-            no-results-text="Sorry, we couldn't find what you were looking for"
-            :show-description="true"
-            :truncate-length="100"
-            :filters="{
-                    name: {
-                    selector: 'first_name',
-                    multi: true,
-                    title: 'Instructor Name'
-                },
-                workoutType: {
-                    selector: 'metafields.tags',
-                    options: [
-                        { value: 'barre', displayValue: 'Barre' },
-                        { value: 'strength', displayValue: 'Strength' },
-                    ],
-                    multi: true,
-                    title: 'Workout Type'
-                },
-                location: {
-                    selector: 'tags',
-                    options: [
-                        { value: '1', displayValue: 'Mitte' },
-                        { value: '2', displayValue: 'Xberg' },
-                        { value: '3', displayValue: 'Dusseldorf' },
-                    ],
-                    multi: true,
-                    title: 'Location'
-                },
-                musicGenre: {
-                    selector: 'tags',
-                    options: [
-                        { value: 'music:hiphop', displayValue: 'Hip Hop' },
-                        { value: 'music:pop', displayValue: 'Pop' },
-                    ],
-                    multi: true,
-                    title: 'Music Genre'
-                },
-                options: {
-                    searchKeys: ['full_name', 'metafields.description', 'tags']
-                }
-        }"></codex-instructors>
+            <div class="cell small-12 intro">
+                <p>Filters are used on a number of codex components heres a list of all the components that make sure of them:</p>
 
-    </div>
+                <ul>
+                    <li>Codex-timetable</li>
+                    <li>Codex-instructors</li>
+                    <li>Codex-bundles</li>
+                    <li>Codex-plans</li>
+                    <li>Codex-giftcards</li>
+                    <li>Codex-videos</li>
+                    <li>Codex-video-collection</li>
+                    <li>Codex-video-collections</li>
+                </ul>
 
-    
-    <div class="row">
-        <div class="cell small-12">
-			<h2>Code Example</h2>
-            <pre>
-                <code>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="cell small-12 intro">
+                <h2>Overview</h2>
+                <p>There are 2 why to use filtering using pre-defined filters and then bespoke filters, they can be used together.</p>
+
+                <p>An example of pre-defined filters:</p>
+
+                <pre>
+                    <code>
+    &lt;codex-instructors :filters="['instructor', 'event_type', 'duration_in_minutes']"&gt;&lt;/codex-instructors&gt;
+                    </code>
+                </pre>
+
+                <p>An example of bespoke filters:</p>
+
+                <pre>
+                    <code>
     &lt;codex-instructors 
-        instructor-detail-url="instructor.html?instructor={handle}"
-        no-results-text="Sorry, we couldn't find what you were looking for"
-        :show-description="true"
-        :truncate-length="100"
         :filters="{
-                name: {
+            name: {
                 selector: 'first_name',
                 multi: true,
                 title: 'Instructor Name'
@@ -248,6 +263,16 @@
                 multi: true,
                 title: 'Workout Type'
             },
+            location: {
+                selector: 'tags',
+                options: [
+                    { value: '1', displayValue: 'Mitte' },
+                    { value: '2', displayValue: 'Xberg' },
+                    { value: '3', displayValue: 'Dusseldorf' },
+                ],
+                multi: true,
+                title: 'Location'
+            },
             musicGenre: {
                 selector: 'tags',
                 options: [
@@ -260,16 +285,93 @@
             options: {
                 searchKeys: ['full_name', 'metafields.description', 'tags']
             }
-    }"&gt;&lt;/codex-instructors&gt;
-				</code>
-			</pre>
-            <br>
-			<h3>Required props for redirects:</h3>
-			<pre><code>
-                instructor-detail-url="instructor.html?instructor={handle}"
-			</code></pre>
-		</div>
-	</div>
+        }"
+    &gt;
+    &lt;/codex-instructors&gt;
+                    </code>
+                </pre>
+
+                <p>An example of a mix of the two filtering methods:</p>
+
+                <pre>
+                    <code>
+    &lt;codex-instructors :filters="['instructor', 'event_type', 'duration_in_minutes', {  
+        key: 'metafields->difficulty',
+        title: 'Difficulty',
+        api: true,
+        options: [
+            { displayValue: 'Low', value: 'low'},
+            { displayValue: 'Moderate', value: 'Moderate'},
+            { displayValue: 'High', value: 'High'}
+        ],
+    }]"&gt;
+    &lt;/codex-instructors&gt;
+                    </code>
+                </pre>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell small-12 intro">
+                <h2>How it works</h2>
+
+
+                <div class="flex-table">
+                    <div class="table-head">
+                        <div class="table-row">
+                            <div class="table-col">Property</div>
+                            <div class="table-col">Description</div>
+                            <div class="table-col">Type</div>
+                            <div class="table-col">Example(s)</div>
+                            <div class="table-col">Default</div>
+                        </div>
+                    </div>
+                    <div class="table-body">
+                        <div class="table-row">
+                            <div class="table-col">key</div>
+                            <div class="table-col">The unique key for this filter. If used in combination with api, it will be used as the query.</div>
+                            <div class="table-col">String</div>
+                            <div class="table-col">'instructor'</div>
+                            <div class="table-col">-</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="cell small-12 intro">
+                <h2>Timetable Filters</h2>
+                <p>The timetable examples have default filters prop set up within them. we'll go into more detail here</p>
+                <pre>
+                    <code>
+    :filters="{
+        location: {
+            selector: 'studio.location.id',
+            options: 'api/locations:id:name',
+            title: $t('timetable.location')
+        },
+        instructor: {
+            selector: 'instructor.id',
+            options: 'api/instructors:id:first_name',
+            title: $t('timetable.instructors')
+        },
+        workoutType: {
+            selector: 'event_type.id',
+            options: 'api/event_types:id:name',
+            title: $t('event.workout_type'),
+            multi: true
+        },
+        
+    }
+                    </code>
+                </pre>
+            </div>
+            
+        </div>
+
+    </div>
 
 </body>
 </html>

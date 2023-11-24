@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,200;1,6..12,400;1,6..12,600;1,6..12,700&display=swap" rel="stylesheet">
-    
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -95,7 +95,10 @@
                     <nav>
                         <ul> 
                             <li>
-                                <a href="timetable.html">Timetable</a>
+                                <a href="timetable.html">Timetable Column</a>
+                            </li>
+                            <li>
+                                <a href="timetable_list.html">Timetable List</a>
                             </li>
                             <li>
                                 <a href="event.html">Event</a>
@@ -159,6 +162,9 @@
                     </nav>
                 </li>
                 <li>
+                    <a href="filters.html">Filters</a>
+                </li>
+                <li>
                     <a href="variables.html">Variables</a>
                 </li>
                 <!-- <li>
@@ -175,7 +181,7 @@
 			start-date="2022-10-01"
 			:show-bookmark-toggle="true"
 			:show-events-when-logged-out="true"
-			event-detail-url="/pages/event"
+			event-detail-url="event.html"
 			:show-date-on-event-card="true"
 			:nav-days-to-show="{
 				640:3,
@@ -221,6 +227,26 @@
 
 		</template>
 		</codex-timetable>
+
+        <codex-timetable
+			:disable-unavailable-events="false"
+            :only-show-bookmarked="true"
+			:show-events-when-logged-out="true"
+			event-detail-url="event.html"
+			:show-date-on-event-card="true"
+			:days-to-show="14"
+		>
+            <template #header>
+                <div class="cdx_header">Bookmark only Timetable</div>
+            </template>
+            <template v-slot:event-modal="{ id, eventObject, purchaseUrl, isModal, closeModal }">
+
+                <codex-event :id="id" :event-object="eventObject" account-url="account.html" purchase-url="purchase.html" :show-when-logged-out="true" :is-modal="isModal" :close-modal="closeModal">
+
+                </codex-event>
+
+            </template>
+        </codex-timetable>
 
     </div>
 
@@ -298,6 +324,32 @@
                     </div>
                 </div>
                 <div class="table-body">
+                    <div class="table-row">
+                        <div class="table-col">
+                            showHeader<br>
+                            <code>:show-header=""</code>
+                        </div>
+                        <div class="table-col">
+                            Show header determines whether the header is visible or not (The header can be change within translation area on the backend, default is Timetable)
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">true</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            layoutType<br>
+                            <code>:layout-type=""</code>
+                        </div>
+                        <div class="table-col">
+                            Layout type controls determines how the event card display, either as columns of tiles or as lists (see <a href="timetable_list.html">timetable list page</a>).
+                        </div>
+                        <div class="table-col">String</div>
+                        <div class="table-col">'columns'</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">'columns' || 'list'</div>
+                    </div>
                     <div class="table-row">
                         <div class="table-col">
                             eventDetailUrl<br>
@@ -454,19 +506,6 @@
                         <div class="table-col">false</div>
                         <div class="table-col">true || false</div>
                     </div>
-                    <!-- <div class="table-row">
-                        <div class="table-col">
-                            hidePagination<br>
-                            <code>:hide-pagination=""</code>
-                        </div>
-                        <div class="table-col">
-                            
-                        </div>
-                        <div class="table-col">Boolean</div>
-                        <div class="table-col">false</div>
-                        <div class="table-col">false</div>
-                        <div class="table-col">true || false</div>
-                    </div> -->
                     <div class="table-row">
                         <div class="table-col">
                             showElapsedEvents<br>
@@ -480,19 +519,6 @@
                         <div class="table-col">false</div>
                         <div class="table-col">true || false</div>
                     </div>
-                    <!-- <div class="table-row">
-                        <div class="table-col">
-                            showEventsWhenLoggedOut<br>
-                            <code>:show-events-when-logged-out=""</code>
-                        </div>
-                        <div class="table-col">
-                            
-                        </div>
-                        <div class="table-col">Boolean</div>
-                        <div class="table-col">false</div>
-                        <div class="table-col">false</div>
-                        <div class="table-col">true || false</div>
-                    </div> -->
                     <div class="table-row">
                         <div class="table-col">
                             showEventAsModal<br>
@@ -519,32 +545,6 @@
                         <div class="table-col">false</div>
                         <div class="table-col">'element'</div>
                     </div>
-                    <!-- <div class="table-row">
-                        <div class="table-col">
-                            minDaysToLoad<br>
-                            <code>:min-days-to-load=""</code>
-                        </div>
-                        <div class="table-col">
-                            Min days to load
-                        </div>
-                        <div class="table-col">Number</div>
-                        <div class="table-col">7</div>
-                        <div class="table-col">false</div>
-                        <div class="table-col">Number (7, 14, 21)</div>
-                    </div> -->
-                    <!-- <div class="table-row">
-                        <div class="table-col">
-                            limitEvents<br>
-                            <code>:limit-events=""</code>
-                        </div>
-                        <div class="table-col">
-                            
-                        </div>
-                        <div class="table-col">Number, Boolean</div>
-                        <div class="table-col">false</div>
-                        <div class="table-col">false</div>
-                        <div class="table-col">Number || false</div>
-                    </div> -->
                     <div class="table-row">
                         <div class="table-col">
                             navCarouselSettings<br>
@@ -567,21 +567,8 @@
                                 </code>
                             </pre>
                             'slidersPerView' setting should be set to 'auto' to improve page speed load on iphone. The width is controlled with css variables.  
-                    </div>
-                    </div>
-                    <!--<div class="table-row">
-                        <div class="table-col">
-                            timetableWrapper<br>
-                            <code>:timetable-wrapper=""</code>
                         </div>
-                        <div class="table-col">
-                            
-                        </div>
-                        <div class="table-col">String</div>
-                        <div class="table-col">'swiper'</div>
-                        <div class="table-col">false</div>
-                        <div class="table-col">Object</div>
-                    </div>-->
+                    </div>
                     <div class="table-row">
                         <div class="table-col">
                             disableUnavailableEvents<br>
@@ -616,6 +603,19 @@
                         </div>
                         <div class="table-col">false</div>
                         <div class="table-col">selectors = [], options = {}</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="table-col">
+                            disableGroupedDays<br>
+                            <code>:disable-grouped-days=""</code>
+                        </div>
+                        <div class="table-col">
+                            Disable grouped days disables the logic to show events group via day and will list events based number passed through to daysToShow prop this is used for instructor detail pages
+                        </div>
+                        <div class="table-col">Boolean</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">false</div>
+                        <div class="table-col">true || false</div>
                     </div>
                     <div class="table-row">
                         <div class="table-col">
