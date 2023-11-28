@@ -166,6 +166,9 @@
                     <a href="filters.html">Filters</a>
                 </li>
                 <li>
+                    <a href="surveys.html">Surveys</a>
+                </li>
+                <li>
                     <a href="variables.html">Variables</a>
                 </li>
                 <!-- <li>
@@ -256,7 +259,7 @@
         
                             </template>
         
-                        </codex-timetable-alt>
+                        </codex-timetable>
                     </div>
                     <div class="cdx_header">{{ $t('instructor.recommended_videos', {'name': instructor.first_name}) }}</div>
                     <codex-videos v-if="instructor" :video-detail-url="`/video?id={id}`" :hide-filters="true" :truncate-length="100" :limit="3" :filters="[{  
