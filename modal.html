@@ -11,7 +11,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,200;1,6..12,400;1,6..12,600;1,6..12,700&display=swap" rel="stylesheet">
-    
+    <script>
+        // Codex().set('combine_join_fees', true)
+        Codex().set(
+                'auto_configure', {
+                    modals: {
+                        'codex-login-register': {
+                            modalProps: { 
+                                'v-slot': '{close}',
+                                ':delay-close': 3000,
+                            },
+                            props: {
+                                ':login-redirect': false,
+                                ':show-labels': true,
+                                'register-redirect': '/secondary-registration',
+                                ':password-redirect': false,
+                                ':delay-close': 3000,
+                                ':show-login-default': true,
+                                'v-on:redirect': 'close'
+                            }
+                        },
+                        'codex-checkout': {
+                            modalProps: { 
+                                'x-position': 'right',
+                                'y-position': 'top',
+                                'v-slot': '{open}' 
+                            },
+                            props: {
+                                'v-on:updated': 'open'
+                            }
+                        }
+                    }
+                }
+            )
+    </script>
 </head>
 <body>
     <header>

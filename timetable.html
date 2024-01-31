@@ -225,7 +225,12 @@
 		<template v-slot:event-modal="{ id, eventObject, purchaseUrl, isModal, closeModal }">
 
 			<codex-event :id="id" :event-object="eventObject" account-url="account.html" purchase-url="purchase.html" :show-when-logged-out="true" :is-modal="isModal" :close-modal="closeModal">
-
+                <template v-slot:key-start>
+                    
+                </template>
+                <template v-slot:key-end>
+                    
+                </template>
 			</codex-event>
 
 		</template>
@@ -389,7 +394,7 @@
                         </div>
                         <div class="table-col">String</div>
                         <div class="table-col">' '</div>
-                        <div class="table-col">true</div>
+                        <div class="table-col">false</div>
                         <div class="table-col">'Oct 25th 23' || '2022-10-01' must be an excepted date format be <a target="_blank" href="https://momentjs.com/">momentJs</a></div>
                     </div>
                     <div class="table-row">
