@@ -187,7 +187,7 @@
 				--codex-card-border-color: 255 255 255;
 				--codex-card-background: 255 255 255;
 				--codex-card-title-background: 217 217 217;
-				--codex-bookmark-color: 0 0 0;
+				--codex-bookmark-color: 255 217 34;
 		
 			/* measurements  */
 				--codex-card-radius: 0rem;
@@ -253,6 +253,11 @@
 				--codex-unread-card-background: 0 0 0;
 				--codex-unread-card-text-color: 255 255 255;
 
+				--codex-transation-padding: 24px;
+
+				--codex-transaction-card-item-background: 255 217 34;
+				--codex-transaction-card-item-color: 0 0 0;
+
 			/* instructor card */
 			--codex-instructor-card-text-color: 255 255 255;
 
@@ -287,6 +292,8 @@
 			--codex-nav-text-color: 0 0 0;
 			--codex-nav-card-border-color: 0 0 0;
 			
+			--codex-nav-card-padding-y: 0;
+			--codex-nav-card-padding-x: 0;
 			
 			--codex-nav-card-text-color: 255 255 255;
 			--codex-nav-btn-primary-background: 255 217 34;
