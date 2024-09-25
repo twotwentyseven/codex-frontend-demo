@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODEXFit Frontend Library v3</title>
+    <script src="https://demo.codexfit.com/autoconfigure.js"></script>
+    
+    <!-- <link href="https://api-v3.codexfit.com/app.css" rel="stylesheet" type="text/css"> -->
+    <link href="css-variables.css" rel="stylesheet" type="text/css"/>
+    <link href="demo.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nova+Square&family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,400;0,6..12,600;0,6..12,700;1,6..12,200;1,6..12,400;1,6..12,600;1,6..12,700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <svg viewBox="0 0 365 38" xmlns="http://www.w3.org/2000/svg">
+                <path d="M26.9,44.65 C21.3999725,44.65 17.016683,42.8000185 13.75,39.1 C10.5833175,35.5333155 9,31.1000265 9,25.8 C9,20.4999735 10.5833175,16.083351 13.75,12.55 C17.08335,8.8499815 21.4666395,7 26.9,7 C30.833353,7 34.366651,8.0833225 37.5,10.25 C40.16668,12.050009 42.133327,14.5999835 43.4,17.9 L36.9,20.85 L36.85,20.85 L36.4,19.8 C35.666663,18.066658 34.5500075,16.700005 33.05,15.7 C31.516659,14.6666615 29.75001,14.15 27.75,14.15 C25.616656,14.15 23.8666735,14.449997 22.5,15.05 C21.1333265,15.650003 20.0000045,16.449995 19.1,17.45 C17.233324,19.5500105 16.3,22.333316 16.3,25.8 C16.3,29.200017 17.233324,31.9833225 19.1,34.15 C21.0000095,36.350011 23.883314,37.45 27.75,37.45 C29.816677,37.45 31.583326,36.950005 33.05,35.95 C34.6166745,34.9166615 35.73333,33.5500085 36.4,31.85 L36.85,30.75 L36.9,30.75 L43.4,33.75 C42.0999935,36.9833495 40.1333465,39.533324 37.5,41.4 C34.3999845,43.5666775 30.8666865,44.65 26.9,44.65 Z M78.6,44.65 C73.133306,44.65 68.6166845,42.8000185 65.05,39.1 C61.6166495,35.566649 59.9,31.13336 59.9,25.8 C59.9,20.4999735 61.633316,16.0666845 65.1,12.5 C68.6000175,8.833315 73.0999725,7 78.6,7 C84.1000275,7 88.5999825,8.833315 92.1,12.5 C95.5333505,16.033351 97.25,20.46664 97.25,25.8 C97.25,31.1666935 95.5333505,35.616649 92.1,39.15 C88.5999825,42.816685 84.1000275,44.65 78.6,44.65 Z M78.6,37.45 C82.1666845,37.45 84.94999,36.350011 86.95,34.15 C88.9833435,31.9833225 90,29.200017 90,25.8 C90,22.399983 88.9833435,19.633344 86.95,17.5 C84.816656,15.2666555 82.0333505,14.15 78.6,14.15 C75.133316,14.15 72.3500105,15.2666555 70.25,17.5 C68.2166565,19.633344 67.2,22.399983 67.2,25.8 C67.2,29.200017 68.2166565,31.9833225 70.25,34.15 C72.316677,36.350011 75.0999825,37.45 78.6,37.45 Z M115.75,7.5 L131.55,7.5 C133.816678,7.5 135.94999,7.9166625 137.95,8.75 C139.95001,9.550004 141.783325,10.783325 143.45,12.45 C146.916684,15.983351 148.65,20.4666395 148.65,25.9 C148.65,31.3333605 146.916684,35.8333155 143.45,39.4 C141.883326,41.000008 140.050011,42.233329 137.95,43.1 C135.94999,43.9333375 133.816678,44.35 131.55,44.35 L115.75,44.35 L115.75,7.5 Z M131.4,37.25 C134.366682,37.25 136.766658,36.1666775 138.6,34 C140.433343,31.866656 141.35,29.166683 141.35,25.9 C141.35,22.6666505 140.433343,19.983344 138.6,17.85 C136.733324,15.649989 134.333348,14.55 131.4,14.55 L123.05,14.55 L123.05,37.25 L131.4,37.25 Z M167.15,7.5 L195.2,7.5 L195.2,14.6 L167.15,14.6 L167.15,22.3 L189.5,22.3 L189.5,29.5 L167.15,29.5 L167.15,37.2 L195.2,37.2 L195.2,44.35 L167.15,44.35 L167.15,7.5 Z M224.6,25.35 L210.85,7.5 L220.1,7.5 L229.1,19.45 L238.15,7.5 L247.35,7.5 L233.6,25.35 L248.25,44.35 L239.05,44.35 L229.1,31.2 L219.15,44.35 L209.95,44.35 L224.6,25.35 Z M265,7.5 L292.6,7.5 L292.6,14.6 L272.3,14.6 L272.3,25.2 L286.85,25.2 L286.85,32.4 L272.3,32.4 L272.3,44.35 L265,44.35 L265,7.5 Z M310.1,7.5 L317.4,7.5 L317.4,44.35 L310.1,44.35 L310.1,7.5 Z M346.05,14.6 L334.4,14.6 L334.4,7.5 L364.95,7.5 L364.95,14.6 L353.3,14.6 L353.3,44.35 L346.05,44.35 L346.05,14.6 Z" id="codexfit"></path>
+            </svg>
+        </a>
+        <nav>
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+                <span></span>
+            </label>
+            <ul>
+                <li>
+                    <a href="#">Modals</a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="#" data-codex-modal-toggle="codex-login-register">Login/Register Modal</a>
+                            </li>
+                            <li>
+                                <a href="#" data-codex-modal-toggle="codex-checkout">Cart Modal</a>
+                            </li>
+                            <li>
+                                <a href="notification.html">Notifications Popup</a>
+                            </li>
+                            <li>
+                                <a href="modal.html">How modals work</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">Login/Register</a>
+                    <nav>
+                        <ul>
+                            
+                            <li>
+                                <a href="login.html">Login/Logout</a>
+                            </li>
+                            <li>
+                                <a href="register.html">Register</a>
+                            </li>
+                            <li>
+                                <a href="password.html">Password</a>
+                            </li>
+                            <li>
+                                <a href="verifysms.html">SMS Verification</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">Purchasing</a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="bundles.html">Bundles</a>
+                            </li>
+                            <li>
+                                <a href="bundle-types.html">Bundle types</a>
+                            </li>
+                            <li>
+                                <a href="plans.html">Plans</a>
+                            </li>
+                            <li>
+                                <a href="giftcards.html">Giftcards</a>
+                            </li>
+                            <li>
+                                <a href="cart.html">Cart</a>
+                            </li>
+                            <li>
+                                <a href="sca-confirmation.html">SCA Confirmation</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">Booking</a>
+                    <nav>
+                        <ul> 
+                            <li>
+                                <a href="timetable.html">Timetable Column</a>
+                            </li>
+                            <li>
+                                <a href="timetable_list.html">Timetable List</a>
+                            </li>
+                            <li>
+                                <a href="event.html">Event</a>
+                            </li>  
+                            <li>
+                                <a href="waitlist.html">Waitlist</a>
+                            </li>  
+                            <li>
+                                <a href="appointments.html">Appointments</a>
+                            </li>  
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">On Demand</a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="videos.html">Videos</a>
+                            </li>
+                            <li>
+                                <a href="video.html">Video</a>
+                            </li>
+                            <li>
+                                <a href="video-collections.html">Video Collections</a>
+                            </li>
+                            <li>
+                                <a href="video-collection.html">Video Collection</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">Instructors</a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="instructors.html">Instructors</a>
+                            </li>
+                            <li>
+                                <a href="instructor.html">Instructor Detail</a>
+                            </li>
+                            <li>
+                                <a href="instructor-adv.html">Instructor Detail (advanced)</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="#">Customer Account</a>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="account.html">Account</a>
+                            </li>
+                            <li>
+                                <a href="account-setup.html">Account Set up</a>
+                            </li>
+                            
+                        </ul>
+                    </nav>
+                </li>
+                <li>
+                    <a href="filters.html">Filters</a>
+                </li>
+                <li>
+                    <a href="surveys.html">Surveys</a>
+                </li>
+                <li>
+                    <a href="variables.html">Variables</a>
+                </li>
+                <!-- <li>
+                    Overrides
+                </li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <div data-codex>
+        
+        <codex-timetable
+            :disable-unavailable-events="false"
+            purchase-url="/buy"
+            event-detail-url="/event?id={id}"
+            :show-date-on-event-card="true"
+            :show-events-when-logged-out="true"
+            :nav-days-to-show="{
+            640:3,
+            768:3,
+            1024:5,
+            1200:10
+            }"
+            :days-to-show="{
+            640: 1,
+            1024: 3,
+            1200: 5,
+            }"
+
+            :pre-filter="{
+                filterKey: ID,
+                location:1,
+            }"
+
+            :nav-carousel-settings="{    
+            slidesPerView: 'auto',
+            threshold: 20
+            }"
+            :filters="{
+                studio: {
+                    selector: 'studio.id',
+                    options: 'api/studios:id:name',
+                    title: 'Room',
+                    multi: true
+                },
+                instructors: {
+                    selector: 'instructor.id',
+                    options: 'api/instructors:id:first_name',
+                    multi: true,
+                    title: 'By Instructor'
+                },
+                options: {
+                    showSearch: false
+                }
+            }"
+        >
+
+            <template v-slot:event-card="{ event, customer, showEventDate, isBookmarked, toggleBookmark, bookmarkIdentifier, goToEvent, bookedEvents }">
+                <codex-timetable-event-card :is-booked="bookedEvents?.includes(event.id)" :event="event" :customer="customer" :show-event-date="showEventDate" :is-bookmarked="isBookmarked" :toggle-bookmark="toggleBookmark" :bookmark-identifier="bookmarkIdentifier" :go-to-event="goToEvent"></codex-timetable-event-card>
+            </template>
+
+            <template v-slot:event-modal="{ id, eventObject, purchaseUrl, isModal, closeModal }">
+
+                <codex-event :id="id"
+:show-when-logged-out="true"
+:event-object="eventObject" 
+:event-url="`/event?id={id}`"
+account-url="/account"
+purchase-url="/buy"
+redirect-url="/thank-you"
+:video-url="`/video?id={video.id}`"
+:is-modal="isModal" 
+:close-modal="closeModal">
+
+                    
+
+                </codex-event>
+
+            </template>
+
+        </codex-timetable>
+
+    </div>
+
+    <script type="text/x-template" id="codex-template-timetable-event-card">
+        <div class="cdx_card codex" :class="$attrs.class ?? 'cdx_card-timetableevent'" @click="goToEvent">
+
+            <template v-if="instructorPhoto">
+    
+                <div class="cdx_photo-wrapper" @click="goToEvent">
+                    <img class="cdx_instructor-photo" v-if="event?.instructor?.photo" :src="event.instructor.photo">
+                </div>
+    
+            </template>
+    
+            <div class="cdx_content">
+    
+                <div class="cdx_inner">
+    
+                    <slot name="header"></slot>
+    
+                    <div v-if="customer" 
+                        class="cdx_bookmark" 
+                        :class="{ 'cdx_bookmarked': isBookmarked('events', bookmarkIdentifier) }" 
+                        @click.prevent.stop="toggleBookmark('events', bookmarkIdentifier)"
+                        :aria-label="isBookmarked('events', bookmarkIdentifier) ? $t('bookmark.bookmarked') : $t('bookmark.bookmark')">
+                        {{ isBookmarked('events', bookmarkIdentifier) ? $t('bookmark.bookmarked') : $t('bookmark.bookmark') }}
+                    </div>
+    
+                    <div>
+                        <div v-if="event?.event_type" class="cdx_event-type" @click="goToEvent">{{event.event_type.name}}</div>
+
+                        <div v-if="event?.instructor" class="cdx_instructor-name">
+                            {{ $t('timetable.instructor_name_preposition') }}
+                            <span class="cdx_instructor-first-name">{{ event.instructor.first_name }}</span>
+                            <span class="cdx_instructor-last-name">{{ event.instructor.last_name }}</span>
+                            <template v-if="event.metafields?.original_instructor_name">
+                                <span class="cdx_sub-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.0049 22.0029C6.48204 22.0029 2.00488 17.5258 2.00488 12.0029C2.00488 6.48008 6.48204 2.00293 12.0049 2.00293C17.5277 2.00293 22.0049 6.48008 22.0049 12.0029C22.0049 17.5258 17.5277 22.0029 12.0049 22.0029ZM12.0049 20.0029C16.4232 20.0029 20.0049 16.4212 20.0049 12.0029C20.0049 7.58465 16.4232 4.00293 12.0049 4.00293C7.5866 4.00293 4.00488 7.58465 4.00488 12.0029C4.00488 16.4212 7.5866 20.0029 12.0049 20.0029ZM7.00488 9.00293L10.0049 5.50293L13.0049 9.00293H11.0049V13.0029H9.00488V9.00293H7.00488ZM17.0049 15.0029L14.0049 18.5029L11.0049 15.0029H13.0049V11.0029H15.0049V15.0029H17.0049Z"></path></svg>
+                                    <span class="cdx_instructor-sub-name">{{ $t('event.substitute_for') }} {{ event.metafields?.original_instructor_name }}</span>
+                                </span>
+                            </template>
+                        </div>
+                    </div>
+    
+                    <div class="cdx_start-at"><span class="cdx_info-desc">{{ $t('event.start_at_time') }}</span> {{ $filters.niceTime(event?.start_at) }}</div>
+    
+                    <div v-if="showEventDate" class="cdx_event-date"><span class="cdx_info-desc">{{ $t('event.start_at_date') }}</span> {{ $filters.niceDate(event.start_at) }}</div>
+                    
+                    <div v-if="event?.duration" class="cdx_duration"><span class="cdx_info-desc">{{ $t('event.duration') }}</span> {{ event.duration }} {{ $t('time.mins') }}</div>
+                    
+                    <div v-if="event.is_live_stream" class="cdx_live-event"><span class="cdx_info-desc">{{ $t('event.is_live_stream') }}</span> {{ event.is_live_stream  }}</div>
+    
+                    <div v-if="event.studio?.location" class="cdx_location-name"><span class="cdx_info-desc">{{ $t('event.location') }}</span> {{ event.studio.location.name }}</div>
+                    
+                    <div v-if="event?.studio" class="cdx_studio-name"><span class="cdx_info-desc">{{ $t('event.studio') }}</span> {{ event.studio.name }}</div>
+    
+                    <slot name="footer" :event="event"></slot>
+                    <slot name="linebreak"></slot>
+
+                    <template v-if="isBooked">
+                        <div class="cdx_booked-icon">{{ $t('timetable.booked_in') }}</div>
+                    </template>
+
+                    <codex-waitlist-button v-if="customer && event?.is_fully_booked && event?.is_waitlistable" :event="event" template-override="codex-template-waitlist-icon"></codex-waitlist-button>
+    
+                </div>
+    
+            </div>
+    
+            <!-- button logic -->
+            <template v-if="isBooked">
+                <a class="cdx_btn" href="/account">{{ $t('button.cancel') }}</a>
+            </template>
+            <template v-else>
+                <codex-waitlist-button :event="event" v-if="customer && event?.is_fully_booked && event?.is_waitlistable">
+                    <template v-slot:waitlist-message><span></span></template>
+                </codex-waitlist-button>
+                <button v-else-if="customer && event?.is_fully_booked" class="cdx_btn cdx_btn-unavailable" disabled :aria-label="$t('timetable.event_unavailable')">{{ $t('timetable.event_unavailable') }}</button>
+                <button v-else class="cdx_btn cdx_btn-book" @click="goToEvent" :aria-label="$t('timetable.book_event_now')">{{ $t('button.book_now') }}</button>
+            </template>
+    
+    
+            
+    
+        </div>
+    </script>
+
+    <script type="text/x-template" id="codex-template-waitlist-icon">
+        <div>
+            <div v-if="waitlist.length" class="cdx_waitlist-icon">{{ $t('timetable.on_the_waitlist') }}</div>
+        </div>
+    </script>
+
+    <style>
+        .cdx_booked-icon,
+        .cdx_waitlist-icon {
+            padding: 4px 8px;
+            font-size: var(--codex-info-font-size);
+            margin-top: 1em;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .cdx_booked-icon {
+            background-color: rgb(var(--codex-success-color));
+            color: #fff;
+        }
+        .cdx_booked-icon::before {
+            content: '';
+            height: 16px;
+            width: 16px;
+            margin: -4px 4px -4px 0;
+            background-size: 16px;
+            background-position: center;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11.0026 16L18.0737 8.92893L16.6595 7.51472L11.0026 13.1716L8.17421 10.3431L6.75999 11.7574L11.0026 16Z'%3E%3C/path%3E%3C/svg%3E");
+        }
+
+        .cdx_waitlist-icon {
+            background-color: rgb(var(--codex-warning-color));
+            color: black;
+        }
+        .cdx_waitlist-icon::before {
+            content: '';
+            height: 16px;
+            width: 16px;
+            margin: -4px 4px -4px 0;
+            background-size: 16px;
+            background-position: center;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M17.6177 5.9681L19.0711 4.51472L20.4853 5.92893L19.0319 7.38231C20.2635 8.92199 21 10.875 21 13C21 17.9706 16.9706 22 12 22C7.02944 22 3 17.9706 3 13C3 8.02944 7.02944 4 12 4C14.125 4 16.078 4.73647 17.6177 5.9681ZM11 8V14H13V8H11ZM8 1H16V3H8V1Z'%3E%3C/path%3E%3C/svg%3E");
+        }
+    </style>
+
+    <style>
+        #pLr_eycx3 > div {
+        display: block !important;
+        }
+        
+        .framer-wdyknz-container {
+            height: auto !important;
+        }
+        
+        .framer-wdyknz-container .cdx_timetable-day .cdx_timetable-header {
+        border: none;
+        text-align: left;
+        font-size: 24px;
+        line-height: 36px;
+        justify-content: flex-start;
+        padding: 0;
+        text-transform: uppercase;
+        }
+        
+        .framer-wdyknz-container .cdx_timetable-event .cdx_card .cdx_inner .cdx_event-type {
+         font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 600;
+        }
+        .framer-wdyknz-container 
+        .cdx_timetable-event .cdx_card {
+        text-transform: uppercase;
+        padding-bottom: var(--codex-grid);
+        border-bottom: rgb(217 217 217) solid 1px;
+        }
+        
+        .cdx_location-name,
+        .cdx_event-date,
+        .framer-wdyknz-container .cdx_header {
+        display: none;
+        }
+        
+        .framer-wdyknz-container  .cdx_bookmark,
+        .cdx_event-inner .cdx_bookmark,
+        .cdx_event-inner .cdx_event-total-slots,
+        .cdx_event-inner .cdx_event--line-item-slots {
+        display: none !important;
+        }
+        
+        .cdx_event-slot-wrapper .slot {
+            height: fit-content !important;
+            width: fit-content !important;
+            min-width: 35px !important;
+            min-height: 50px !important;
+            padding: 15px 0px 15px 0px;
+        }
+        
+        .cdx_event-slot-wrapper .slot.cdx_event-slot-bookable {
+            color: rgb(255 255 255) !important;
+        }
+        
+        .cdx_event-key-instructor {
+            display: none !important;
+        } 
+        
+        .cdx_event-key-booked::before {
+            background-color: rgb(255 0 0) !important;
+        }
+        
+        
+        .cdx_event-slot-wrapper .slot.booked:not(.can-cancel) {
+            background-color: rgb(255 0 0) !important;
+        }
+        
+        .cdx_oneclick-tooltip {
+            background-color: rgb(255 255 255) !important;
+        }
+        
+        
+    </style>
+
+</body>
+</html>

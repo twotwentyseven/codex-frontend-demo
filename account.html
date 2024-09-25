@@ -30,7 +30,11 @@
                         { component: 'codex-video-views' },
                     ]
                     },
-                    { path: '/credits', component: 'credits', title: 'credits'  },
+                    { path: '/credits', component: 'credits', title: 'credits', children: [
+                            { component: 'codex-credits', props: { type: 'unused' } },
+                            { component: 'codex-credits', props: { type: 'used' } }
+                        ]
+                    },
                     { path: '/membership', component: 'membership', title: 'membership' },
                     { path: '/favourites', component: 'favourites', title: 'favourites' },
                     { path: '/details', component: 'details', title: 'details' },
@@ -213,7 +217,15 @@
 
     <div data-codex id="codex-account">
         <codex-account> <!-- stacked / tabs -->
-            <codex-account-nav-links v-if="customer" :routes="window.codex.routerConfig.routes"></codex-account-nav-links>
+            <codex-account-nav-links v-if="customer" :routes="window.codex.routerConfig.routes">
+
+                <template v-slot:wrapper-end="{ routes }">
+                    <ul class="cdx_account-nav-links">
+                        <li class="cdx_account-nav-link"><a href="/book">{{ $t('button.book')}}</a></li>
+                        <li class="cdx_account-nav-link"><a href="/buy">{{ $t('button.buy_credits') }}</a></li>
+                    </ul>
+                </template>
+            </codex-account-nav-links>
         </codex-account>
     </div>
 </body>
