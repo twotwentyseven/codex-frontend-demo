@@ -179,7 +179,116 @@
 
     <div data-codex>
     
-        <codex-login-register :show-register-default="true" :show-labels="true" account-url="account.html" purchase-url="purchase.html" booking-url="timetable.html"></codex-login-register>
+        <!-- <codex-login-register 
+            :show-register-default="true" 
+            :show-labels="true" 
+            account-url="account.html" 
+            purchase-url="purchase.html" 
+            booking-url="timetable.html"></codex-login-register> -->
+
+            <codex-register
+            :show-labels="true"
+            :form-fields="{
+                'first_name': {
+                    type: 'text',
+                    label: 'First name',
+                    label_translation: 'customer.first_name',
+                    placeholder: 'First Name Placeholder',
+                    placeholder_translation: 'customer.first_name_placeholder',
+                    required: true,
+                },
+                'last_name': {
+                    type: 'text',
+                    label: 'Last Name',
+                    label_translation: 'customer.last_name',
+                    placeholder: 'Last name placeholder',
+                    placeholder_translation: 'customer.last_name_placeholder',
+                    required: true,
+                },
+                'email': {
+                    type: 'email',
+                    label: 'Email',
+                    label_translation: 'customer.email',
+                    placeholder: 'Email',
+                    placeholder_translation: 'customer.email_placeholder',
+                    required: true,
+                },
+                'password': {
+                    type: 'password',
+                    label: 'Password',
+                    label_translation: 'account.password',
+                    placeholder: 'Password',
+                    placeholder_translation: 'account.password_placeholder',
+                    required: true,
+                },
+                'password_confirmation': {
+                    type: 'password',
+                    label: 'Confirm Password',
+                    label_translation: 'account.confirm_password',
+                    placeholder: 'Confirm Password',
+                    placeholder_translation: 'account.confirm_password_placeholder',
+                    required: true,
+                },
+                'dob': {
+                    type: 'date',
+                    label: 'Date of Birth',
+                    label_translation: 'customer.date_of_birth',
+                    required: true,
+                },
+                'post_code': {
+                    type: 'text',
+                    label: 'Postcode',
+                    label_translation: 'customer.postcode',
+                    placeholder: 'Postcode',
+                    placeholder_translation: 'customer.postcode_placeholder',
+                    required: true,
+                },
+                'telephone': {
+                    type: 'telephone',
+                    label: 'Phone Number',
+                    label_translation: 'customer.phone_number',
+                    placeholder: 'Phone Number',
+                    placeholder_translation: 'customer.phone_number_placeholder',
+                    required: true,
+                },
+                'gender': {
+                    type: 'select',
+                    label: 'Gender',
+                    label_translation: 'Gender',
+                    placeholder: 'Gender',
+                    placeholder_translation: 'customer.gender_placeholder',
+                    options: [{ value: 'female', displayValue: 'Female'}, { value: 'male', displayValue: 'Male' }, { value: 'rather_not_say', displayValue: 'Rather not say'}],
+                    required: true,
+                },
+                'username': {
+                    type: 'text',
+                    label: 'Username',
+                    label_translation: 'customer.username',
+                    placeholder: 'Username',
+                    placeholder_translation: 'customer.username_placeholder',
+                    required: true,
+                },
+                'opt_in_email': {
+                    type: 'checkbox',
+                    label: 'I accept email marketing',
+                    label_translation: 'customer.i_accept_email_marketing',
+                    default: false
+                },
+                'opt_in_sms': {
+                    type: 'checkbox',
+                    label: 'I accept sms marketing',
+                    label_translation: 'customer.i_accept_sms_marketing',
+                    default: false
+                },
+                'file_upload': {
+                    type: 'file_upload',
+                    label: 'Username',
+                    label_translation: 'customer.upload',
+                    placeholder: 'Upload health PDF',
+                    required: false,
+                }
+            }"
+            ></codex-register>
 
     </div>
 
