@@ -1,0 +1,141 @@
+._c-timetable {
+    --c-card-padding-x: 40px;
+    ._c-timetable-container {
+        ._c-card {
+            --c-card-background-color: #F4F4F5;
+            --c-card-padding-x: 16px;
+            --c-card-padding-y: 16px;
+        }
+    }
+}
+
+._c-skeleton-card {
+    --c-card-padding-x: 16px;
+    --c-card-padding-y: 16px;
+
+    @media screen and (min-width: 768px) {
+        --c-card-padding-x: 16px;
+        --c-card-padding-y: 16px;
+    }
+}
+
+._c-card {
+    @media screen and (min-width: 768px) {
+        --c-card-padding-y: 24px;
+        --c-card-padding-x: 24px;
+    }
+
+    ._c-footer {
+        @media screen and (min-width: 768px) {
+            --c-card-footer-padding-y: 24px;
+            --c-card-padding-x: 24px;
+        }
+    }
+}
+
+._c-giftcard-card,
+._c-payment-card {
+    --c-card-background-color: transparent;
+}
+
+._c-booking-card {
+    --c-card-padding-y: 16px;
+    --c-card-padding-x: 16px;  
+}
+
+._c-transaction-card {
+    
+    ._c-header {
+        --c-card-padding-y: 1rem;
+
+    }
+}
+
+._c-tab-system {
+
+    ._c-credits-card,
+    ._c-subscriptions-card,
+    ._c-timetable,
+    ._c-instructors,
+    ._c-bookings-card,
+    ._c-profile-card,
+    ._c-payment-methods-card {
+        --c-card-background-color: transparent;
+
+        ._c-card {
+            --c-card-background-color: #ffffff;
+            --c-card-text-color: #000000;
+            --c-bookmark-border-color: #000000;
+        }
+
+        ._c-payment-card {
+            --c-card-background-color: transparent;
+        }
+    }
+
+}
+
+._c-modal {
+    ._c-modal-inner {
+        /* Might need a better way of doing this */
+        &.codex-login,
+        &.codex-register,
+        &.codex-password-reset,
+        &.codex-password-recover {
+            --c-modal-footer-background-color: #000000;
+            --c-modal-footer-text-color: #ffffff;
+
+            ._c-footer {
+                --c-card-footer-padding-y: 16px;
+            }
+        }
+    }
+}
+
+._c-event {
+    ._c-content {
+        --c-card-padding-y: 16px;
+    }
+
+    ._c-footer {
+        --c-modal-footer-background-color: var(--c-card-background-color, #ffffff);
+        --c-modal-footer-text-color: var(--c-card-text-color, #000000);
+    }
+}
+
+._c-instructors {
+
+    ._c-card {
+        --c-card-text-color: #ffffff;
+        --c-bookmark-border-color: #ffffff;
+    }
+    ._c-footer {
+        --c-card-footer-background-color: transparent;
+        --c-card-footer-text-color: var(--c-card-text-color);
+    }
+}
+
+._c-cart {
+    ._c-footer {
+        --c-modal-footer-background-color: #ffffff;
+        --c-modal-footer-text-color: #000000;
+    }
+}
+
+._c-notification-centre {
+    
+    >._c-header {
+        --c-card-padding-y: 24px;
+        --c-card-padding-x: 16px;
+    }
+
+    >._c-content {
+        --c-card-padding-y: 0px;
+        --c-card-padding-x: 16px;
+
+        ._c-card {
+            --c-card-padding-y: 12px;
+            --c-card-padding-x: 16px;
+        }
+    }
+}

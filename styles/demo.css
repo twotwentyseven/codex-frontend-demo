@@ -382,8 +382,8 @@ header {
     height: 64px;
     width: 100%;
     padding: 0 30px;
-    background-color: rgb(var(--codex-modal-background-color));
-    color: rgb(var(--codex-modal-text-color));
+    background-color: black;
+    color: white;
 }
 
 /* header nav {
@@ -406,12 +406,12 @@ header nav ul li {
 }
 
 header nav ul li a {
-    color: rgb(var(--codex-modal-text-color));
+    color: white;
     text-decoration: none;
 }
 
 header nav ul li:hover > a {
-    color: rgb(var(--codex-primary-color));
+    color: black;
 }
 
 header nav ul li:hover nav {
@@ -426,7 +426,7 @@ header nav ul nav {
 header nav ul nav ul {
     overflow: hidden;
     flex-direction: column;
-    background-color: rgb(var(--codex-modal-background-color));
+    background-color: black;
 }
 
 /* logo */
@@ -435,7 +435,7 @@ header svg {
     padding: 12px;
     width: 200px;
     height: 54px;
-    fill: rgb(var(--codex-modal-text-color));
+    fill: white;
 }
 
 
@@ -468,7 +468,7 @@ code {
 }
 
 code span {
-    background-color: rgb(var(--codex-primary-color));
+    background-color: black;
 }
 
 .row {
