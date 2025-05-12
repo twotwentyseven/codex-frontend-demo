@@ -21,7 +21,9 @@
     </div>
     
     <div data-codex>
-        <codex-plans></codex-plans>
+        <codex-filter-context v-slot="{ filters, fixedValues }">
+            <codex-plans></codex-plans>
+        </codex-filter-context> 
     </div>
 
     <script type="module">

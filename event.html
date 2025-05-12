@@ -5,13 +5,14 @@
     <title>CODEXFit Frontend Library v4</title>
     <script src="https://filament-staging.codexfit.com/autoconfigure.js"></script>
     <link href="/styles/css-variables.css" rel="stylesheet" type="text/css"/>
-    <link href="/styles/css-variables.css" rel="stylesheet" type="text/css"/>
+    <link href="/styles/client-styles.css" rel="stylesheet" type="text/css"/>
     <link href="/styles/demo.css" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script src="/js/codexSettings.js"></script>
+    <script src="/js/codexSettings.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.min.css" rel="stylesheet">
 </head>
 <body>
     <div id="header-container"></div>
@@ -21,7 +22,9 @@
     </div>
     
     <div data-codex>
-        <codex-event></codex-event>
+        <codex-modal default-state="true">
+            <codex-event></codex-event>
+        </codex-modal>
     </div>
 
     <script type="module">
