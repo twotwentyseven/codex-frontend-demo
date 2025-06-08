@@ -14,30 +14,38 @@ This demo showcases the comprehensive suite of Vue.js components that power the 
 ### 📚 Component Categories
 
 #### Authentication & User Management
-- [Login/Register Modal](./modals.html#login-register)
-- [Login/Logout Flow](./login.html)
-- [Registration Process](./register.html)
-- [Password Management](./password.html)
-- [SMS Verification](./verifysms.html)
+- [Login/Logout Flow](./login.html?login=true)
+- [Registration Process](./register.html?register=true)
+- [Password Recover](./password-recover.html?password-recover=true)
+- [Password Reset](./password-reset.html?password-reset=true)
+- [SMS Verification](./verifysms.html?verify-sms=true)
+
+#### Account Area
+- [Account](account.html)
 
 #### E-commerce & Purchasing
 - [Shopping Cart](./cart.html)
+- [Collection](./collection.html)
 - [Bundle Management](./bundles.html)
 - [Plan Selection](./plans.html)
 - [Gift Cards](./giftcards.html)
-- [SCA Confirmation](./sca-confirmation.html)
+- [SCA Confirmation](./sca-confirmation.html?cart=true&stripe_id=)
 
 #### Booking System
-- [Timetable View](./timetable.html)
-- [List View](./timetable_list.html)
+- [Timetable](./timetable.html)
+- [Event Listing](./event_listing.html)
 - [Event Management](./event.html)
-- [Waitlist System](./waitlist.html)
-- [Appointment Scheduling](./appointments.html)
+- [Waitlist Confirmation](./waitlist-confirmation.html?waitlist-confirmation=true&id=)
+<!-- - [Appointment Scheduling](./appointments.html) -->
+
+#### Instructor Information
+- [Instructors](./instructors.html)
+- [Instructor detail](./instructor.html)
 
 #### Content Delivery
-- [Video Library](./videos.html)
-- [Video Collections](./video-collections.html)
-- [Instructor Profiles](./instructors.html)
+<!-- - [Video Library](./videos.html) -->
+<!-- - [Video Collections](./video-collections.html) -->
+
 
 ## 🛠 Getting Started
 

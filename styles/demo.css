@@ -411,7 +411,8 @@ header nav ul li a {
 }
 
 header nav ul li:hover > a {
-    color: black;
+    color: white;
+    text-decoration: underline;
 }
 
 header nav ul li:hover nav {

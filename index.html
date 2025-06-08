@@ -5,15 +5,14 @@
     <title>CODEXFit Frontend Library v4</title>
     <script src="https://filament-staging.codexfit.com/autoconfigure.js"></script>
     <link href="/styles/css-variables.css" rel="stylesheet" type="text/css"/>
-<link href="/styles/css-variables.css" rel="stylesheet" type="text/css"/>
+    <link href="/styles/client-styles.css" rel="stylesheet" type="text/css"/>
     <link href="/styles/demo.css" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    
-<script src="/js/codexSettings.js"></script>
+    <script src="/js/codexSettings.js"></script>
+
 </head>
 <body>
     <!-- Header container -->
@@ -25,31 +24,7 @@
     </div>
 
     <script type="module">
-        import { initComponents } from './js/loadComponents.js';
-
-        // Function to load markdown content
-        async function loadMarkdownContent() {
-            const contentDiv = document.querySelector('[data-markdown]');
-            if (!contentDiv) return;
-
-            const markdownPath = contentDiv.getAttribute('data-markdown');
-            try {
-                const response = await fetch(markdownPath);
-                const markdown = await response.text();
-                
-                marked.setOptions({
-                    breaks: true,
-                    gfm: true,
-                    headerIds: true,
-                    mangle: false
-                });
-                
-                contentDiv.innerHTML = marked.parse(markdown);
-            } catch (error) {
-                console.error('Error loading markdown:', error);
-                contentDiv.innerHTML = '<p>Error loading content. Please try again later.</p>';
-            }
-        }
+        import { initComponents, loadMarkdownContent } from './js/loadComponents.js';
 
         // Initialize everything when the page loads
         document.addEventListener('DOMContentLoaded', async () => {

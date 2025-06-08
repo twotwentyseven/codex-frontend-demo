@@ -19,6 +19,30 @@ function highlightCurrentPage() {
     });
 }
 
+// Function to load markdown content
+export async function loadMarkdownContent() {
+    const contentDiv = document.querySelector('[data-markdown]');
+    if (!contentDiv) return;
+
+    const markdownPath = contentDiv.getAttribute('data-markdown');
+    try {
+        const response = await fetch(markdownPath);
+        const markdown = await response.text();
+        
+        marked.setOptions({
+            breaks: true,
+            gfm: true,
+            headerIds: true,
+            mangle: false
+        });
+        
+        contentDiv.innerHTML = marked.parse(markdown);
+    } catch (error) {
+        console.error('Error loading markdown:', error);
+        contentDiv.innerHTML = '<p>Error loading content. Please try again later.</p>';
+    }
+}
+
 // Initialize components
 export async function initComponents() {
     // Load header instead of separate navigation

@@ -15,9 +15,9 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.min.css" rel="stylesheet">
 </head>
 <body>
-    <div id="header-container"></div>
+    <div id="header"></div>
 
-    <div id="content" class="markdown-body" data-markdown-content="/content/...">
+    <div id="content" class="markdown-body" data-markdown="/content/...">
         <!-- Page specific content will be here -->
     </div>
 
@@ -36,13 +36,13 @@
                 // Load header
                 const headerResponse = await fetch('/components/header.html');
                 const headerHtml = await headerResponse.text();
-                document.getElementById('header-container').innerHTML = headerHtml;
+                document.getElementById('header').innerHTML = headerHtml;
                 
                 // Initialize navigation
                 initComponents();
                 
                 // Load markdown content if available
-                const contentPath = document.body.getAttribute('data-markdown-content');
+                const contentPath = document.body.getAttribute('data-markdown');
                 if (contentPath) {
                     const contentResponse = await fetch(contentPath);
                     const markdown = await contentResponse.text();

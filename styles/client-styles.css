@@ -1,34 +1,58 @@
-._c-timetable {
-    --c-card-padding-x: 40px;
-    ._c-timetable-container {
+:root {
+    --c-btn-background-color: #FD4F34;
+    --c-btn-border-color: #FD4F34;
+    --c-btn-text-color: #ffffff;
+}
+
+._c-timetable,
+._c-event-listing {
+    --c-card-padding-x: 2.5rem;
+    --c-card-padding-y: 1.5rem;
+    
+    >._c-content {
+        --c-card-content-gap: 1.5rem;
+    }
+
+    ._c-timetable-container,
+    ._c-event-listing-container {
         ._c-card {
+            --c-card-content-gap: 0.5rem;
             --c-card-background-color: #F4F4F5;
-            --c-card-padding-x: 16px;
-            --c-card-padding-y: 16px;
+            --c-card-padding-x: 1rem;
+            --c-card-padding-y: 1rem;
         }
+    }
+}
+._c-instructor {
+    --c-card-padding-y: 80px;
+    
+    ._c-event-listing {
+        --c-card-padding-x: 1.5rem;
+        --c-card-padding-y: 1.5rem;
+        --c-card-background-color: #F5F5F5;
     }
 }
 
 ._c-skeleton-card {
-    --c-card-padding-x: 16px;
-    --c-card-padding-y: 16px;
+    --c-card-padding-x: 1rem;
+    --c-card-padding-y: 1rem;
 
     @media screen and (min-width: 768px) {
-        --c-card-padding-x: 16px;
-        --c-card-padding-y: 16px;
+        --c-card-padding-x: 1rem;
+        --c-card-padding-y: 1rem;
     }
 }
 
 ._c-card {
     @media screen and (min-width: 768px) {
-        --c-card-padding-y: 24px;
-        --c-card-padding-x: 24px;
+        --c-card-padding-y: 1.5rem;
+        --c-card-padding-x: 1.5rem;
     }
 
     ._c-footer {
         @media screen and (min-width: 768px) {
-            --c-card-footer-padding-y: 24px;
-            --c-card-padding-x: 24px;
+            --c-card-footer-padding-y: 1.5rem;
+            --c-card-padding-x: 1.5rem;
         }
     }
 }
@@ -39,11 +63,11 @@
 }
 
 ._c-booking-card {
-    --c-card-padding-y: 16px;
-    --c-card-padding-x: 16px;  
+    --c-card-padding-y: 1rem;
+    --c-card-padding-x: 1rem;  
 }
 
-._c-transaction-card {
+._c-order-card {
     
     ._c-header {
         --c-card-padding-y: 1rem;
@@ -55,11 +79,11 @@
 
     ._c-credits-card,
     ._c-subscriptions-card,
-    ._c-timetable,
     ._c-instructors,
     ._c-bookings-card,
     ._c-profile-card,
-    ._c-payment-methods-card {
+    ._c-payment-methods-card,
+    ._c-event-listing {
         --c-card-background-color: transparent;
 
         ._c-card {
@@ -79,6 +103,7 @@
     ._c-modal-inner {
         /* Might need a better way of doing this */
         &.codex-login,
+        &.codex-require-login,
         &.codex-register,
         &.codex-password-reset,
         &.codex-password-recover {
@@ -94,7 +119,7 @@
 
 ._c-event {
     ._c-content {
-        --c-card-padding-y: 16px;
+        --c-card-padding-y: 1rem;
     }
 
     ._c-footer {
@@ -125,17 +150,17 @@
 ._c-notification-centre {
     
     >._c-header {
-        --c-card-padding-y: 24px;
-        --c-card-padding-x: 16px;
+        --c-card-padding-y: 1.5rem;
+        --c-card-padding-x: 1rem;
     }
 
     >._c-content {
-        --c-card-padding-y: 0px;
-        --c-card-padding-x: 16px;
+        --c-card-padding-y: 0rem;
+        --c-card-padding-x: 1rem;
 
         ._c-card {
-            --c-card-padding-y: 12px;
-            --c-card-padding-x: 16px;
+            --c-card-padding-y: 0.75rem;
+            --c-card-padding-x: 1rem;
         }
     }
 }

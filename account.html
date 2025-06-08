@@ -10,169 +10,153 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="/js/codexSettings.js"></script>
     
 </head>
   <body>
-    <div id="header-container"></div>
+    <div id="header"></div>
 
-    <div id="content" class="markdown-body" data-markdown-content="/content/...">
+    <div id="content" class="markdown-body" data-markdown="/content/account.md">
       <!-- Page specific content will be here -->
     </div>
 
-    <div
-      data-codex
-      data-codex-router="true"
-      data-codex-router-mode="hash"
-      data-codex-router-base="/"
-      data-codex-router-routes='[
-        {
-            "path": "/", 
-            "component": "codex-tab-content",
-            "props": {
-                "preset": "accountOverview"
+    <div 
+        data-codex 
+        data-codex-router="true"
+        data-codex-router-mode="hash"
+        data-codex-router-base="/" 
+        data-codex-router-routes='[
+            {
+                "path": "/", 
+                "component": "codex-tab-content",
+                "props": {
+                    "preset": "accountOverview"
+                },
+                "meta": {
+                    "label": "@:account.overview", 
+                    "icon": "ri-home-4-line"
+                }
             },
-            "meta": {
-                "label": "@:account.overview", 
-                "icon": "ri-home-4-line"
-            }
-        },
-        {
-            "path": "/credits", 
-            "component": "codex-tab-content",
-            "props": {
-                "preset": "accountCredits"
+            {
+                "path": "/credits", 
+                "component": "codex-tab-content",
+                "props": {
+                    "preset": "accountCredits"
+                },
+                "meta": {
+                    "label": "Credits", 
+                    "icon": "ri-money-pound-circle-line"
+                }
             },
-            "meta": {
-                "label": "Credits", 
-                "icon": "ri-money-pound-circle-line"
-            }
-        },
-        {
-            "path": "/memberships", 
-            "component": "codex-tab-content",
-            "props": {
-                "preset": "accountMembership"
+            {
+                "path": "/memberships", 
+                "component": "codex-tab-content",
+                "props": {
+                    "preset": "accountMembership"
+                },
+                "meta": {
+                    "label": "Memberships", 
+                    "icon": "ri-ticket-2-line"
+                }
             },
-            "meta": {
-                "label": "Memberships", 
-                "icon": "ri-ticket-2-line"
-            }
-        },
-        {
-            "path": "/favourite", 
-            "component": "codex-tab-content",
-            "props": {
-                "preset": "accountFavourites"
+            {
+                "path": "/favourite", 
+                "component": "codex-tab-content",
+                "props": {
+                    "preset": "accountFavourites"
+                },
+                "meta": {
+                    "label": "Favourties", 
+                    "icon": "ri-heart-2-line"
+                }
             },
-            "meta": {
-                "label": "Favourties", 
-                "icon": "ri-heart-2-line"
-            }
-        },
-        {
-            "path": "/history", 
-            "component": "codex-tab-content",
-            "props": {
-                "preset": "accountHistory"
+            {
+                "path": "/history", 
+                "component": "codex-tab-content",
+                "props": {
+                    "preset": "accountHistory"
+                },
+                "meta": {
+                    "label": "Class History", 
+                    "icon": "ri-motorbike-line"
+                }
             },
-            "meta": {
-                "label": "Class History", 
-                "icon": "ri-motorbike-line"
-            }
-        },
-        {
-            "path": "/transactions", 
-            "component": "codex-tab-content",
-            "props": {
-                "preset": "accountTransactions"
+            {
+                "path": "/transactions", 
+                "component": "codex-tab-content",
+                "props": {
+                    "preset": "accountTransactions"
+                },
+                "meta": {
+                    "label": "Transactions", 
+                    "icon": "ri-bank-card-line"
+                }
             },
-            "meta": {
-                "label": "Transactions", 
-                "icon": "ri-bank-card-line"
-            }
-        },
-        {
-            "path": "/details", 
-            "component": "codex-tab-content",
-            "props": {
-                "preset": "accountDetails"
+            {
+                "path": "/details", 
+                "component": "codex-tab-content",
+                "props": {
+                    "preset": "accountDetails"
+                },
+                "meta": {
+                    "label": "Details", 
+                    "icon": "ri-user-line"
+                }
             },
-            "meta": {
-                "label": "Details", 
-                "icon": "ri-user-line"
-            }
-        },
-        {
-            "path": "/notifications", 
-            "component": "codex-tab-content",
-            "props": {
-                "preset": "accountNotifications"
+            {
+                "path": "/notifications", 
+                "component": "codex-tab-content",
+                "props": {
+                    "preset": "accountNotifications"
+                },
+                "meta": {
+                    "label": "Notifications", 
+                    "icon": "ri-notification-line",
+                    "labelComponent": "codex-notification-summary"
+                }
             },
-            "meta": {
-                "label": "Notifications", 
-                "icon": "ri-notification-line",
-                "labelComponent": "codex-notification-summary"
-            }
-        },
-        {
-            "path": "/logout",
-            "component": "codex-tab-content",
-            "meta": {
-                "label": "Logout",
-                "icon": "ri-logout-box-line",
-                "replaceTab": true,
-                "labelComponent": "codex-logout",
-                "labelProps": { 
-                    "isSimple": true
+            {
+                "path": "/logout",
+                "component": "codex-tab-content",
+                "meta": {
+                    "label": "Logout",
+                    "icon": "ri-logout-box-line",
+                    "replaceTab": true,
+                    "labelComponent": "codex-logout",
+                    "labelProps": { 
+                        "isSimple": true
+                    }
                 }
             }
-        }
-    ]'>
-      <codex-tab-container layout="horizontal" :full-screen="true"></codex-tab-container>
+        ]'
+    >
+        
+        <codex-tab-container :show-customers-only="true" layout="horizontal" :full-screen="true"></codex-tab-container>
+        
+
+        <codex-popup-trigger v-if="customer" modal-name="codex-referral" x-position="left" y-position="bottom" modal-x-position="center" modal-y-position="center" variant="primary" default-text="Refer a friend">
+            <template #before>
+                <i class="ri-share-line"></i> 
+            </template>
+            <template #default>
+                <codex-referral></codex-referral>
+            </template>
+        </codex-popup-trigger>
     </div>
 
+
     <script type="module">
-      import { initComponents } from "/js/loadComponents.js";
+        import { initComponents, loadMarkdownContent } from './js/loadComponents.js';
 
-      // Function to load components
-      async function loadComponents() {
-        try {
-          // Load header
-          const headerResponse = await fetch("/components/header.html");
-          const headerHtml = await headerResponse.text();
-          document.getElementById("header-container").innerHTML = headerHtml;
-
-          // Initialize navigation
-          initComponents();
-
-          // Load markdown content if available
-          const contentPath = document.body.getAttribute("data-markdown-content");
-          if (contentPath) {
-            const contentResponse = await fetch(contentPath);
-            const markdown = await contentResponse.text();
-
-            marked.setOptions({
-              breaks: true,
-              gfm: true,
-              headerIds: true,
-              mangle: false,
-            });
-
-            const contentElement = document.getElementById("content");
-            contentElement.innerHTML = marked.parse(markdown);
-          }
-        } catch (error) {
-          console.error("Error loading components:", error);
-        }
-      }
-
-      // Initialize everything when the DOM is ready
-      document.addEventListener("DOMContentLoaded", loadComponents);
+        // Initialize everything when the page loads
+        document.addEventListener('DOMContentLoaded', async () => {
+            await initComponents();
+            await loadMarkdownContent();
+        });
     </script>
   </body>
 </html>
