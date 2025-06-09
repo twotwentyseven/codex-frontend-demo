@@ -17,54 +17,26 @@
 <body>
     <div id="header"></div>
 
-    <div id="content" class="markdown-body" data-markdown="/content/...">
+    <div id="content" class="markdown-body" data-markdown="/content/instructors.md">
         <!-- Page specific content will be here -->
     </div>
     
     <div data-codex>
-        <!-- TOOD:: pass in proper id to view -->
-        <codex-filter-context v-slot="{ filters, fixedValues }">
+        <codex-component :has-context="true" group="instructors" :fix-values="" :default-values="" type="codex-instructors"></codex-component>
+        
+        <!-- <codex-filter-context v-slot="{ filters, fixedValues }">
             <codex-instructors></codex-instructors>
-        </codex-filter-context>
+        </codex-filter-context> -->
     </div>
 
     <script type="module">
-        import { initComponents } from '/js/loadComponents.js';
-        
-        // Function to load components
-        async function loadComponents() {
-            try {
-                // Load header
-                const headerResponse = await fetch('/components/header.html');
-                const headerHtml = await headerResponse.text();
-                document.getElementById('header').innerHTML = headerHtml;
-                
-                // Initialize navigation
-                initComponents();
-                
-                // Load markdown content if available
-                const contentPath = document.body.getAttribute('data-markdown');
-                if (contentPath) {
-                    const contentResponse = await fetch(contentPath);
-                    const markdown = await contentResponse.text();
-                    
-                    marked.setOptions({
-                        breaks: true,
-                        gfm: true,
-                        headerIds: true,
-                        mangle: false
-                    });
-                    
-                    const contentElement = document.getElementById('content');
-                    contentElement.innerHTML = marked.parse(markdown);
-                }
-            } catch (error) {
-                console.error('Error loading components:', error);
-            }
-        }
+        import { initComponents, loadMarkdownContent } from './js/loadComponents.js';
 
-        // Initialize everything when the DOM is ready
-        document.addEventListener('DOMContentLoaded', loadComponents);
+        // Initialize everything when the page loads
+        document.addEventListener('DOMContentLoaded', async () => {
+            await initComponents();
+            await loadMarkdownContent();
+        });
     </script>
 </body>
 </html> 

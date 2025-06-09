@@ -17,12 +17,15 @@
 <body>
     <div id="header"></div>
 
-    <div id="content" class="markdown-body" data-markdown="/content/product_collection.md">
+    <div id="content" class="markdown-body" data-markdown="/content/timetable.md">
         <!-- Page specific content will be here -->
     </div>
-
+    
     <div data-codex>
-        <codex-product-collection :enable-border="true" handle="all"></codex-product-collection>
+        <codex-component :has-context="true" group="event-listing" :fix-values="" :default-values="" type="codex-event-listing"></codex-component>
+        <!-- <codex-filter-context v-slot="{ filters, fixedValues }">
+            <codex-timetable></codex-timetable>
+        </codex-filter-context> -->
     </div>
 
     <script type="module">
