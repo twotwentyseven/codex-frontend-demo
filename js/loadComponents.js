@@ -1,5 +1,5 @@
 // Function to load HTML components
-export async function loadComponent(elementId, componentPath) {
+window.loadComponent = async function(elementId, componentPath) {
     try {
         const response = await fetch(componentPath);
         const html = await response.text();
@@ -20,7 +20,7 @@ function highlightCurrentPage() {
 }
 
 // Function to load markdown content
-export async function loadMarkdownContent() {
+window.loadMarkdownContent = async function() {
     const contentDiv = document.querySelector('[data-markdown]');
     if (!contentDiv) return;
 
@@ -44,8 +44,8 @@ export async function loadMarkdownContent() {
 }
 
 // Initialize components
-export async function initComponents() {
+window.initComponents = async function() {
     // Load header instead of separate navigation
-    await loadComponent('header', '/components/header.html');
+    await window.loadComponent('header', './components/header.html');
     highlightCurrentPage();
 } 
