@@ -1,5 +1,3 @@
-// Codex().store('scriptUrl', 'https://codex-frontend.test/dist/main.js')
-
 Codex().set(
     'auto_configure', {
         modals: {

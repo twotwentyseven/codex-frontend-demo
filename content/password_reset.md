@@ -1,6 +1,6 @@
 # Password Reset
 
-This component requires an reset token, this is generated and emailed to the customer through the [password recover component](password-recover.html).
+This component requires an reset token, this is generated and emailed to the customer through the [password recover component](./password-recover.html).
 
 You should then recieve an email including your email address, a unique token and the password-reset=true param to open the popup. copy starting from the ? from the link in recovery email to test this (you may need to right click the link to copy this depending on the email client used).
 

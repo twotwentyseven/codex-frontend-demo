@@ -2,12 +2,18 @@
     --c-btn-background-color: #FD4F34;
     --c-btn-border-color: #FD4F34;
     --c-btn-text-color: #ffffff;
+    --c-bookmark-color: #FD4F34;
+    --c-bookmark-border-width: 0;
 }
 
 ._c-timetable,
 ._c-event-listing {
     --c-card-padding-x: 2.5rem;
     --c-card-padding-y: 1.5rem;
+
+    ._c-header {
+        --c-card-header-gap: 2.5rem;
+    }
     
     >._c-content {
         --c-card-content-gap: 1.5rem;
@@ -20,16 +26,41 @@
             --c-card-background-color: #F4F4F5;
             --c-card-padding-x: 1rem;
             --c-card-padding-y: 1rem;
+
+            ._c-footer {
+                --c-card-padding-x: 1rem;
+                --c-card-footer-padding-y: 1rem;
+            }
         }
     }
 }
+
 ._c-instructor {
-    --c-card-padding-y: 80px;
+    --c-icon-color: #FD4F34;
+    --c-tag-background-color: #FD4F34;
+    --c-tag-border-color: #FD4F34;
+
+    >._c-content {
+        --c-card-padding-y: 2.5rem;
+    }
+    
+    @media screen and (min-width: 768px) {
+        >._c-content {
+            --c-card-padding-y: 5rem;
+        }
+    }
     
     ._c-event-listing {
         --c-card-padding-x: 1.5rem;
         --c-card-padding-y: 1.5rem;
         --c-card-background-color: #F5F5F5;
+    }
+
+    ._c-event-listing-container {
+        ._c-timetable-event-card {
+            --c-card-background-color: #FFFFFF;
+            grid-column: 1 / -1; /* THIS NEEDS TO BECOME A SETTINGS */
+        }
     }
 }
 
@@ -54,6 +85,15 @@
             --c-card-footer-padding-y: 1.5rem;
             --c-card-padding-x: 1.5rem;
         }
+    }
+}
+
+._c-plan-card,
+._c-bundle-card {
+    --c-card-background-color: #F5F5F5;
+
+    ._c-footer {
+        --c-card-footer-gap: 1.5rem;
     }
 }
 
@@ -97,6 +137,12 @@
         }
     }
 
+    ._c-waitlists {
+        ._c-card {
+            --c-card-background-color: #ffffff;
+        }
+    }
+
 }
 
 ._c-modal {
@@ -123,16 +169,26 @@
     }
 
     ._c-footer {
+        --c-card-footer-gap: 1rem;
         --c-modal-footer-background-color: var(--c-card-background-color, #ffffff);
         --c-modal-footer-text-color: var(--c-card-text-color, #000000);
     }
 }
 
 ._c-instructors {
+    --c-tag-background-color: #FD4F34;
+    --c-tag-border-color: #FD4F34;
 
     ._c-card {
         --c-card-text-color: #ffffff;
-        --c-bookmark-border-color: #ffffff;
+        --c-tag-border-color: #FD4F34;
+        --c-tag-background-color: #FD4F34;
+
+        ._c-bookmark {
+            &._c-bookmarked {
+                --c-bookmark-background-color: rgba(10, 10, 10, 0.40);
+            }
+        }
     }
     ._c-footer {
         --c-card-footer-background-color: transparent;
@@ -162,5 +218,11 @@
             --c-card-padding-y: 0.75rem;
             --c-card-padding-x: 1rem;
         }
+    }
+}
+
+._c-bookmark {
+    &._c-bookmarked {
+        --c-bookmark-background-color: rgba(253, 79, 52, 0.20);
     }
 }
