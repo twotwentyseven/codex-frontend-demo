@@ -124,8 +124,7 @@
     ._c-instructors,
     ._c-bookings-card,
     ._c-profile-card,
-    ._c-payment-methods-card,
-    ._c-event-listing {
+    ._c-payment-methods-card {
         --c-card-background-color: transparent;
 
         ._c-card {
