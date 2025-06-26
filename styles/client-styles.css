@@ -6,10 +6,36 @@
     --c-bookmark-border-width: 0;
 }
 
+._c-skeleton-card {
+    --c-card-padding-x: 1rem;
+    --c-card-padding-y: 1rem;
+
+    @media screen and (min-width: 768px) {
+        --c-card-padding-x: 1rem;
+        --c-card-padding-y: 1rem;
+    }
+}
+
+._c-card {
+    @media screen and (min-width: 768px) {
+        --c-card-padding-y: 1.5rem;
+        --c-card-padding-x: 1.5rem;
+    }
+
+    ._c-footer {
+        @media screen and (min-width: 768px) {
+            --c-card-footer-padding-y: 1.5rem;
+            --c-card-padding-x: 1.5rem;
+        }
+    }
+}
+
 ._c-timetable,
 ._c-event-listing {
-    --c-card-padding-x: 2.5rem;
-    --c-card-padding-y: 1.5rem;
+    @media screen and (min-width: 768px) {
+        --c-card-padding-x: 2.5rem;
+        --c-card-padding-y: 1.5rem;
+    }
 
     ._c-header {
         --c-card-header-gap: 2.5rem;
@@ -60,30 +86,6 @@
         ._c-timetable-event-card {
             --c-card-background-color: #FFFFFF;
             grid-column: 1 / -1; /* THIS NEEDS TO BECOME A SETTINGS */
-        }
-    }
-}
-
-._c-skeleton-card {
-    --c-card-padding-x: 1rem;
-    --c-card-padding-y: 1rem;
-
-    @media screen and (min-width: 768px) {
-        --c-card-padding-x: 1rem;
-        --c-card-padding-y: 1rem;
-    }
-}
-
-._c-card {
-    @media screen and (min-width: 768px) {
-        --c-card-padding-y: 1.5rem;
-        --c-card-padding-x: 1.5rem;
-    }
-
-    ._c-footer {
-        @media screen and (min-width: 768px) {
-            --c-card-footer-padding-y: 1.5rem;
-            --c-card-padding-x: 1.5rem;
         }
     }
 }
