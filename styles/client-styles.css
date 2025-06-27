@@ -4,7 +4,6 @@
     --c-btn-text-color: #ffffff;
     --c-bookmark-color: #FD4F34;
     --c-bookmark-border-width: 0;
-    --c-pie-text-color: #FD4F34;
 }
 
 ._c-skeleton-card {
@@ -203,6 +202,14 @@
         --c-modal-footer-background-color: #ffffff;
         --c-modal-footer-text-color: #000000;
     }
+}
+
+._c-available-credits-card,
+._c-bookings-completed-card {
+    --c-pie-text-color: #FD4F34;
+    --c-pie-text-bg-color: rgba(253, 79, 52, 0.20);
+    --c-pie-color: #FD4F34;
+    --c-pie-bg-color: #FD4F34;
 }
 
 ._c-notification-centre {
