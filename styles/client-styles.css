@@ -209,7 +209,7 @@
     --c-pie-text-color: #FD4F34;
     --c-pie-text-bg-color: rgba(253, 79, 52, 0.20);
     --c-pie-color: #FD4F34;
-    --c-pie-bg-color: #FD4F34;
+    --c-pie-bg-color: rgba(253, 79, 52, 0.20);
 }
 
 ._c-notification-centre {
