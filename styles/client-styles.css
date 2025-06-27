@@ -4,6 +4,9 @@
     --c-btn-text-color: #ffffff;
     --c-bookmark-color: #FD4F34;
     --c-bookmark-border-width: 0;
+    --c-success-color: #FD4F34;
+    --c-danger-color: #DC2626;
+    --c-processing-color: rgba(253, 79, 52, 0.20);
 }
 
 ._c-skeleton-card {
@@ -183,7 +186,7 @@
     ._c-header {
         --c-card-header-gap: 2.5rem;
     }
-    
+
     ._c-card {
         --c-card-text-color: #ffffff;
         --c-tag-border-color: #FD4F34;
