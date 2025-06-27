@@ -179,7 +179,11 @@
 ._c-instructors {
     --c-tag-background-color: #FD4F34;
     --c-tag-border-color: #FD4F34;
-
+    
+    ._c-header {
+        --c-card-header-gap: 2.5rem;
+    }
+    
     ._c-card {
         --c-card-text-color: #ffffff;
         --c-tag-border-color: #FD4F34;
