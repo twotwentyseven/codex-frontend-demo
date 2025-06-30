@@ -6,7 +6,7 @@
     --c-bookmark-border-width: 0;
     --c-success-color: #FD4F34;
     --c-danger-color: #DC2626;
-    --c-processing-color: rgba(253, 79, 52, 0.20);
+    --c-processing-color: #FD4F34;
 }
 
 ._c-skeleton-card {
