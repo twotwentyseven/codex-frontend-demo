@@ -147,6 +147,12 @@
         }
     }
 
+    ._c-subscriptions-overview-card {
+        ._c-content {
+            --c-card-padding-y: 1rem;
+        }
+    }
+
 }
 
 ._c-modal {
