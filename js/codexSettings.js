@@ -1,3 +1,6 @@
+window.codex.stripe = {
+}
+
 Codex().set(
     'auto_configure', {
         modals: {

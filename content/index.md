@@ -16,7 +16,7 @@ This demo showcases the comprehensive suite of Vue.js components that power the 
 #### Authentication & User Management
 - [Login/Logout Flow](./login.html?login=true)
 - [Registration Process](./register.html?register=true)
-- [Password Recover](./password-recover.html?password-recover=true)
+- [Password Reset Email](./password-recover.html?password-recover=true)
 - [Password Reset](./password-reset.html?password-reset=true)
 - [SMS Verification](./verifysms.html?verify-sms=true)
 
