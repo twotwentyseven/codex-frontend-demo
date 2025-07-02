@@ -10,6 +10,7 @@
     --c-notification-summary-background-color: #FD4F34;
     --c-notification-summary-text-color: #ffffff;
     --c-tab-button-background-active: #FD4F34;
+    --c-notification-unread-background: #ffffff;
 }
 
 ._c-skeleton-card {
