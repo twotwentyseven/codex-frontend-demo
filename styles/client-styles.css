@@ -94,8 +94,7 @@
 }
 
 ._c-plan-card,
-._c-bundle-card,
-._c-past-bookings-card {
+._c-bundle-card {
     --c-card-background-color: #F5F5F5;
 
     ._c-footer {
