@@ -130,7 +130,6 @@
     ._c-subscriptions-card,
     ._c-instructors,
     ._c-bookings-card,
-    ._c-past-bookings-card,
     ._c-profile-card,
     ._c-payment-methods-card {
         --c-card-background-color: transparent;
@@ -155,6 +154,13 @@
     ._c-subscriptions-overview-card {
         ._c-content {
             --c-card-padding-y: 1rem;
+        }
+    }
+
+    ._c-past-bookings-card {
+        --c-card-background-color: transparent;
+        ._c-card {
+            --c-card-background-color: #F5F5F5;
         }
     }
 
@@ -212,12 +218,6 @@
     ._c-footer {
         --c-card-footer-background-color: transparent;
         --c-card-footer-text-color: var(--c-card-text-color);
-    }
-}
-
-._c-past-bookings-card {
-    ._c-card {
-        --c-card-background-color: #F5F5F5;
     }
 }
 
