@@ -1,5 +1,5 @@
-window.codex.stripe = {
-}
+// window.codex.stripe = {
+// }
 
 Codex().set(
     'auto_configure', {
