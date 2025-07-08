@@ -23,6 +23,66 @@
         <!-- Content will be loaded here -->
     </div>
 
+    <div data-codex>
+
+        <div class="_c-grid">
+            <codex-tab-wrapper class-name="_c-two-up _c-row">
+                <codex-available-credits targetPath="credits"></codex-available-credits>
+                <codex-bookings-completed></codex-bookings-completed>
+            </codex-tab-wrapper>
+        
+            <codex-tab-wrapper class-name="_c-two-up">
+                <codex-subscriptions-overview></codex-subscriptions-overview>
+            </codex-tab-wrapper>
+        </div>
+
+        <codex-tab-container
+            :useRouter="true"
+            :disableRouting="true"
+            layout="vertical"
+            :fullScreen="false"
+            :tabs="[
+                {
+                    id: 'booked',
+                    label: 'Booked',
+                    component: 'codex-component',
+                    props: {
+                        group: 'booking',
+                        fixedValues: {
+                            type: 'upcoming'
+                        },
+                        defaultValues: {
+                            limit: 10,
+                            page: 1
+                        },
+                        hasContext: true,
+                        type: 'codex-bookings',
+                        enableBorder: true
+                    }
+                },
+                {
+                    id: 'waitlist',
+                    label: 'Waitlist',
+                    component: 'codex-component',
+                    props: {
+                        group: 'waitlist',
+                        fixedValues: {
+                            type: 'upcoming'
+                        },
+                        defaultValues: {
+                            limit: 10,
+                            page: 1
+                        },
+                        hasContext: true,
+                        type: 'codex-waitlists',
+                        enableBorder: true
+                    }
+                }
+            ]"
+        >
+        </codex-tab-container>
+    </div>
+
     <script src="./js/loadComponents.js"></script>
     <script>
         // Initialize everything when the page loads
