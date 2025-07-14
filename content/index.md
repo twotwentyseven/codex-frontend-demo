@@ -25,7 +25,8 @@ This demo showcases the comprehensive suite of Vue.js components that power the 
 
 #### E-commerce & Purchasing
 - [Shopping Cart](./cart.html)
-- [Collection](./collection.html)
+- [Collection Listing](./collection-listing.html)
+- [Collection](./product-collections.html)
 - [Bundle Management](./bundles.html)
 - [Plan Selection](./plans.html)
 - [Gift Cards](./giftcards.html)

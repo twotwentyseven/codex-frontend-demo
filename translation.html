@@ -13,13 +13,29 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="./js/codexSettings.js"></script>
 
+    <script>
+        // Check URL and set locale accordingly
+        const currentUrl = window.location.pathname;
+        let locale;
+        
+        if (currentUrl.includes('/en/')) {
+            locale = 'en-GB';
+        } else if (currentUrl.includes('/fr/')) {
+            locale = 'fr-BE';
+        } else {
+            locale = 'nl-BE'; // Flemish
+        }
+        
+        Codex().set('locale', locale);
+    </script>
+
 </head>
 <body>
     <!-- Header container -->
     <div id="header"></div>
 
     <!-- Content container with data-markdown attribute -->
-    <div id="content" class="markdown-body" data-markdown="./content/index.md">  
+    <div id="content" class="markdown-body" data-markdown="./content/translation.md">  
         <!-- Content will be loaded here -->
     </div>
 

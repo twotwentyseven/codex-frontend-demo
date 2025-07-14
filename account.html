@@ -31,7 +31,14 @@
                 "path": "/", 
                 "component": "codex-tab-content",
                 "props": {
-                    "preset": "accountOverview"
+                    "childComponents": [
+                        {
+                            "component": "codex-anchor",
+                            "props": {
+                                "href": "/account/overview"
+                            }
+                        }
+                    ]
                 },
                 "meta": {
                     "label": "@:account.overview", 

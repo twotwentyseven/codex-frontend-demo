@@ -157,7 +157,8 @@
         }
     }
 
-    ._c-past-bookings-card {
+    ._c-past-bookings-card,
+    ._c-event-listing {
         --c-card-background-color: transparent;
         ._c-card {
             --c-card-background-color: #F5F5F5;

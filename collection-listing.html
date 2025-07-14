@@ -12,15 +12,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="./js/codexSettings.js"></script>
-
 </head>
 <body>
-    <!-- Header container -->
     <div id="header"></div>
 
-    <!-- Content container with data-markdown attribute -->
-    <div id="content" class="markdown-body" data-markdown="./content/index.md">  
-        <!-- Content will be loaded here -->
+    <div id="content" class="markdown-body" data-markdown="./content/collection_listing.md">
+        <!-- Page specific content will be here -->
+    </div>
+
+    <div data-codex>
+        <codex-collection-listing></codex-collection-listing>
     </div>
 
     <script src="./js/loadComponents.js"></script>
