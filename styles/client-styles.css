@@ -177,6 +177,7 @@
         &.codex-password-recover {
             --c-modal-footer-background-color: #000000;
             --c-modal-footer-text-color: #ffffff;
+            --c-link-color: #ffffff;
 
             ._c-footer {
                 --c-card-footer-padding-y: 16px;

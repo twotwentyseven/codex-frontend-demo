@@ -34,7 +34,7 @@ This demo showcases the comprehensive suite of Vue.js components that power the 
 
 #### Booking System
 - [Timetable](./timetable.html)
-- [Event Listing](./event_listing.html)
+- [Event Listing](./event-listing.html)
 - [Event Management](./event.html)
 - [Waitlist Confirmation](./waitlist-confirmation.html?waitlist-confirmation=true&id=)
 <!-- - [Appointment Scheduling](./appointments.html) -->
@@ -104,18 +104,5 @@ version: [CURRENT_VERSION]
 ## 📖 Documentation Resources
 
 Complete documentation and code examples can be found in our [GitHub repository](https://github.com/twotwentyseven/codex-frontend-docs/tree/v3).
-
-## 🎨 Theme Customization
-
-The appearance of Codexfit components can be customized through CSS variables. Common customizations include:
-
-```css
-:root {
-  --codex-primary-color: [YOUR_PRIMARY_COLOR];
-  --codex-secondary-color: [YOUR_SECONDARY_COLOR];
-  --codex-font-family: [YOUR_FONT_FAMILY];
-  --codex-border-radius: [YOUR_BORDER_RADIUS];
-}
-```
 
 For detailed theming options, visit our [Variables Documentation](./variables.html). 
