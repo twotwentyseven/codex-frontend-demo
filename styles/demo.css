@@ -366,7 +366,7 @@ html {
 /* body */
 
 body {
-    padding-top: 86px;
+    padding-top: 64px;
     max-width: 100%;
     font-family: 'Nunito Sans', sans-serif;
     font-size: 16px;
@@ -470,6 +470,10 @@ code {
 
 code span {
     background-color: black;
+}
+
+.container {
+  padding: 40px 16px;
 }
 
 .row {
@@ -698,6 +702,10 @@ code span {
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+
+  &:empty {
+    display: none;
+  }
 }
 .markdown-body h1 { font-size: 2.5em; margin-bottom: 1em; }
 .markdown-body h2 { font-size: 2em; margin: 1em 0; }
