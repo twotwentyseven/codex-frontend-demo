@@ -21,11 +21,7 @@
     </div>
     
     <div data-codex>
-        <codex-component :has-context="true" group="instructors" :fixed-values="" :default-values="" type="codex-instructors"></codex-component>
-        
-        <!-- <codex-filter-context v-slot="{ filters, fixedValues }">
-            <codex-instructors></codex-instructors>
-        </codex-filter-context> -->
+        <codex-component :has-context="true" group="instructors" :fixed-values="" :default-values="{ limit: 30, page: 1 }" type="codex-instructors"></codex-component>
     </div>
 
     <script src="./js/loadComponents.js"></script>

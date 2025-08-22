@@ -1,6 +1,3 @@
-// window.codex.stripe = {
-// }
-
 window.codex.stripe = {
     // Locale configuration
     // locale: 'en',  // Default locale for Stripe elements
