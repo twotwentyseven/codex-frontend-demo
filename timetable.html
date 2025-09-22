@@ -20,9 +20,27 @@
         <!-- Page specific content will be here -->
     </div>
     
-    <div data-codex>
+    <!-- <div data-codex>
         <codex-component :has-context="true" group="timetable" type="codex-timetable"></codex-component>
+    </div> -->
+
+    <div data-codex>
+        <codex-component :has-context="true" group="timetable" type="codex-timetable" :fixed-values="{'location': [3] }">
+            <template #primary-filters="{ group, filters, fixedValues }">
+                    <codex-contextual-filter :label="$t('filter.studio')" :filters="{'location_id': [3] }" :placeholder="$t('filter.timetable_default_placeholder')" :group="group" definition="studios" filter-key="studio.handle" filter-type="multi-select" :enable-border="false" :primary-filter="true"></codex-contextual-filter>
+                </template>
+
+                <template #secondary-filters="{ group, filters, fixedValues }">
+                    <codex-contextual-filter :label="$t('filter.studio')" :group="group" definition="studios" filter-key="studio.handle" filter-type="checkbox-group"></codex-contextual-filter>
+                    <codex-contextual-filter :label="$t('filter.event_type')" :group="group" definition="eventTypes" filter-key="event_type.handle" filter-type="checkbox-group"></codex-contextual-filter>
+                    <codex-contextual-filter :label="$t('filter.instructor')" :group="group" definition="instructors" filter-key="instructor.handle" filter-type="checkbox-group"></codex-contextual-filter>
+                </template>
+        </codex-component>
     </div>
+
+    <div data-codex>
+        <codex-component :has-context="true" group="instructors" :fixed-values="{'metafields': ['primary-location:3']}" :default-values="{ limit: 30, page: 1 }" type="codex-instructors"></codex-component>
+     </div>
 
     <script src="./js/loadComponents.js"></script>
     <script>

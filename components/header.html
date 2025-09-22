@@ -61,7 +61,10 @@
                 </nav>
             </li>
             <li>
-                <a href="#">Cart</a>
+                <a data-codex href="#">
+                    <codex-cart-counter><template #cart-summary="{cartSize}"><span class="cart-counter" v-if="cartSize > 0">{{ cartSize }}</span></template></codex-cart-counter>
+                    Cart
+                </a>
                 <nav>
                     <ul>
                         <li><a href="cart.html">Cart</a></li>
